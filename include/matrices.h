@@ -3,24 +3,30 @@
 
 #include "common.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif /* __cplusplus */
+
 typedef float mat2[4];
 typedef float mat3[9];
 typedef float mat4[16];
 
+extern float Tx, Ty, Tz;
+extern float Sx, Sy, Sz;
+
 extern mat4 rot_mat_x;
 extern mat4 rot_mat_y;
 extern mat4 rot_mat_z;
+extern mat4 trn_mat;
+extern mat4 scl_mat;
 
-extern mat4 trn_mat_x;
-extern mat4 trn_mat_y;
-extern mat4 trn_mat_z;
+/* Forward function declarations */
+LAC_DECL mat4 *lac_translate_mat4(mat4 m, float tx, float ty, float tz);
+LAC_DECL mat4 *lac_scale_mat4(mat4 m, float sx, float sy, float sz);
+LAC_DECL mat4 *lac_rotate_mat4(mat4 m, float rx, float ry, float rz);
 
-extern mat4 scl_mat_x;
-extern mat4 scl_mat_y;
-extern mat4 scl_mat_z;
-
-LAC_DECL mat2 *dot_prod_mat2(const mat2 m1, const mat2 m2);
-LAC_DECL mat3 *dot_prod_mat3(const mat3 m1, const mat3 m2);
-LAC_DECL mat4 *dot_prod_mat4(const mat4 m1, const mat4 m2);
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
 
 #endif /* MATRICES_H */

@@ -6,28 +6,27 @@ PROFILE ?= DEBUG
 CCFLAGS_DEBUG = -g -O0 -fno-builtin -DDEBUG
 CCFLAGS_RELEASE = -O2
 
-SRC_DIR := src
+SRC_DIR := $(PROJ_DIR)/src
 OBJ_DIR := $(PROJ_DIR)/obj
 INC_DIR := $(PROJ_DIR)/include
 BIN_DIR := $(PROJ_DIR)/bin
 TEST_DIR := $(PROJ_DIR)/test
 
 SRCS := $(wildcard $(SRC_DIR)/*.c)
-# TODO: Fix expansion. Expands as /home/neil/.../obj/src/%.o
-DEPS := $(patsubst %.c, $(INC_DIR)/%.h, $(SRCS))
-OBJS := $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRCS))
+DEPS := $(wildcard $(SRC_DIR)/*.h)
+OBJS := $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 
-CCFLAGS += $(CCFLAGS_$(PROFILE)) -I$(INC_DIR) -Werror -Wall -Wextra -Wformat -ansi -pedantic -std=c99
+CCFLAGS += $(CCFLAGS_$(PROFILE)) -I$(INC_DIR) -Wall -Wextra -Wformat -ansi -pedantic -std=c99 #-Werror
 LDFLAGS += -lc -lcheck
 
-BINS := $(BIN_DIR)/libdsc.a $(BIN_DIR)/libdsc.so
+BINS := $(BIN_DIR)/libstaticlac.a $(BIN_DIR)/liblac.so
 
 # Create static and dynamic libraries
 all: $(BINS)
 
 # Copy libraries to /usr/lib
 install: all
-	cp -t /usr/lib/ $(BINS)
+	cp -t /usr/lib/ ./bin/libstaticlac.a ./bin/liblac.so
 
 # Remove object files and binaries
 clean:
@@ -37,16 +36,16 @@ clean:
 rebuild: clean all
 
 # Create static library
-$(BIN_DIR)/libdsc.a: $(OBJS)
-	ar rcs $@ $(OBJS)
+$(BIN_DIR)/libstaticlac.a: $(OBJS)
+	ar rcs ./bin/libstaticlac.a $^
 
 # Create dynamic library
-$(BIN_DIR)/libdsc.so: $(OBJS)
-	$(CC) -o $@ $^ -shared -fPIC $(CCFLAGS) $(LDFLAGS)
-	strip $(BIN_DIR)/libdsc.so
+$(BIN_DIR)/liblac.so: $(SRCS) $(DEPS)
+	$(CC) -o ./bin/liblac.so $^ -shared -fPIC $(CCFLAGS) $(LDFLAGS)
+	#strip ./bin/liblac.so
 
 # Create objects
-$(OBJ_DIR)/%.o: $(SRCS) $(DEPS)
+$(OBJ_DIR)/%.o: $(SRCS)
 	$(CC) $< -c -o $@ $(CCFLAGS)
 
 # TODO: Modify test to include all tests

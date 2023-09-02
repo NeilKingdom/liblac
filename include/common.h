@@ -2,8 +2,10 @@
 #define COMMON_H
 
 #include <stdio.h>
-#include <errno.h>
+#include <stdlib.h>
 #include <string.h>
+#include <errno.h>
+#include <math.h>
 
 /* Define this as static if you want to make all functions static */
 #define LAC_DECL
