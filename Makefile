@@ -49,11 +49,11 @@ $(OBJ_DIR)/%.o: $(SRCS)
 	$(CC) $< -c -o $@ $(CCFLAGS)
 
 # TODO: Modify test to include all tests
-test: $(BIN_DIR)/buffer_test
-	./$(BIN_DIR)/buffer_test
+test: $(BIN_DIR)/test
+	exec $(BIN_DIR)/test
 
-$(BIN_DIR)/buffer_test: $(OBJS)
-	$(CC) -c $(TEST_DIR)/buffer_test.c -o $(OBJ_DIR)/buffer_test.o $(CCFLAGS)
-	$(CC) $(OBJ_DIR)/buffer_test.o $(OBJ_DIR)/buffer.o -o $@ $(CCFLAGS) $(LDFLAGS)
+$(BIN_DIR)/test: $(BIN_DIR)/liblac.so
+	$(CC) -c $(TEST_DIR)/test.c -o $(OBJ_DIR)/test.o $(CCFLAGS)
+	$(CC) $(OBJ_DIR)/test.o $^ -o $@ $(CCFLAGS) -llac $(LDFLAGS)
 
-.PHONY: all install clean rebuild test
+.PHONY: all install clean rebuild

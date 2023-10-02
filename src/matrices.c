@@ -105,15 +105,16 @@ static void _lac_bind_rot_mat_z(float r) {
 }
 
 LAC_DECL mat4 *lac_rotate_mat4(mat4 m, float rx, float ry, float rz) {
-   mat4 *tmp = NULL;
+   mat4 *tmp1, *tmp2;
 
    _lac_bind_rot_mat_x(rx);
    _lac_bind_rot_mat_y(ry);
    _lac_bind_rot_mat_z(rz);
 
-   tmp = lac_dot_prod_mat4(m, rot_mat_x);
-   tmp = lac_dot_prod_mat4(*tmp, rot_mat_y);
-   tmp = lac_dot_prod_mat4(*tmp, rot_mat_z);
+   /* TODO: This just returns a rotation matrix based off rx, ry, rz */
+   tmp1 = lac_dot_prod_mat4(rot_mat_x, rot_mat_y);
+   tmp2 = lac_dot_prod_mat4(*tmp1, rot_mat_z);
 
-   return tmp;
+   free(tmp1);
+   return tmp2;
 }
