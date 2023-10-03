@@ -5,7 +5,7 @@
 #include "../include/matmath.h"
 
 START_TEST(rotate) {
-   mat4 rotate_me = {
+   mat4 input = {
       1,   0,   0,   0,
       0,   1,   0,   0,
       0,   0,   1,   0,
@@ -26,9 +26,21 @@ START_TEST(rotate) {
       1.0f,    0.0f,    0.0f,   0.0f,
       0.0f,    0.0f,    0.0f,   1.0f
    };
-   float *actual = *lac_rotate_mat4(rotate_me, rx_in_rad, ry_in_rad, rz_in_rad);
+   float *actual = *lac_rotate_mat4(input, rx_in_rad, ry_in_rad, rz_in_rad);
 
-   for (int i = 0; i < sizeof(mat4); ++i) {
+   printf("Expected:\n%f %f %f %f\n%f %f %f %f\n%f %f %f %f\n%f %f %f %f\n",
+         expected[0],  expected[1],  expected[2],  expected[3],
+         expected[4],  expected[5],  expected[6],  expected[7],
+         expected[8],  expected[9],  expected[10], expected[11],
+         expected[12], expected[13], expected[14], expected[15]);
+
+   printf("Actual:\n%f %f %f %f\n%f %f %f %f\n%f %f %f %f\n%f %f %f %f\n",
+         actual[0],  actual[1],  actual[2],  actual[3],
+         actual[4],  actual[5],  actual[6],  actual[7],
+         actual[8],  actual[9],  actual[10], actual[11],
+         actual[12], actual[13], actual[14], actual[15]);
+
+   for (unsigned long i = 0; i < sizeof(mat4); ++i) {
       ck_assert_float_eq(expected[i], actual[i]);
    }
 }
