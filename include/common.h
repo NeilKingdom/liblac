@@ -10,6 +10,12 @@
 /* Define this as static if you want to make all functions static */
 #define LAC_DECL
 
+typedef float mat2[4];
+typedef float mat3[9];
+typedef float mat4[16];
+
+extern mat4 lac_ident_mat4;
+
 enum LAC_Error {
    LAC_EOK = 0,   /* No error */
    LAC_ERROR,     /* General error */
