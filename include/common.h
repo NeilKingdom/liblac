@@ -14,6 +14,10 @@ typedef float mat2[4];
 typedef float mat3[9];
 typedef float mat4[16];
 
+typedef float vec2[2];
+typedef float vec3[3];
+typedef float vec4[4];
+
 extern mat4 lac_ident_mat4;
 
 enum LAC_Error {

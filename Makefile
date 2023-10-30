@@ -14,7 +14,6 @@ SRCS := $(wildcard $(SRC_DIR)/*.c)
 DEPS := $(wildcard $(SRC_DIR)/*.h)
 OBJS := $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 
-# WARNING: Don't use -ansi flag, as this will discard the math.h cos/sin function definitions
 CCFLAGS += $(CCFLAGS_$(PROFILE)) -I$(INC_DIR) -Wall -Wextra -Wformat -std=c99 #-Werror
 LDFLAGS += -lc -lm -lcheck
 
@@ -29,7 +28,7 @@ install: all
 
 # Remove object files and binaries
 clean:
-	rm -rf $(OBJ_DIR)/*.o $(BIN_DIR)/*
+	rm -f $(OBJ_DIR)/*.o $(BIN_DIR)/*
 
 # Rebuild project
 rebuild: clean all

@@ -1,5 +1,44 @@
 #include "../include/matmath.h"
 
+LAC_DECL void lac_subtract_vec3(const vec3 v_a, const vec3 v_b, vec3 *v_out) {
+   (*v_out)[0] = v_a[0] - v_b[0];
+   (*v_out)[1] = v_a[1] - v_b[1];
+   (*v_out)[2] = v_a[2] - v_b[2];
+}
+
+LAC_DECL float lac_dot_prod_vec2(const vec2 v_a, const vec2 v_b) {
+   return (v_a[0] * v_b[0]) + (v_a[1] * v_b[1]);
+}
+
+LAC_DECL float lac_dot_prod_vec3(const vec3 v_a, const vec3 v_b) {
+   return (v_a[0] * v_b[0]) + (v_a[1] * v_b[1]) + (v_a[2] * v_b[2]);
+}
+
+LAC_DECL float lac_dot_prod_vec4(const vec4 v_a, const vec4 v_b) {
+   return (v_a[0] * v_b[0]) + (v_a[1] * v_b[1]) + (v_a[2] * v_b[2]) + (v_a[3] * v_b[3]);
+}
+
+LAC_DECL void lac_cross_prod(const vec3 v_a, const vec3 v_b, vec3 *v_out) {
+   (*v_out)[0] = (v_a[1] * v_b[2]) - (v_a[2] * v_b[1]);
+   (*v_out)[1] = (v_a[2] * v_b[0]) - (v_a[0] * v_b[2]);
+   (*v_out)[2] = (v_a[0] * v_b[1]) - (v_a[1] * v_b[0]);
+}
+
+LAC_DECL void lac_normalize_vec3(const vec3 v_in, vec3 *v_out) {
+    float magnitude = sqrtf(lac_dot_prod_vec3(v_in, v_in));
+
+    if (magnitude > 0.0f) {
+        float inv_magnitude = 1.0f / magnitude;
+        (*v_out)[0] = v_in[0] * inv_magnitude;
+        (*v_out)[1] = v_in[1] * inv_magnitude;
+        (*v_out)[2] = v_in[2] * inv_magnitude;
+    } else { // v_in was already a 0 vector
+        (*v_out)[0] = 0.0f;
+        (*v_out)[1] = 0.0f;
+        (*v_out)[2] = 0.0f;
+    }
+}
+
 LAC_DECL void lac_add_mat2(const mat2 m_a, const mat2 m_b, mat2 *m_out) {
    (*m_out)[0] = m_a[0] + m_b[0];
    (*m_out)[1] = m_a[1] + m_b[1];
