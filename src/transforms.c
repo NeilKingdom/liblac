@@ -92,7 +92,7 @@ LAC_DECL void lac_get_rotation_mat4(mat4 *m_out, const float rx, const float ry,
    lac_dot_prod_mat4(rot_mat, roll_mat, m_out);
 }
 
-LAC_DECL void lac_get_view_mat4(mat4 *m_out, const vec3 eye, const vec3 center, const vec3 up) {
+LAC_DECL void lac_get_look_at_mat4(mat4 *m_out, const vec3 eye, const vec3 center, const vec3 up) {
    vec3 forward_unit;
    vec3 right_unit;
    vec3 up_unit;
