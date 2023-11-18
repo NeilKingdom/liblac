@@ -18,8 +18,6 @@ typedef float vec2[2];
 typedef float vec3[3];
 typedef float vec4[4];
 
-extern mat4 lac_ident_mat4;
-
 enum LAC_Error {
    LAC_EOK = 0,   /* No error */
    LAC_ERROR,     /* General error */
