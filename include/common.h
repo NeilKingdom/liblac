@@ -4,11 +4,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 #include <errno.h>
 #include <math.h>
 
 /* Define this as static if you want to make all functions static */
 #define LAC_DECL
+
+#define lac_PI 3.14159265358979323846264338327950288
+#define lac_deg_to_rad(a) ((a) * lac_PI / 180.0)
+#define lac_rad_to_deg(a) ((a) * 180.0 / lac_PI)
 
 typedef float mat2[4];
 typedef float mat3[9];

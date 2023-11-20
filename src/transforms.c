@@ -1,4 +1,5 @@
 #include "../include/matmath.h"
+#include "../include/vecmath.h"
 
 /* TODO: Use custom cosf and sinf functions */
 
@@ -97,59 +98,94 @@ LAC_DECL void lac_get_rotation_mat4(mat4 * restrict m_out, const float rx, const
 }
 
 /*  
- ************************** Look At Matrix ***************************
+ ************************** Point-At Matrix ***************************
  *
- * Traditionally, the "look-at" matrix represents our view into world
- * space in 3D graphics. We typically follow the Model-View-Projection
- * (MVP) pattern. In this pattern, we start by translating our entities
- * into world space via the model matrix. The model matrix can be an 
- * amalgamation of transformation matrices. Next, we translate into 
- * view space, which is typically done through the look-at matrix. 
- * Finally, we translate to projection space via our projection matrix. 
- * The two main kinds of projection are orthogonal projection and 
- * frustum projection. The look at matrix uses some terminology which 
- * may be confusing to those who have never heard of it. Let us 
- * consider a point within 3D space. This will be the origin of our 
- * camera. This origin point is referred to as the "eye" point. 
- * Confusingly, the center vector represents the position in 3D space
- * where the camera is focused towards. An up vector is also required
- * to determine orienation of the camera, since our graphics libraries
- * cannot assume that the camera is always facing upright (it could
- * very well be upside-down). From these three vectors, we can calculate 
- * what we actually care about, which are the forward, right, and up 
- * vectors, which we normalize so that we can place them within our 
- * view matrix to be later multiplied with the entities in world space.
+ * Cameras can be controlled in a few ways. One method is to have a 
+ * static camera, which never actually moves. Instead, we translate and 
+ * rotate every object in the scene/world around the camera to give the 
+ * illusion of movement. This method has certain benefits, but is 
+ * generally avoided in 3D graphics. The reason being is that when we 
+ * translate an object in world space, its origin point suddenly changes.
+ * In order to now apply rotation, each object must first be translated
+ * to the original origin point, then rotated, then translated back to 
+ * its previous location. A secondary approach is to use angles to 
+ * describe rotation. This approach, however, becomes increasingly 
+ * cumbersome, as it is quite difficult to have precise movement when
+ * you have to guess at the number of degrees to rotate the camera in 
+ * for all directions. The traditional method of moving our camera is 
+ * to use a point-at matrix. In this scenario, we pass a point that we 
+ * want to have the camera point towards, as well as a vector representing
+ * the direction that the camera is currently looking at, and then we 
+ * calculate a new point-at vector which shares the same origin point 
+ * as our current point-at vector, but which now has a direction facing 
+ * the point that we passed. Instead of returning just one vector, 
+ * however, we return a matrix consisting of 3 unit vectors representing 
+ * the cardinal directions. This ensures that the orientation of our 
+ * camera is correct. Traditionally, we call these the up, forward, and 
+ * right vectors, and the origin point of our matrix, we call our eye 
+ * point. 
 */
 
 /**
  *
  */
-LAC_DECL void lac_get_look_at_mat4(mat4 *m_out, const vec3 eye, const vec3 center, const vec3 up) {
-   vec3 forward_unit;
-   vec3 right_unit;
-   vec3 up_unit;
-   vec3 result;
+LAC_DECL void lac_get_point_at_mat4(mat4 *m_out, const vec3 v_eye, const vec3 v_target, const vec3 v_up) {
+   vec3 forward_unit, right_unit, up_unit, v_res;
+   float dot_prod;
 
    // Calculate forward_unit
-   lac_subtract_vec3(center, eye, &result);
-   lac_normalize_vec3(result, &forward_unit);
-
-   // Calculate right_unit
-   lac_calc_cross_prod(up, forward_unit, &result);
-   lac_normalize_vec3(result, &right_unit);
+   lac_subtract_vec3(v_target, v_eye, &v_res);
+   lac_normalize_vec3(v_res, &forward_unit);
 
    // Calculate up_unit
-   lac_calc_cross_prod(forward_unit, right_unit, &result);
-   lac_normalize_vec3(result, &up_unit);
+   dot_prod = lac_calc_dot_prod_vec3(v_up, forward_unit);
+   lac_multiply_vec3(forward_unit, &v_res, dot_prod);
+   lac_subtract_vec3(v_up, v_res, &up_unit);
+   lac_normalize_vec3(up_unit, &up_unit);
 
-   mat4 look_at = {
-      right_unit[0], up_unit[0], -forward_unit[0], eye[0],
-      right_unit[1], up_unit[1], -forward_unit[1], eye[1],
-      right_unit[2], up_unit[2], -forward_unit[2], eye[2],
+   // Calculate right_unit
+   lac_calc_cross_prod(up_unit, forward_unit, &right_unit);
+   // Normalizing here isn't necessary since forward_unit & up_unit are normals
+
+   mat4 point_at = {
+      right_unit[0], up_unit[0], -forward_unit[0], v_eye[0],
+      right_unit[1], up_unit[1], -forward_unit[1], v_eye[1],
+      right_unit[2], up_unit[2], -forward_unit[2], v_eye[2],
       0,             0,          0,                1
    };
 
-   memcpy(m_out, look_at, sizeof(*m_out));
+   memcpy(m_out, point_at, sizeof(*m_out));
+}
+ 
+LAC_DECL void lac_invert_mat4(const mat4 m_in, mat4 *m_out) {
+   (*m_out)[0]  = m_in[0];
+   (*m_out)[1]  = m_in[4];
+   (*m_out)[2]  = m_in[8];
+   (*m_out)[3]  = -lac_calc_dot_prod_vec3(
+      (vec3){ m_in[3], m_in[7], m_in[11] }, 
+      (vec3){ m_in[0], m_in[4], m_in[8]  }
+   );
+
+   (*m_out)[4]  = m_in[1];
+   (*m_out)[5]  = m_in[5];
+   (*m_out)[6]  = m_in[9];
+   (*m_out)[7]  = -lac_calc_dot_prod_vec3(
+      (vec3){ m_in[3], m_in[7], m_in[11] }, 
+      (vec3){ m_in[1], m_in[5], m_in[9]  }
+   );
+
+   (*m_out)[8]  = m_in[2];
+   (*m_out)[9]  = m_in[6];
+   (*m_out)[10] = m_in[10];
+   (*m_out)[11] = -lac_calc_dot_prod_vec3(
+      (vec3){ m_in[3], m_in[7], m_in[11] }, 
+      (vec3){ m_in[2], m_in[6], m_in[10] }
+   );
+    
+   (*m_out)[12] = 0.0f;
+   (*m_out)[13] = 0.0f;
+   (*m_out)[14] = 0.0f;
+   (*m_out)[15] = 1.0f;
 }
 
 LAC_DECL void lac_get_projection_mat4(mat4 *m_out, const float aspect, const float fov, const float znear, const float zfar) {
