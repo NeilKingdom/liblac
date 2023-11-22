@@ -1,9 +1,11 @@
-# $\color{green}{ _\_\_\ \ \_}$
-# $\color{green}{| (_) |__ | | __ _  ___}$ 
-# $\color{green}{| | | '_ \| |/ _` |/ __|}$
-# $\color{green}{| | | |_) | | (_| | (__}$
-# $\color{green}{|_|_|_.__/|_|\__,_|\___|}$ 
-
+```text
+ _ _ _     _            
+| (_) |__ | | __ _  ___ 
+| | | '_ \| |/ _` |/ __|
+| | | |_) | | (_| | (__ 
+|_|_|_.__/|_|\__,_|\___|
+```
+      
 
 ☦️ This software was written in the name of the __Father__ and of the __Son__ and of the __Holy Spirit__; Amen. 
 
