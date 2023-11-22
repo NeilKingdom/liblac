@@ -1,4 +1,4 @@
-<pre style="">
+<pre style="color: white; background-color: black;">
  _ _ _     _            
 | (_) |__ | | __ _  ___ 
 | | | '_ \| |/ _` |/ __|
