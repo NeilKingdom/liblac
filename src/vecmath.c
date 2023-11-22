@@ -1,16 +1,37 @@
 #include "../include/common.h"
 
+/**
+ * @brief Calculates the sum between two vectors of size 2
+ * @since 10-19-2023
+ * @param[in] v_a The Augend vector
+ * @param[in] v_b The Addend vector
+ * @param[out] v_out The sum vector
+ */
 LAC_DECL void lac_add_vec2(const vec2 v_a, const vec2 v_b, vec2 *v_out) {
    (*v_out)[0] = v_a[0] + v_b[0];
    (*v_out)[1] = v_a[1] + v_b[1];
 }
 
+/**
+ * @brief Calculates the sum between two vectors of size 3
+ * @since 10-19-2023
+ * @param[in] v_a The Augend vector
+ * @param[in] v_b The Addend vector
+ * @param[out] v_out The sum vector
+ */
 LAC_DECL void lac_add_vec3(const vec3 v_a, const vec3 v_b, vec3 *v_out) {
    (*v_out)[0] = v_a[0] + v_b[0];
    (*v_out)[1] = v_a[1] + v_b[1];
    (*v_out)[2] = v_a[2] + v_b[2];
 }
 
+/**
+ * @brief Calculates the sum between two vectors of size 4
+ * @since 10-19-2023
+ * @param[in] v_a The Augend vector
+ * @param[in] v_b The Addend vector
+ * @param[out] v_out The sum vector
+ */
 LAC_DECL void lac_add_vec4(const vec4 v_a, const vec4 v_b, vec4 *v_out) {
    (*v_out)[0] = v_a[0] + v_b[0];
    (*v_out)[1] = v_a[1] + v_b[1];
@@ -57,17 +78,38 @@ LAC_DECL void lac_subtract_vec4(const vec4 v_a, const vec4 v_b, vec4 *v_out) {
    (*v_out)[3] = v_a[3] - v_b[3];
 }
 
+/**
+ * @brief Scales a vector of size 2 up by a factor of "scalar"
+ * @since 10-19-2023
+ * @param[in] v_in The vector to be scaled
+ * @param[out] v_out The scaled vector
+ * @param[in] scalar A constant representing the multiplier
+ */
 LAC_DECL void lac_multiply_vec2(const vec2 v_in, vec2 *v_out, float scalar) {
    (*v_out)[0] = v_in[0] * scalar;
    (*v_out)[1] = v_in[1] * scalar;
 }
 
+/**
+ * @brief Scales a vector of size 3 up by a factor of "scalar"
+ * @since 10-19-2023
+ * @param[in] v_in The vector to be scaled
+ * @param[out] v_out The scaled vector
+ * @param[in] scalar A constant representing the multiplier
+ */
 LAC_DECL void lac_multiply_vec3(const vec3 v_in, vec3 *v_out, float scalar) {
    (*v_out)[0] = v_in[0] * scalar;
    (*v_out)[1] = v_in[1] * scalar;
    (*v_out)[2] = v_in[2] * scalar;
 }
  
+/**
+ * @brief Scales a vector of size 4 up by a factor of "scalar"
+ * @since 10-19-2023
+ * @param[in] v_in The vector to be scaled
+ * @param[out] v_out The scaled vector
+ * @param[in] scalar A constant representing the multiplier
+ */
 LAC_DECL void lac_multiply_vec4(const vec4 v_in, vec4 *v_out, float scalar) {
    (*v_out)[0] = v_in[0] * scalar;
    (*v_out)[1] = v_in[1] * scalar;
@@ -75,23 +117,61 @@ LAC_DECL void lac_multiply_vec4(const vec4 v_in, vec4 *v_out, float scalar) {
    (*v_out)[3] = v_in[3] * scalar;
 }
 
-/* TODO: check for divide by 0 */
+/**
+ * @brief Scales a vector of size 2 down by a factor of "scalar"
+ * @since 10-19-2023
+ * @param[in] v_in The vector to be scaled
+ * @param[out] v_out The scaled vector
+ * @param[in] scalar A constant representing the divisor
+ */
 LAC_DECL void lac_divide_vec2(const vec2 v_in, vec2 *v_out, float scalar) {
-   (*v_out)[0] = v_in[0] / scalar;
-   (*v_out)[1] = v_in[1] / scalar;
+   if (scalar == 0.0f) {
+      LAC_WARN("Attempted divide by 0");
+      (*v_out)[0] = 0.0f;
+      (*v_out)[1] = 0.0f;
+   } else {
+      (*v_out)[0] = v_in[0] / scalar;
+      (*v_out)[1] = v_in[1] / scalar;
+   }
 }
 
+/**
+ * @brief Scales a vector of size 3 down by a factor of "scalar"
+ * @since 10-19-2023
+ * @param[in] v_in The vector to be scaled
+ * @param[out] v_out The scaled vector
+ * @param[in] scalar A constant representing the divisor
+ */
 LAC_DECL void lac_divide_vec3(const vec3 v_in, vec3 *v_out, float scalar) {
-   (*v_out)[0] = v_in[0] / scalar;
-   (*v_out)[1] = v_in[1] / scalar;
-   (*v_out)[2] = v_in[2] / scalar;
+   if (scalar == 0.0f) {
+      LAC_WARN("Attempted divide by 0");
+      (*v_out)[0] = 0.0f;
+      (*v_out)[1] = 0.0f;
+   } else {
+      (*v_out)[0] = v_in[0] / scalar;
+      (*v_out)[1] = v_in[1] / scalar;
+      (*v_out)[2] = v_in[2] / scalar;
+   }
 }
  
+/**
+ * @brief Scales a vector of size 3 down by a factor of "scalar"
+ * @since 10-19-2023
+ * @param[in] v_in The vector to be scaled
+ * @param[out] v_out The scaled vector
+ * @param[in] scalar A constant representing the divisor
+ */
 LAC_DECL void lac_divide_vec4(const vec4 v_in, vec4 *v_out, float scalar) {
-   (*v_out)[0] = v_in[0] / scalar;
-   (*v_out)[1] = v_in[1] / scalar;
-   (*v_out)[2] = v_in[2] / scalar;
-   (*v_out)[3] = v_in[3] / scalar;
+   if (scalar == 0.0f) {
+      LAC_WARN("Attempted divide by 0");
+      (*v_out)[0] = 0.0f;
+      (*v_out)[1] = 0.0f;
+   } else {
+      (*v_out)[0] = v_in[0] / scalar;
+      (*v_out)[1] = v_in[1] / scalar;
+      (*v_out)[2] = v_in[2] / scalar;
+      (*v_out)[3] = v_in[3] / scalar;
+   }
 }
 
 /*  
@@ -188,8 +268,8 @@ LAC_DECL void lac_calc_cross_prod(const vec3 v_a, const vec3 v_b, vec3 *v_out) {
  * by the inverse of the vectors magnitude, which yields the same 
  * result. In order to compute the magnitude of a vector, we use 
  * Pythegoreas' Theorum and take the square root of the sum of 
- * squares of each side length. This is because in linear algeabra, 
- * the magnitude is equal to the hypotenuse in trigonometry. 
+ * squares of each side length. This is because in linear algeabra 
+ * the magnitude is synonymous with the hypotenuse in trigonometry. 
 */
 
 /**

@@ -9,6 +9,7 @@ OBJ_DIR := obj
 INC_DIR := include
 BIN_DIR := bin
 TEST_DIR := test
+LIB_DIR := /usr/lib/
 
 SRCS := $(wildcard $(SRC_DIR)/*.c)
 DEPS := $(wildcard $(SRC_DIR)/*.h)
@@ -24,7 +25,7 @@ all: $(BINS)
 
 # Copy libraries to /usr/lib
 install: all
-	cp $(BINS) /usr/lib/
+	cp $(BINS) $(LIB_DIR)
 
 # Remove object files and binaries
 clean:

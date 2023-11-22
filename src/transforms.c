@@ -129,7 +129,7 @@ LAC_DECL void lac_get_rotation_mat4(mat4 * restrict m_out, const float rx, const
 /**
  *
  */
-LAC_DECL void lac_get_point_at_mat4(mat4 *m_out, const vec3 v_eye, const vec3 v_target, const vec3 v_up) {
+LAC_DECL void lac_get_point_at_mat4(mat4 * restrict m_out, const vec3 v_eye, const vec3 v_target, const vec3 v_up) {
    vec3 forward_unit, right_unit, up_unit, v_res;
    float dot_prod;
 
@@ -188,7 +188,7 @@ LAC_DECL void lac_invert_mat4(const mat4 m_in, mat4 *m_out) {
    (*m_out)[15] = 1.0f;
 }
 
-LAC_DECL void lac_get_projection_mat4(mat4 *m_out, const float aspect, const float fov, const float znear, const float zfar) {
+LAC_DECL void lac_get_projection_mat4(mat4 * restrict m_out, const float aspect, const float fov, const float znear, const float zfar) {
    mat4 proj_mat = {
       (aspect * (1.0f / tanf(fov / 2.0f))), 0, 0, 0,
       0, (1.0f / tanf(fov / 2.0f)), 0, 0,
