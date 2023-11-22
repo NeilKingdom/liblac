@@ -1,3 +1,4 @@
+```latex
 $${\textsf\color{purple}
  _ _ _     _            
 | (_) |__ | | __ _  ___ 
@@ -5,6 +6,7 @@ $${\textsf\color{purple}
 | | | |_) | | (_| | (__ 
 |_|_|_.__/|_|\__,_|\___|
 }}$$
+```
 
 
 ☦️ This software was written in the name of the __Father__ and of the __Son__ and of the __Holy Spirit__; Amen. 
