@@ -1,0 +1,525 @@
+\doxysection{/home/neil/devel/github/liblac/src/vecmath.c File Reference}
+\hypertarget{vecmath_8c}{}\label{vecmath_8c}\index{/home/neil/devel/github/liblac/src/vecmath.c@{/home/neil/devel/github/liblac/src/vecmath.c}}
+
+
+\doxylink{vecmath_8c}{vecmath.\+c} Contains all of the maths functions which pertain to vectors specifically  
+
+
+{\ttfamily \#include "{}../include/common.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_ac2a7de5ba09980a174f4c93c1d027eec}{lac\+\_\+add\+\_\+vec2}} (vec2 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec2 v\+\_\+a, const vec2 v\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Calculates the sum between two vectors of size 2. \end{DoxyCompactList}\item 
+LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a05e87ed58ef1599fa04059f9f375590e}{lac\+\_\+add\+\_\+vec3}} (vec3 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec3 v\+\_\+a, const vec3 v\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Calculates the sum between two vectors of size 3. \end{DoxyCompactList}\item 
+LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a415933891f4ccb23290c16afe0914db1}{lac\+\_\+add\+\_\+vec4}} (vec4 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec4 v\+\_\+a, const vec4 v\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Calculates the sum between two vectors of size 4. \end{DoxyCompactList}\item 
+LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a953cd69ea07b41724d09c93447ad4a42}{lac\+\_\+subtract\+\_\+vec2}} (vec2 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec2 v\+\_\+a, const vec2 v\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Calculates the difference between two vectors of size 2. \end{DoxyCompactList}\item 
+LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a1b7fc32157a1836721bab00db1814fa9}{lac\+\_\+subtract\+\_\+vec3}} (vec3 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec3 v\+\_\+a, const vec3 v\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Calculates the difference between two vectors of size 3. \end{DoxyCompactList}\item 
+LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a7b7fb052384e29c4e6294aef3338e88c}{lac\+\_\+subtract\+\_\+vec4}} (vec4 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec4 v\+\_\+a, const vec4 v\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Calculates the difference between two vectors of size 4. \end{DoxyCompactList}\item 
+LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a8b93f802277521742a4c955435e2816c}{lac\+\_\+multiply\+\_\+vec2}} (vec2 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec2 v\+\_\+in, float scalar)
+\begin{DoxyCompactList}\small\item\em Scales a vector of size 2 up by a factor of "{}scalar"{}. \end{DoxyCompactList}\item 
+LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_ab8fc1bad9b5eb771d3ba558f01a801dc}{lac\+\_\+multiply\+\_\+vec3}} (vec3 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec3 v\+\_\+in, float scalar)
+\begin{DoxyCompactList}\small\item\em Scales a vector of size 3 up by a factor of "{}scalar"{}. \end{DoxyCompactList}\item 
+LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_af9960268ecdf3595ca750becb90e21e5}{lac\+\_\+multiply\+\_\+vec4}} (vec4 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec4 v\+\_\+in, float scalar)
+\begin{DoxyCompactList}\small\item\em Scales a vector of size 4 up by a factor of "{}scalar"{}. \end{DoxyCompactList}\item 
+LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a94427707858e98b0758af896301cbaf8}{lac\+\_\+divide\+\_\+vec2}} (vec2 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec2 v\+\_\+in, float scalar)
+\begin{DoxyCompactList}\small\item\em Scales a vector of size 2 down by a factor of "{}scalar"{}. \end{DoxyCompactList}\item 
+LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a40249f4b843dd352c56b0fc887169a7f}{lac\+\_\+divide\+\_\+vec3}} (vec3 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec3 v\+\_\+in, float scalar)
+\begin{DoxyCompactList}\small\item\em Scales a vector of size 3 down by a factor of "{}scalar"{}. \end{DoxyCompactList}\item 
+LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_ae512b963f90b6e1e3ab23f288782dc92}{lac\+\_\+divide\+\_\+vec4}} (vec4 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec4 v\+\_\+in, float scalar)
+\begin{DoxyCompactList}\small\item\em Scales a vector of size 3 down by a factor of "{}scalar"{}. \end{DoxyCompactList}\item 
+LAC\+\_\+\+DECL float \mbox{\hyperlink{vecmath_8c_a1829a9ef45061cf2d7047d8818954e37}{lac\+\_\+calc\+\_\+dot\+\_\+prod\+\_\+vec2}} (const vec2 v\+\_\+a, const vec2 v\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Calculates the dot product given two vectors of size 2 \label{vecmath_8c_lac_calc_dot_prod_vec2_anchor}%
+\Hypertarget{vecmath_8c_lac_calc_dot_prod_vec2_anchor}%
+. \end{DoxyCompactList}\item 
+LAC\+\_\+\+DECL float \mbox{\hyperlink{vecmath_8c_ab69696dcd1bdf62f5c9064637200cf76}{lac\+\_\+calc\+\_\+dot\+\_\+prod\+\_\+vec3}} (const vec3 v\+\_\+a, const vec3 v\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Calculates the dot product given two vectors of size 3 \label{vecmath_8c_lac_calc_dot_prod_vec3_anchor}%
+\Hypertarget{vecmath_8c_lac_calc_dot_prod_vec3_anchor}%
+. \end{DoxyCompactList}\item 
+LAC\+\_\+\+DECL float \mbox{\hyperlink{vecmath_8c_a6c4089992a867214d04a72d2608cf3e7}{lac\+\_\+calc\+\_\+dot\+\_\+prod\+\_\+vec4}} (const vec4 v\+\_\+a, const vec4 v\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Calculates the dot product given two vectors of size 4 \label{vecmath_8c_lac_calc_dot_prod_vec4_anchor}%
+\Hypertarget{vecmath_8c_lac_calc_dot_prod_vec4_anchor}%
+. \end{DoxyCompactList}\item 
+LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a665320089055fe2937d034da475288de}{lac\+\_\+calc\+\_\+cross\+\_\+prod}} (vec3 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec3 v\+\_\+a, const vec3 v\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Calculates the cross product given two vectors of size 3 \label{vecmath_8c_lac_calc_cross_prod_anchor}%
+\Hypertarget{vecmath_8c_lac_calc_cross_prod_anchor}%
+. \end{DoxyCompactList}\item 
+LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a786ccac4eeb1c2f7a311fef86c9584aa}{lac\+\_\+normalize\+\_\+vec2}} (vec2 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec2 v\+\_\+in)
+\begin{DoxyCompactList}\small\item\em Normalize a vector of size 2 \label{vecmath_8c_lac_normalize_vec2_anchor}%
+\Hypertarget{vecmath_8c_lac_normalize_vec2_anchor}%
+. \end{DoxyCompactList}\item 
+LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_ad9affd365959c79946bdf4baaf9286d7}{lac\+\_\+normalize\+\_\+vec3}} (vec3 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec3 v\+\_\+in)
+\begin{DoxyCompactList}\small\item\em Normalize a vector of size 3 \label{vecmath_8c_lac_normalize_vec3_anchor}%
+\Hypertarget{vecmath_8c_lac_normalize_vec3_anchor}%
+. \end{DoxyCompactList}\item 
+LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a0b5f173fff835152b610cd0c4f7b6694}{lac\+\_\+normalize\+\_\+vec4}} (vec4 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec4 v\+\_\+in)
+\begin{DoxyCompactList}\small\item\em Normalize a vector of size 4 \label{vecmath_8c_lac_normalize_vec4_anchor}%
+\Hypertarget{vecmath_8c_lac_normalize_vec4_anchor}%
+. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{vecmath_8c}{vecmath.\+c} Contains all of the maths functions which pertain to vectors specifically 
+
+\begin{DoxyAuthor}{Author}
+Neil Kingdom 
+\end{DoxyAuthor}
+\begin{DoxySince}{Since}
+10-\/17-\/2023 
+\end{DoxySince}
+\hypertarget{vecmath_8c_dotprod}{}\doxysubsection{\texorpdfstring{Dot Product}{Dot Product}}\label{vecmath_8c_dotprod}
+The dot product, a.\+k.\+a scalar product, is an operation that can be performed by summing the product of each component between two vectors. The operation returns a single number known as the scalar value. This value can be used to determine similarity between two vectors, and is often used for computing how much lighting a given surface should receive in 3D graphics, amongst other practical applications.\hypertarget{vecmath_8c_dotprod_related}{}\doxysubsubsection{\texorpdfstring{Related Functions}{Related Functions}}\label{vecmath_8c_dotprod_related}
+
+\begin{DoxyItemize}
+\item \doxylink{vecmath_8c_lac_calc_dot_prod_vec2_anchor}{lac\+\_\+calc\+\_\+dot\+\_\+prod\+\_\+vec2}
+\item \doxylink{vecmath_8c_lac_calc_dot_prod_vec3_anchor}{lac\+\_\+calc\+\_\+dot\+\_\+prod\+\_\+vec3}
+\item \doxylink{vecmath_8c_lac_calc_dot_prod_vec4_anchor}{lac\+\_\+calc\+\_\+dot\+\_\+prod\+\_\+vec4}
+\end{DoxyItemize}\hypertarget{vecmath_8c_crossprod}{}\doxysubsection{\texorpdfstring{Cross Product}{Cross Product}}\label{vecmath_8c_crossprod}
+The cross product is an operation between two vectors which is calculated by taking the difference of each product between complimentary pairs in each vector. The formula for this looks something like\+: w1 = u2v3 -\/ u3v2 This is computed for each component of w. Taking the cross product yields a vector that is orthogonal to both operand vectors. The normalized version of this orthogonal vector is classically coined as the "{}normal"{}. The normal is typically used in 3D graphics to determine which faces of a mesh should or shouldn\textquotesingle{}t be drawn on top of others. In other words, it provides z-\/order information, as well as being useful for calculating the amount of lighting that a surface should receive by comparing it with the dot product of a point light. Important to note is that the cross product is uniquely applicable to vectors of size 3 only. The equivallent for vectors of size 2 is known as the "{}outer product"{} and for vectors of size 4, the "{}wedge product"{}.\hypertarget{vecmath_8c_crossprod_related}{}\doxysubsubsection{\texorpdfstring{Related Functions}{Related Functions}}\label{vecmath_8c_crossprod_related}
+
+\begin{DoxyItemize}
+\item \doxylink{vecmath_8c_lac_calc_cross_prod_anchor}{lac\+\_\+calc\+\_\+cross\+\_\+prod}
+\end{DoxyItemize}\hypertarget{vecmath_8c_normalization}{}\doxysubsection{\texorpdfstring{Vector Normalization}{Vector Normalization}}\label{vecmath_8c_normalization}
+It is often beneficial to nomalize vectors so that their magnitude is of length 1. When a vector is normalized, we can easily apply a scalar value to make it any magnitude we\textquotesingle{}d like. For instance, we might have a direction vector which is normalized and then scaled depending upon the velocity of a moving object. Similar to how we normalize anything, in order to normalize a vector, we must divide by its magnitude. Since multiplication is computationally cheaper than division, it is slightlty more efficient to multiply by the inverse of the vectors magnitude, which yields the same result. In order to compute the magnitude of a vector, we use Pythegoreas\textquotesingle{} Theorum and take the square root of the sum of squares of each side length. This is because in linear algeabra the magnitude is synonymous with the hypotenuse in trigonometry.\hypertarget{vecmath_8c_normalization_related}{}\doxysubsubsection{\texorpdfstring{Related Functions}{Related Functions}}\label{vecmath_8c_normalization_related}
+
+\begin{DoxyItemize}
+\item \doxylink{vecmath_8c_lac_normalize_vec2_anchor}{lac\+\_\+normalize\+\_\+vec2}
+\item \doxylink{vecmath_8c_lac_normalize_vec3_anchor}{lac\+\_\+normalize\+\_\+vec3}
+\item \doxylink{vecmath_8c_lac_normalize_vec4_anchor}{lac\+\_\+normalize\+\_\+vec4} 
+\end{DoxyItemize}
+
+\doxysubsection{Function Documentation}
+\Hypertarget{vecmath_8c_ac2a7de5ba09980a174f4c93c1d027eec}\label{vecmath_8c_ac2a7de5ba09980a174f4c93c1d027eec} 
+\index{vecmath.c@{vecmath.c}!lac\_add\_vec2@{lac\_add\_vec2}}
+\index{lac\_add\_vec2@{lac\_add\_vec2}!vecmath.c@{vecmath.c}}
+\doxysubsubsection{\texorpdfstring{lac\_add\_vec2()}{lac\_add\_vec2()}}
+{\footnotesize\ttfamily LAC\+\_\+\+DECL void lac\+\_\+add\+\_\+vec2 (\begin{DoxyParamCaption}\item[{vec2 \texorpdfstring{$\ast$}{*}}]{v\+\_\+out,  }\item[{const vec2}]{v\+\_\+a,  }\item[{const vec2}]{v\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Calculates the sum between two vectors of size 2. 
+
+\begin{DoxySince}{Since}
+10-\/19-\/2023 
+\end{DoxySince}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The sum vector \\
+\hline
+\mbox{\texttt{ in}}  & {\em v\+\_\+a} & The Augend vector \\
+\hline
+\mbox{\texttt{ in}}  & {\em v\+\_\+b} & The Addend vector \\
+\hline
+\end{DoxyParams}
+\Hypertarget{vecmath_8c_a05e87ed58ef1599fa04059f9f375590e}\label{vecmath_8c_a05e87ed58ef1599fa04059f9f375590e} 
+\index{vecmath.c@{vecmath.c}!lac\_add\_vec3@{lac\_add\_vec3}}
+\index{lac\_add\_vec3@{lac\_add\_vec3}!vecmath.c@{vecmath.c}}
+\doxysubsubsection{\texorpdfstring{lac\_add\_vec3()}{lac\_add\_vec3()}}
+{\footnotesize\ttfamily LAC\+\_\+\+DECL void lac\+\_\+add\+\_\+vec3 (\begin{DoxyParamCaption}\item[{vec3 \texorpdfstring{$\ast$}{*}}]{v\+\_\+out,  }\item[{const vec3}]{v\+\_\+a,  }\item[{const vec3}]{v\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Calculates the sum between two vectors of size 3. 
+
+\begin{DoxySince}{Since}
+10-\/19-\/2023 
+\end{DoxySince}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The sum vector \\
+\hline
+\mbox{\texttt{ in}}  & {\em v\+\_\+a} & The Augend vector \\
+\hline
+\mbox{\texttt{ in}}  & {\em v\+\_\+b} & The Addend vector \\
+\hline
+\end{DoxyParams}
+\Hypertarget{vecmath_8c_a415933891f4ccb23290c16afe0914db1}\label{vecmath_8c_a415933891f4ccb23290c16afe0914db1} 
+\index{vecmath.c@{vecmath.c}!lac\_add\_vec4@{lac\_add\_vec4}}
+\index{lac\_add\_vec4@{lac\_add\_vec4}!vecmath.c@{vecmath.c}}
+\doxysubsubsection{\texorpdfstring{lac\_add\_vec4()}{lac\_add\_vec4()}}
+{\footnotesize\ttfamily LAC\+\_\+\+DECL void lac\+\_\+add\+\_\+vec4 (\begin{DoxyParamCaption}\item[{vec4 \texorpdfstring{$\ast$}{*}}]{v\+\_\+out,  }\item[{const vec4}]{v\+\_\+a,  }\item[{const vec4}]{v\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Calculates the sum between two vectors of size 4. 
+
+\begin{DoxySince}{Since}
+10-\/19-\/2023 
+\end{DoxySince}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The sum vector \\
+\hline
+\mbox{\texttt{ in}}  & {\em v\+\_\+a} & The Augend vector \\
+\hline
+\mbox{\texttt{ in}}  & {\em v\+\_\+b} & The Addend vector \\
+\hline
+\end{DoxyParams}
+\Hypertarget{vecmath_8c_a665320089055fe2937d034da475288de}\label{vecmath_8c_a665320089055fe2937d034da475288de} 
+\index{vecmath.c@{vecmath.c}!lac\_calc\_cross\_prod@{lac\_calc\_cross\_prod}}
+\index{lac\_calc\_cross\_prod@{lac\_calc\_cross\_prod}!vecmath.c@{vecmath.c}}
+\doxysubsubsection{\texorpdfstring{lac\_calc\_cross\_prod()}{lac\_calc\_cross\_prod()}}
+{\footnotesize\ttfamily LAC\+\_\+\+DECL void lac\+\_\+calc\+\_\+cross\+\_\+prod (\begin{DoxyParamCaption}\item[{vec3 \texorpdfstring{$\ast$}{*}}]{v\+\_\+out,  }\item[{const vec3}]{v\+\_\+a,  }\item[{const vec3}]{v\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Calculates the cross product given two vectors of size 3 \label{vecmath_8c_lac_calc_cross_prod_anchor}%
+\Hypertarget{vecmath_8c_lac_calc_cross_prod_anchor}%
+. 
+
+\begin{DoxySince}{Since}
+10-\/17-\/2023 
+\end{DoxySince}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The resulting vector, orthogonal to v\+\_\+a and v\+\_\+b \\
+\hline
+\mbox{\texttt{ in}}  & {\em v\+\_\+a} & The left-\/hand operand for the operation \\
+\hline
+\mbox{\texttt{ in}}  & {\em v\+\_\+b} & The right-\/hand operand for the operation \\
+\hline
+\end{DoxyParams}
+\Hypertarget{vecmath_8c_a1829a9ef45061cf2d7047d8818954e37}\label{vecmath_8c_a1829a9ef45061cf2d7047d8818954e37} 
+\index{vecmath.c@{vecmath.c}!lac\_calc\_dot\_prod\_vec2@{lac\_calc\_dot\_prod\_vec2}}
+\index{lac\_calc\_dot\_prod\_vec2@{lac\_calc\_dot\_prod\_vec2}!vecmath.c@{vecmath.c}}
+\doxysubsubsection{\texorpdfstring{lac\_calc\_dot\_prod\_vec2()}{lac\_calc\_dot\_prod\_vec2()}}
+{\footnotesize\ttfamily LAC\+\_\+\+DECL float lac\+\_\+calc\+\_\+dot\+\_\+prod\+\_\+vec2 (\begin{DoxyParamCaption}\item[{const vec2}]{v\+\_\+a,  }\item[{const vec2}]{v\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Calculates the dot product given two vectors of size 2 \label{vecmath_8c_lac_calc_dot_prod_vec2_anchor}%
+\Hypertarget{vecmath_8c_lac_calc_dot_prod_vec2_anchor}%
+. 
+
+\begin{DoxySince}{Since}
+10-\/17-\/2023 
+\end{DoxySince}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em v\+\_\+a} & The left-\/hand operand for the operation \\
+\hline
+\mbox{\texttt{ in}}  & {\em v\+\_\+b} & The right-\/hand operand for the operation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the scalar value 
+\end{DoxyReturn}
+\Hypertarget{vecmath_8c_ab69696dcd1bdf62f5c9064637200cf76}\label{vecmath_8c_ab69696dcd1bdf62f5c9064637200cf76} 
+\index{vecmath.c@{vecmath.c}!lac\_calc\_dot\_prod\_vec3@{lac\_calc\_dot\_prod\_vec3}}
+\index{lac\_calc\_dot\_prod\_vec3@{lac\_calc\_dot\_prod\_vec3}!vecmath.c@{vecmath.c}}
+\doxysubsubsection{\texorpdfstring{lac\_calc\_dot\_prod\_vec3()}{lac\_calc\_dot\_prod\_vec3()}}
+{\footnotesize\ttfamily LAC\+\_\+\+DECL float lac\+\_\+calc\+\_\+dot\+\_\+prod\+\_\+vec3 (\begin{DoxyParamCaption}\item[{const vec3}]{v\+\_\+a,  }\item[{const vec3}]{v\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Calculates the dot product given two vectors of size 3 \label{vecmath_8c_lac_calc_dot_prod_vec3_anchor}%
+\Hypertarget{vecmath_8c_lac_calc_dot_prod_vec3_anchor}%
+. 
+
+\begin{DoxySince}{Since}
+10-\/17-\/2023 
+\end{DoxySince}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em v\+\_\+a} & The left-\/hand operand for the operation \\
+\hline
+\mbox{\texttt{ in}}  & {\em v\+\_\+b} & The right-\/hand operand for the operation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the scalar value 
+\end{DoxyReturn}
+\Hypertarget{vecmath_8c_a6c4089992a867214d04a72d2608cf3e7}\label{vecmath_8c_a6c4089992a867214d04a72d2608cf3e7} 
+\index{vecmath.c@{vecmath.c}!lac\_calc\_dot\_prod\_vec4@{lac\_calc\_dot\_prod\_vec4}}
+\index{lac\_calc\_dot\_prod\_vec4@{lac\_calc\_dot\_prod\_vec4}!vecmath.c@{vecmath.c}}
+\doxysubsubsection{\texorpdfstring{lac\_calc\_dot\_prod\_vec4()}{lac\_calc\_dot\_prod\_vec4()}}
+{\footnotesize\ttfamily LAC\+\_\+\+DECL float lac\+\_\+calc\+\_\+dot\+\_\+prod\+\_\+vec4 (\begin{DoxyParamCaption}\item[{const vec4}]{v\+\_\+a,  }\item[{const vec4}]{v\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Calculates the dot product given two vectors of size 4 \label{vecmath_8c_lac_calc_dot_prod_vec4_anchor}%
+\Hypertarget{vecmath_8c_lac_calc_dot_prod_vec4_anchor}%
+. 
+
+\begin{DoxySince}{Since}
+10-\/17-\/2023 
+\end{DoxySince}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em v\+\_\+a} & The left-\/hand operand for the operation \\
+\hline
+\mbox{\texttt{ in}}  & {\em v\+\_\+b} & The right-\/hand operand for the operation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the scalar value 
+\end{DoxyReturn}
+\Hypertarget{vecmath_8c_a94427707858e98b0758af896301cbaf8}\label{vecmath_8c_a94427707858e98b0758af896301cbaf8} 
+\index{vecmath.c@{vecmath.c}!lac\_divide\_vec2@{lac\_divide\_vec2}}
+\index{lac\_divide\_vec2@{lac\_divide\_vec2}!vecmath.c@{vecmath.c}}
+\doxysubsubsection{\texorpdfstring{lac\_divide\_vec2()}{lac\_divide\_vec2()}}
+{\footnotesize\ttfamily LAC\+\_\+\+DECL void lac\+\_\+divide\+\_\+vec2 (\begin{DoxyParamCaption}\item[{vec2 \texorpdfstring{$\ast$}{*}}]{v\+\_\+out,  }\item[{const vec2}]{v\+\_\+in,  }\item[{float}]{scalar }\end{DoxyParamCaption})}
+
+
+
+Scales a vector of size 2 down by a factor of "{}scalar"{}. 
+
+\begin{DoxySince}{Since}
+10-\/19-\/2023 
+\end{DoxySince}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The scaled vector \\
+\hline
+\mbox{\texttt{ in}}  & {\em v\+\_\+in} & The vector to be scaled \\
+\hline
+\mbox{\texttt{ in}}  & {\em scalar} & A constant representing the divisor \\
+\hline
+\end{DoxyParams}
+\Hypertarget{vecmath_8c_a40249f4b843dd352c56b0fc887169a7f}\label{vecmath_8c_a40249f4b843dd352c56b0fc887169a7f} 
+\index{vecmath.c@{vecmath.c}!lac\_divide\_vec3@{lac\_divide\_vec3}}
+\index{lac\_divide\_vec3@{lac\_divide\_vec3}!vecmath.c@{vecmath.c}}
+\doxysubsubsection{\texorpdfstring{lac\_divide\_vec3()}{lac\_divide\_vec3()}}
+{\footnotesize\ttfamily LAC\+\_\+\+DECL void lac\+\_\+divide\+\_\+vec3 (\begin{DoxyParamCaption}\item[{vec3 \texorpdfstring{$\ast$}{*}}]{v\+\_\+out,  }\item[{const vec3}]{v\+\_\+in,  }\item[{float}]{scalar }\end{DoxyParamCaption})}
+
+
+
+Scales a vector of size 3 down by a factor of "{}scalar"{}. 
+
+\begin{DoxySince}{Since}
+10-\/19-\/2023 
+\end{DoxySince}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The scaled vector \\
+\hline
+\mbox{\texttt{ in}}  & {\em v\+\_\+in} & The vector to be scaled \\
+\hline
+\mbox{\texttt{ in}}  & {\em scalar} & A constant representing the divisor \\
+\hline
+\end{DoxyParams}
+\Hypertarget{vecmath_8c_ae512b963f90b6e1e3ab23f288782dc92}\label{vecmath_8c_ae512b963f90b6e1e3ab23f288782dc92} 
+\index{vecmath.c@{vecmath.c}!lac\_divide\_vec4@{lac\_divide\_vec4}}
+\index{lac\_divide\_vec4@{lac\_divide\_vec4}!vecmath.c@{vecmath.c}}
+\doxysubsubsection{\texorpdfstring{lac\_divide\_vec4()}{lac\_divide\_vec4()}}
+{\footnotesize\ttfamily LAC\+\_\+\+DECL void lac\+\_\+divide\+\_\+vec4 (\begin{DoxyParamCaption}\item[{vec4 \texorpdfstring{$\ast$}{*}}]{v\+\_\+out,  }\item[{const vec4}]{v\+\_\+in,  }\item[{float}]{scalar }\end{DoxyParamCaption})}
+
+
+
+Scales a vector of size 3 down by a factor of "{}scalar"{}. 
+
+\begin{DoxySince}{Since}
+10-\/19-\/2023 
+\end{DoxySince}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The scaled vector \\
+\hline
+\mbox{\texttt{ in}}  & {\em v\+\_\+in} & The vector to be scaled \\
+\hline
+\mbox{\texttt{ in}}  & {\em scalar} & A constant representing the divisor \\
+\hline
+\end{DoxyParams}
+\Hypertarget{vecmath_8c_a8b93f802277521742a4c955435e2816c}\label{vecmath_8c_a8b93f802277521742a4c955435e2816c} 
+\index{vecmath.c@{vecmath.c}!lac\_multiply\_vec2@{lac\_multiply\_vec2}}
+\index{lac\_multiply\_vec2@{lac\_multiply\_vec2}!vecmath.c@{vecmath.c}}
+\doxysubsubsection{\texorpdfstring{lac\_multiply\_vec2()}{lac\_multiply\_vec2()}}
+{\footnotesize\ttfamily LAC\+\_\+\+DECL void lac\+\_\+multiply\+\_\+vec2 (\begin{DoxyParamCaption}\item[{vec2 \texorpdfstring{$\ast$}{*}}]{v\+\_\+out,  }\item[{const vec2}]{v\+\_\+in,  }\item[{float}]{scalar }\end{DoxyParamCaption})}
+
+
+
+Scales a vector of size 2 up by a factor of "{}scalar"{}. 
+
+\begin{DoxySince}{Since}
+10-\/19-\/2023 
+\end{DoxySince}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The scaled vector \\
+\hline
+\mbox{\texttt{ in}}  & {\em v\+\_\+in} & The vector to be scaled \\
+\hline
+\mbox{\texttt{ in}}  & {\em scalar} & A constant representing the multiplier \\
+\hline
+\end{DoxyParams}
+\Hypertarget{vecmath_8c_ab8fc1bad9b5eb771d3ba558f01a801dc}\label{vecmath_8c_ab8fc1bad9b5eb771d3ba558f01a801dc} 
+\index{vecmath.c@{vecmath.c}!lac\_multiply\_vec3@{lac\_multiply\_vec3}}
+\index{lac\_multiply\_vec3@{lac\_multiply\_vec3}!vecmath.c@{vecmath.c}}
+\doxysubsubsection{\texorpdfstring{lac\_multiply\_vec3()}{lac\_multiply\_vec3()}}
+{\footnotesize\ttfamily LAC\+\_\+\+DECL void lac\+\_\+multiply\+\_\+vec3 (\begin{DoxyParamCaption}\item[{vec3 \texorpdfstring{$\ast$}{*}}]{v\+\_\+out,  }\item[{const vec3}]{v\+\_\+in,  }\item[{float}]{scalar }\end{DoxyParamCaption})}
+
+
+
+Scales a vector of size 3 up by a factor of "{}scalar"{}. 
+
+\begin{DoxySince}{Since}
+10-\/19-\/2023 
+\end{DoxySince}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The scaled vector \\
+\hline
+\mbox{\texttt{ in}}  & {\em v\+\_\+in} & The vector to be scaled \\
+\hline
+\mbox{\texttt{ in}}  & {\em scalar} & A constant representing the multiplier \\
+\hline
+\end{DoxyParams}
+\Hypertarget{vecmath_8c_af9960268ecdf3595ca750becb90e21e5}\label{vecmath_8c_af9960268ecdf3595ca750becb90e21e5} 
+\index{vecmath.c@{vecmath.c}!lac\_multiply\_vec4@{lac\_multiply\_vec4}}
+\index{lac\_multiply\_vec4@{lac\_multiply\_vec4}!vecmath.c@{vecmath.c}}
+\doxysubsubsection{\texorpdfstring{lac\_multiply\_vec4()}{lac\_multiply\_vec4()}}
+{\footnotesize\ttfamily LAC\+\_\+\+DECL void lac\+\_\+multiply\+\_\+vec4 (\begin{DoxyParamCaption}\item[{vec4 \texorpdfstring{$\ast$}{*}}]{v\+\_\+out,  }\item[{const vec4}]{v\+\_\+in,  }\item[{float}]{scalar }\end{DoxyParamCaption})}
+
+
+
+Scales a vector of size 4 up by a factor of "{}scalar"{}. 
+
+\begin{DoxySince}{Since}
+10-\/19-\/2023 
+\end{DoxySince}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The scaled vector \\
+\hline
+\mbox{\texttt{ in}}  & {\em v\+\_\+in} & The vector to be scaled \\
+\hline
+\mbox{\texttt{ in}}  & {\em scalar} & A constant representing the multiplier \\
+\hline
+\end{DoxyParams}
+\Hypertarget{vecmath_8c_a786ccac4eeb1c2f7a311fef86c9584aa}\label{vecmath_8c_a786ccac4eeb1c2f7a311fef86c9584aa} 
+\index{vecmath.c@{vecmath.c}!lac\_normalize\_vec2@{lac\_normalize\_vec2}}
+\index{lac\_normalize\_vec2@{lac\_normalize\_vec2}!vecmath.c@{vecmath.c}}
+\doxysubsubsection{\texorpdfstring{lac\_normalize\_vec2()}{lac\_normalize\_vec2()}}
+{\footnotesize\ttfamily LAC\+\_\+\+DECL void lac\+\_\+normalize\+\_\+vec2 (\begin{DoxyParamCaption}\item[{vec2 \texorpdfstring{$\ast$}{*}}]{v\+\_\+out,  }\item[{const vec2}]{v\+\_\+in }\end{DoxyParamCaption})}
+
+
+
+Normalize a vector of size 2 \label{vecmath_8c_lac_normalize_vec2_anchor}%
+\Hypertarget{vecmath_8c_lac_normalize_vec2_anchor}%
+. 
+
+\begin{DoxySince}{Since}
+10-\/17-\/2023 
+\end{DoxySince}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The normalized vector \\
+\hline
+\mbox{\texttt{ in}}  & {\em v\+\_\+in} & The vector to be normalized \\
+\hline
+\end{DoxyParams}
+\Hypertarget{vecmath_8c_ad9affd365959c79946bdf4baaf9286d7}\label{vecmath_8c_ad9affd365959c79946bdf4baaf9286d7} 
+\index{vecmath.c@{vecmath.c}!lac\_normalize\_vec3@{lac\_normalize\_vec3}}
+\index{lac\_normalize\_vec3@{lac\_normalize\_vec3}!vecmath.c@{vecmath.c}}
+\doxysubsubsection{\texorpdfstring{lac\_normalize\_vec3()}{lac\_normalize\_vec3()}}
+{\footnotesize\ttfamily LAC\+\_\+\+DECL void lac\+\_\+normalize\+\_\+vec3 (\begin{DoxyParamCaption}\item[{vec3 \texorpdfstring{$\ast$}{*}}]{v\+\_\+out,  }\item[{const vec3}]{v\+\_\+in }\end{DoxyParamCaption})}
+
+
+
+Normalize a vector of size 3 \label{vecmath_8c_lac_normalize_vec3_anchor}%
+\Hypertarget{vecmath_8c_lac_normalize_vec3_anchor}%
+. 
+
+\begin{DoxySince}{Since}
+10-\/17-\/2023 
+\end{DoxySince}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The normalized vector \\
+\hline
+\mbox{\texttt{ in}}  & {\em v\+\_\+in} & The vector to be normalized \\
+\hline
+\end{DoxyParams}
+\Hypertarget{vecmath_8c_a0b5f173fff835152b610cd0c4f7b6694}\label{vecmath_8c_a0b5f173fff835152b610cd0c4f7b6694} 
+\index{vecmath.c@{vecmath.c}!lac\_normalize\_vec4@{lac\_normalize\_vec4}}
+\index{lac\_normalize\_vec4@{lac\_normalize\_vec4}!vecmath.c@{vecmath.c}}
+\doxysubsubsection{\texorpdfstring{lac\_normalize\_vec4()}{lac\_normalize\_vec4()}}
+{\footnotesize\ttfamily LAC\+\_\+\+DECL void lac\+\_\+normalize\+\_\+vec4 (\begin{DoxyParamCaption}\item[{vec4 \texorpdfstring{$\ast$}{*}}]{v\+\_\+out,  }\item[{const vec4}]{v\+\_\+in }\end{DoxyParamCaption})}
+
+
+
+Normalize a vector of size 4 \label{vecmath_8c_lac_normalize_vec4_anchor}%
+\Hypertarget{vecmath_8c_lac_normalize_vec4_anchor}%
+. 
+
+\begin{DoxySince}{Since}
+10-\/17-\/2023 
+\end{DoxySince}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The normalized vector \\
+\hline
+\mbox{\texttt{ in}}  & {\em v\+\_\+in} & The vector to be normalized \\
+\hline
+\end{DoxyParams}
+\Hypertarget{vecmath_8c_a953cd69ea07b41724d09c93447ad4a42}\label{vecmath_8c_a953cd69ea07b41724d09c93447ad4a42} 
+\index{vecmath.c@{vecmath.c}!lac\_subtract\_vec2@{lac\_subtract\_vec2}}
+\index{lac\_subtract\_vec2@{lac\_subtract\_vec2}!vecmath.c@{vecmath.c}}
+\doxysubsubsection{\texorpdfstring{lac\_subtract\_vec2()}{lac\_subtract\_vec2()}}
+{\footnotesize\ttfamily LAC\+\_\+\+DECL void lac\+\_\+subtract\+\_\+vec2 (\begin{DoxyParamCaption}\item[{vec2 \texorpdfstring{$\ast$}{*}}]{v\+\_\+out,  }\item[{const vec2}]{v\+\_\+a,  }\item[{const vec2}]{v\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Calculates the difference between two vectors of size 2. 
+
+\begin{DoxySince}{Since}
+10-\/17-\/2023 
+\end{DoxySince}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The difference vector \\
+\hline
+\mbox{\texttt{ in}}  & {\em v\+\_\+a} & The minuend vector \\
+\hline
+\mbox{\texttt{ in}}  & {\em v\+\_\+b} & The subtrahend vector \\
+\hline
+\end{DoxyParams}
+\Hypertarget{vecmath_8c_a1b7fc32157a1836721bab00db1814fa9}\label{vecmath_8c_a1b7fc32157a1836721bab00db1814fa9} 
+\index{vecmath.c@{vecmath.c}!lac\_subtract\_vec3@{lac\_subtract\_vec3}}
+\index{lac\_subtract\_vec3@{lac\_subtract\_vec3}!vecmath.c@{vecmath.c}}
+\doxysubsubsection{\texorpdfstring{lac\_subtract\_vec3()}{lac\_subtract\_vec3()}}
+{\footnotesize\ttfamily LAC\+\_\+\+DECL void lac\+\_\+subtract\+\_\+vec3 (\begin{DoxyParamCaption}\item[{vec3 \texorpdfstring{$\ast$}{*}}]{v\+\_\+out,  }\item[{const vec3}]{v\+\_\+a,  }\item[{const vec3}]{v\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Calculates the difference between two vectors of size 3. 
+
+\begin{DoxySince}{Since}
+10-\/17-\/2023 
+\end{DoxySince}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The difference vector \\
+\hline
+\mbox{\texttt{ in}}  & {\em v\+\_\+a} & The minuend vector \\
+\hline
+\mbox{\texttt{ in}}  & {\em v\+\_\+b} & The subtrahend vector \\
+\hline
+\end{DoxyParams}
+\Hypertarget{vecmath_8c_a7b7fb052384e29c4e6294aef3338e88c}\label{vecmath_8c_a7b7fb052384e29c4e6294aef3338e88c} 
+\index{vecmath.c@{vecmath.c}!lac\_subtract\_vec4@{lac\_subtract\_vec4}}
+\index{lac\_subtract\_vec4@{lac\_subtract\_vec4}!vecmath.c@{vecmath.c}}
+\doxysubsubsection{\texorpdfstring{lac\_subtract\_vec4()}{lac\_subtract\_vec4()}}
+{\footnotesize\ttfamily LAC\+\_\+\+DECL void lac\+\_\+subtract\+\_\+vec4 (\begin{DoxyParamCaption}\item[{vec4 \texorpdfstring{$\ast$}{*}}]{v\+\_\+out,  }\item[{const vec4}]{v\+\_\+a,  }\item[{const vec4}]{v\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Calculates the difference between two vectors of size 4. 
+
+\begin{DoxySince}{Since}
+10-\/17-\/2023 
+\end{DoxySince}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The difference vector \\
+\hline
+\mbox{\texttt{ in}}  & {\em v\+\_\+a} & The minuend vector \\
+\hline
+\mbox{\texttt{ in}}  & {\em v\+\_\+b} & The subtrahend vector \\
+\hline
+\end{DoxyParams}

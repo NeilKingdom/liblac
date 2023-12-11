@@ -10,6 +10,8 @@
 
 /* Define this as static if you want to make all functions static */
 #define LAC_DECL
+/* Define this as false if you want to use column-major ordering */
+#define LAC_IS_ROW_MAJOR false
 
 #define lac_PI 3.14159265358979323846264338327950288f
 #define lac_deg_to_rad(a) ((a) * lac_PI / 180.0)
@@ -23,6 +25,8 @@ typedef float vec2[2];
 typedef float vec3[3];
 typedef float vec4[4];
 
+#pragma GCC diagnostic push 
+#pragma GCC diagnostic ignored "-Wunused-function"
 static void _lac_warn(char *file, const char *func, int line, const char *msg) {
    fprintf(stderr, "\n=========== WARNING ===========\n"
                    "Backtrace:\n\n"
@@ -30,6 +34,7 @@ static void _lac_warn(char *file, const char *func, int line, const char *msg) {
                    "Short message: %s\n",
                    file, func, line, msg);
 }
+#pragma GCC diagnostic pop
 
 #define LAC_WARN(msg) (_lac_warn((__FILE__), (__func__), (__LINE__), (msg)))
 

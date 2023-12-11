@@ -33,36 +33,36 @@ verb-subject structure. This makes it easy to anticipate the names of similar fu
 example, given that there is a function called lac_add_vec3(), is follows that there exists a function 
 called lac_subtract_vec3(). Parameters are ordered as follows: 
 
-1. First class input data members
-2. First class output data members
+1. First class output data members
+2. First class input data members
 3. Second class input data members
 
 First class data members are directly related to the subject of the function i.e. the operands of the 
 operation. Second class data members include parameters that affect the operation in some way, but 
 that are only loosely related to the subject. Examples include scaling constants, angles for rotation,
-boolean flags, etc. 
+boolean flags, etc.
 
 Installation
 ===
 In order to use liblac for your application(s) run the following command:
 
-```shell
-sudo make install
+```console
+$ sudo make install
 ```
 
 This installs both the shared object/dll and archive/static versions of the library in 
 /usr/lib/ by default. If you want to change the installation directory, run the following 
 command instead: 
 
-```shell
-sudo make LIB_DIR=/full/path/to/install/ install
+```console
+$ sudo make LIB_DIR=/full/path/to/install/ install
 ```
 
 If you want to simply build the binaries but not copy them to an installation directory,
 run the following command instead:
 
-```shell
-sudo make all
+```console
+$ sudo make all
 ```
 
 This will place both the shared object/dll and archive/static versions of the library in 

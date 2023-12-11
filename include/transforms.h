@@ -16,9 +16,9 @@ void lac_get_reflection_mat4(mat4 *m_out, const bool yz_plane, const bool xz_pla
 void lac_get_translation_mat4(mat4 *m_out, const float tx, const float ty, const float tz);
 void lac_get_scalar_mat4(mat4 *m_out, const float sx, const float sy, const float sz);
 void lac_get_rotation_mat4(mat4 *m_out, const float rx, const float ry, const float rz);
-void lac_get_point_at_mat4(mat4 *m_out, const vec3 v_eye, const vec3 v_target, const vec3 v_up);
-void lac_invert_mat4(const mat4 m_in, mat4 *m_out);
 void lac_get_projection_mat4(mat4 *m_out, const float aspect, const float fov, const float znear, const float zfar);
+void lac_get_point_at_mat4(mat4 *m_out, const vec3 v_eye, const vec3 v_target, const vec3 v_up);
+void lac_invert_mat4(mat4 *m_out, const mat4 m_in);
 
 #ifdef __cplusplus
 }

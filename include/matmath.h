@@ -9,17 +9,21 @@ extern "C" {
 
 /* Forward function declarations */
 
-void lac_add_mat2(const mat2 m_a, const mat2 m_b, mat2 *m_out);
-void lac_add_mat3(const mat3 m_a, const mat3 m_b, mat3 *m_out);
-void lac_add_mat4(const mat4 m_a, const mat4 m_b, mat4 *m_out);
+void lac_add_mat2(mat2 *m_out, const mat2 m_a, const mat2 m_b);
+void lac_add_mat3(mat3 *m_out, const mat3 m_a, const mat3 m_b);
+void lac_add_mat4(mat4 *m_out, const mat4 m_a, const mat4 m_b);
 
-void lac_multiply_mat2(const mat2 m_a, const mat2 m_b, mat2 *m_out);
-void lac_multiply_mat3(const mat3 m_a, const mat3 m_b, mat3 *m_out);
-void lac_multiply_mat4(const mat4 m_a, const mat4 m_b, mat4 *m_out);
+void lac_multiply_mat2(mat2 *m_out, const mat2 m_a, const mat2 m_b);
+void lac_multiply_mat3(mat3 *m_out, const mat3 m_a, const mat3 m_b);
+void lac_multiply_mat4(mat4 *m_out, const mat4 m_a, const mat4 m_b);
 
-void lac_transpose_mat2(const mat2 m_in, mat2 *m_out);
-void lac_transpose_mat3(const mat3 m_in, mat3 *m_out);
-void lac_transpose_mat4(const mat4 m_in, mat4 *m_out);
+void lac_multiply_mat2_vec2(vec2 *v_out, const mat2 m_in, const vec2 v_in);
+void lac_multiply_mat3_vec3(vec3 *v_out, const mat3 m_in, const vec3 v_in);
+void lac_multiply_mat4_vec4(vec4 *v_out, const mat4 m_in, const vec4 v_in);
+
+void lac_transpose_mat2(mat2 *m_out, const mat2 m_in);
+void lac_transpose_mat3(mat3 *m_out, const mat3 m_in);
+void lac_transpose_mat4(mat4 *m_out, const mat4 m_in);
 
 #ifdef __cplusplus
 }

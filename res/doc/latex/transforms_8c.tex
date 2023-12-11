@@ -1,0 +1,269 @@
+\doxysection{/home/neil/devel/github/liblac/src/transforms.c File Reference}
+\hypertarget{transforms_8c}{}\label{transforms_8c}\index{/home/neil/devel/github/liblac/src/transforms.c@{/home/neil/devel/github/liblac/src/transforms.c}}
+
+
+\doxylink{transforms_8c}{transforms.\+c} provides functions for transforming matrices  
+
+
+{\ttfamily \#include "{}../include/matmath.\+h"{}}\newline
+{\ttfamily \#include "{}../include/vecmath.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+LAC\+\_\+\+DECL void \mbox{\hyperlink{transforms_8c_a1f3815b40a3e526f9d8809e2cadfc162}{lac\+\_\+get\+\_\+reflection\+\_\+mat4}} (mat4 \texorpdfstring{$\ast$}{*}restrict m\+\_\+out, const bool yz\+\_\+plane, const bool xz\+\_\+plane, const bool xy\+\_\+plane)
+\begin{DoxyCompactList}\small\item\em This function reflects a matrix along one or more planes. \end{DoxyCompactList}\item 
+LAC\+\_\+\+DECL void \mbox{\hyperlink{transforms_8c_a715e1c5bb1ed6deea91b8f180b6cf89b}{lac\+\_\+get\+\_\+translation\+\_\+mat4}} (mat4 \texorpdfstring{$\ast$}{*}restrict m\+\_\+out, const float tx, const float ty, const float tz)
+\begin{DoxyCompactList}\small\item\em Gets a translation matrix according to the input parameters. \end{DoxyCompactList}\item 
+LAC\+\_\+\+DECL void \mbox{\hyperlink{transforms_8c_a391aa6878af5499fd5d1357c1ea19a6f}{lac\+\_\+get\+\_\+scalar\+\_\+mat4}} (mat4 \texorpdfstring{$\ast$}{*}restrict m\+\_\+out, const float sx, const float sy, const float sz)
+\begin{DoxyCompactList}\small\item\em Gets a scalar matrix according to the input parameters. \end{DoxyCompactList}\item 
+LAC\+\_\+\+DECL void \mbox{\hyperlink{transforms_8c_a6f2a1d82976c6c6e03de7488f2581aaf}{lac\+\_\+get\+\_\+rotation\+\_\+mat4}} (mat4 \texorpdfstring{$\ast$}{*}restrict m\+\_\+out, const float rx, const float ry, const float rz)
+\begin{DoxyCompactList}\small\item\em Gets a rotation matrix according to the input angles for each axis. \end{DoxyCompactList}\item 
+LAC\+\_\+\+DECL void \mbox{\hyperlink{transforms_8c_aa976f078f067ac491aef0c009021d1f7}{lac\+\_\+get\+\_\+point\+\_\+at\+\_\+mat4}} (mat4 \texorpdfstring{$\ast$}{*}restrict m\+\_\+out, const vec3 v\+\_\+eye, const vec3 v\+\_\+target, const vec3 v\+\_\+up)
+\begin{DoxyCompactList}\small\item\em Gets a normalized point-\/at matrix \label{transforms_8c_lac_get_point_at_mat4_anchor}%
+\Hypertarget{transforms_8c_lac_get_point_at_mat4_anchor}%
+. \end{DoxyCompactList}\item 
+LAC\+\_\+\+DECL void \mbox{\hyperlink{transforms_8c_af7b77bca8365226f9669409567c2ae49}{lac\+\_\+invert\+\_\+mat4}} (mat4 \texorpdfstring{$\ast$}{*}m\+\_\+out, const mat4 m\+\_\+in)
+\begin{DoxyCompactList}\small\item\em This function is designed specifically for inverting the point-\/at matrix @warn This is not a true matrix inversion function; it only works with rotation and translation matrices. \end{DoxyCompactList}\item 
+LAC\+\_\+\+DECL void \mbox{\hyperlink{transforms_8c_a8b3a0250bdcf4e9347444a4a4eb4dc59}{lac\+\_\+get\+\_\+projection\+\_\+mat4}} (mat4 \texorpdfstring{$\ast$}{*}restrict m\+\_\+out, const float aspect, const float fov, const float znear, const float zfar)
+\begin{DoxyCompactList}\small\item\em Returns a frustum projection matrix according to the input parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+mat4 \mbox{\hyperlink{transforms_8c_a5121ad865aea9ab68699d5169d8c957d}{lac\+\_\+ident\+\_\+mat4}}
+\begin{DoxyCompactList}\small\item\em The identity matrix is a special matrix that is essentially equivallent to multiplying by 1 in regular multiplication. \end{DoxyCompactList}\item 
+mat4 \mbox{\hyperlink{transforms_8c_a1693388980e1522a12e187eed4251aee}{lac\+\_\+ortho\+\_\+proj\+\_\+mat4}}
+\begin{DoxyCompactList}\small\item\em An orthographic projection matrix is a projection matrix that creates a 1\+:1 mapping from world space to screen space in terms of vertex coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{transforms_8c}{transforms.\+c} provides functions for transforming matrices 
+
+\begin{DoxyAuthor}{Author}
+Neil Kingdom 
+\end{DoxyAuthor}
+\begin{DoxySince}{Since}
+10-\/17-\/2023 
+\end{DoxySince}
+"{}\+Geometry provides us with four types of transformations, namely, rotation, reflection, translation, and resizing."{}\hypertarget{transforms_8c_pointat}{}\doxysubsection{\texorpdfstring{Point-\/\+At Matrix}{Point-At Matrix}}\label{transforms_8c_pointat}
+Cameras can be controlled in a few ways. One method is to have a static camera, which never actually moves. Instead, we translate and rotate every object in the scene/world around the camera to give the illusion of movement. This method has certain benefits, but is generally avoided in 3D graphics. The reason being is that when we translate an object in world space, its origin point suddenly changes. In order to now apply rotation, each object must first be translated to the original origin point, then rotated, then translated back to its previous location. A secondary approach is to use angles to describe rotation. This approach, however, becomes increasingly cumbersome, as it is quite difficult to have precise movement when you have to guess at the number of degrees to rotate the camera in for all directions. The traditional method of moving our camera is to use a point-\/at matrix. In this scenario, we pass a point that we want to have the camera point towards, as well as a vector representing the direction that the camera is currently looking at, and then we calculate a new point-\/at vector which shares the same origin point as our current point-\/at vector, but which now has a direction facing the point that we passed. Instead of returning just one vector, however, we return a matrix consisting of 3 unit vectors representing the cardinal directions. This ensures that the orientation of our camera is correct. Traditionally, we call these the up, forward, and right vectors, and the origin point of our matrix, we call our eye point.\hypertarget{transforms_8c_pointat_related}{}\doxysubsubsection{\texorpdfstring{Related Functions}{Related Functions}}\label{transforms_8c_pointat_related}
+
+\begin{DoxyItemize}
+\item \doxylink{transforms_8c_lac_get_point_at_mat4_anchor}{lac\+\_\+get\+\_\+point\+\_\+at\+\_\+mat4}
+\item \doxylink{transforms_8c_lac_invert_mat4_anchor}{lac\+\_\+invert\+\_\+mat4} 
+\end{DoxyItemize}
+
+\doxysubsection{Function Documentation}
+\Hypertarget{transforms_8c_aa976f078f067ac491aef0c009021d1f7}\label{transforms_8c_aa976f078f067ac491aef0c009021d1f7} 
+\index{transforms.c@{transforms.c}!lac\_get\_point\_at\_mat4@{lac\_get\_point\_at\_mat4}}
+\index{lac\_get\_point\_at\_mat4@{lac\_get\_point\_at\_mat4}!transforms.c@{transforms.c}}
+\doxysubsubsection{\texorpdfstring{lac\_get\_point\_at\_mat4()}{lac\_get\_point\_at\_mat4()}}
+{\footnotesize\ttfamily LAC\+\_\+\+DECL void lac\+\_\+get\+\_\+point\+\_\+at\+\_\+mat4 (\begin{DoxyParamCaption}\item[{mat4 \texorpdfstring{$\ast$}{*}restrict}]{m\+\_\+out,  }\item[{const vec3}]{v\+\_\+eye,  }\item[{const vec3}]{v\+\_\+target,  }\item[{const vec3}]{v\+\_\+up }\end{DoxyParamCaption})}
+
+
+
+Gets a normalized point-\/at matrix \label{transforms_8c_lac_get_point_at_mat4_anchor}%
+\Hypertarget{transforms_8c_lac_get_point_at_mat4_anchor}%
+. 
+
+\begin{DoxySince}{Since}
+10-\/20-\/2023 
+\end{DoxySince}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em m\+\_\+out} & The point-\/at matrix \\
+\hline
+\mbox{\texttt{ in}}  & {\em v\+\_\+eye} & A vector representing the origin of the camera \\
+\hline
+\mbox{\texttt{ in}}  & {\em v\+\_\+target} & A vector representing the target point in 3D space for the camera to point towards \\
+\hline
+\mbox{\texttt{ in}}  & {\em v\+\_\+up} & A vector representing the "{}up"{} direction (used for camera orientation) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{transforms_8c_a8b3a0250bdcf4e9347444a4a4eb4dc59}\label{transforms_8c_a8b3a0250bdcf4e9347444a4a4eb4dc59} 
+\index{transforms.c@{transforms.c}!lac\_get\_projection\_mat4@{lac\_get\_projection\_mat4}}
+\index{lac\_get\_projection\_mat4@{lac\_get\_projection\_mat4}!transforms.c@{transforms.c}}
+\doxysubsubsection{\texorpdfstring{lac\_get\_projection\_mat4()}{lac\_get\_projection\_mat4()}}
+{\footnotesize\ttfamily LAC\+\_\+\+DECL void lac\+\_\+get\+\_\+projection\+\_\+mat4 (\begin{DoxyParamCaption}\item[{mat4 \texorpdfstring{$\ast$}{*}restrict}]{m\+\_\+out,  }\item[{const float}]{aspect,  }\item[{const float}]{fov,  }\item[{const float}]{znear,  }\item[{const float}]{zfar }\end{DoxyParamCaption})}
+
+
+
+Returns a frustum projection matrix according to the input parameters. 
+
+\begin{DoxySince}{Since}
+10-\/17-\/2023 
+\end{DoxySince}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em m\+\_\+out} & The resulting projection matrix that can be applied through matrix multiplication \\
+\hline
+\mbox{\texttt{ in}}  & {\em aspect} & The aspect ratio of the screen (taken by height/width) \\
+\hline
+\mbox{\texttt{ in}}  & {\em fov} & The field of view (given as an angle in degrees) \\
+\hline
+\mbox{\texttt{ in}}  & {\em The} & "{}near"{} clipping z-\/plane \\
+\hline
+\mbox{\texttt{ in}}  & {\em The} & "{}far"{} clipping z-\/plane \\
+\hline
+\end{DoxyParams}
+\Hypertarget{transforms_8c_a1f3815b40a3e526f9d8809e2cadfc162}\label{transforms_8c_a1f3815b40a3e526f9d8809e2cadfc162} 
+\index{transforms.c@{transforms.c}!lac\_get\_reflection\_mat4@{lac\_get\_reflection\_mat4}}
+\index{lac\_get\_reflection\_mat4@{lac\_get\_reflection\_mat4}!transforms.c@{transforms.c}}
+\doxysubsubsection{\texorpdfstring{lac\_get\_reflection\_mat4()}{lac\_get\_reflection\_mat4()}}
+{\footnotesize\ttfamily LAC\+\_\+\+DECL void lac\+\_\+get\+\_\+reflection\+\_\+mat4 (\begin{DoxyParamCaption}\item[{mat4 \texorpdfstring{$\ast$}{*}restrict}]{m\+\_\+out,  }\item[{const bool}]{yz\+\_\+plane,  }\item[{const bool}]{xz\+\_\+plane,  }\item[{const bool}]{xy\+\_\+plane }\end{DoxyParamCaption})}
+
+
+
+This function reflects a matrix along one or more planes. 
+
+\begin{DoxySince}{Since}
+10-\/17-\/2023 
+\end{DoxySince}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em m\+\_\+out} & A reflection matrix that can be applied through matrix multiplication \\
+\hline
+\mbox{\texttt{ in}}  & {\em yz\+\_\+plane} & If set to true, reflection is applied about the y-\/z plane \\
+\hline
+\mbox{\texttt{ in}}  & {\em xz\+\_\+plane} & If set to true, reflection is applied about the x-\/z plane \\
+\hline
+\mbox{\texttt{ in}}  & {\em xy\+\_\+plane} & If set to true, reflection is applied about the x-\/y plane \\
+\hline
+\end{DoxyParams}
+\Hypertarget{transforms_8c_a6f2a1d82976c6c6e03de7488f2581aaf}\label{transforms_8c_a6f2a1d82976c6c6e03de7488f2581aaf} 
+\index{transforms.c@{transforms.c}!lac\_get\_rotation\_mat4@{lac\_get\_rotation\_mat4}}
+\index{lac\_get\_rotation\_mat4@{lac\_get\_rotation\_mat4}!transforms.c@{transforms.c}}
+\doxysubsubsection{\texorpdfstring{lac\_get\_rotation\_mat4()}{lac\_get\_rotation\_mat4()}}
+{\footnotesize\ttfamily LAC\+\_\+\+DECL void lac\+\_\+get\+\_\+rotation\+\_\+mat4 (\begin{DoxyParamCaption}\item[{mat4 \texorpdfstring{$\ast$}{*}restrict}]{m\+\_\+out,  }\item[{const float}]{rx,  }\item[{const float}]{ry,  }\item[{const float}]{rz }\end{DoxyParamCaption})}
+
+
+
+Gets a rotation matrix according to the input angles for each axis. 
+
+\begin{DoxySince}{Since}
+10-\/17-\/2023 
+\end{DoxySince}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em m\+\_\+out} & The rotation matrix which can be applied through matrix multiplication \\
+\hline
+\mbox{\texttt{ in}}  & {\em rx} & Rotation angle in the x-\/axis (given in radians) \\
+\hline
+\mbox{\texttt{ in}}  & {\em ry} & Rotation angle in the y-\/axis (given in radians) \\
+\hline
+\mbox{\texttt{ in}}  & {\em rz} & Rotation angle in the z-\/axis (given in radians) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{transforms_8c_a391aa6878af5499fd5d1357c1ea19a6f}\label{transforms_8c_a391aa6878af5499fd5d1357c1ea19a6f} 
+\index{transforms.c@{transforms.c}!lac\_get\_scalar\_mat4@{lac\_get\_scalar\_mat4}}
+\index{lac\_get\_scalar\_mat4@{lac\_get\_scalar\_mat4}!transforms.c@{transforms.c}}
+\doxysubsubsection{\texorpdfstring{lac\_get\_scalar\_mat4()}{lac\_get\_scalar\_mat4()}}
+{\footnotesize\ttfamily LAC\+\_\+\+DECL void lac\+\_\+get\+\_\+scalar\+\_\+mat4 (\begin{DoxyParamCaption}\item[{mat4 \texorpdfstring{$\ast$}{*}restrict}]{m\+\_\+out,  }\item[{const float}]{sx,  }\item[{const float}]{sy,  }\item[{const float}]{sz }\end{DoxyParamCaption})}
+
+
+
+Gets a scalar matrix according to the input parameters. 
+
+\begin{DoxySince}{Since}
+10-\/17-\/2023 
+\end{DoxySince}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em The} & scalar matrix which can be applied through matrix multiplication \\
+\hline
+\mbox{\texttt{ in}}  & {\em sx} & Arbitrary unit for scaling in the x-\/direction \\
+\hline
+\mbox{\texttt{ in}}  & {\em sy} & Arbitrary unit for scaling in the y-\/direction \\
+\hline
+\mbox{\texttt{ in}}  & {\em sz} & Arbitrary unit for scaling in the z-\/direction \\
+\hline
+\end{DoxyParams}
+\Hypertarget{transforms_8c_a715e1c5bb1ed6deea91b8f180b6cf89b}\label{transforms_8c_a715e1c5bb1ed6deea91b8f180b6cf89b} 
+\index{transforms.c@{transforms.c}!lac\_get\_translation\_mat4@{lac\_get\_translation\_mat4}}
+\index{lac\_get\_translation\_mat4@{lac\_get\_translation\_mat4}!transforms.c@{transforms.c}}
+\doxysubsubsection{\texorpdfstring{lac\_get\_translation\_mat4()}{lac\_get\_translation\_mat4()}}
+{\footnotesize\ttfamily LAC\+\_\+\+DECL void lac\+\_\+get\+\_\+translation\+\_\+mat4 (\begin{DoxyParamCaption}\item[{mat4 \texorpdfstring{$\ast$}{*}restrict}]{m\+\_\+out,  }\item[{const float}]{tx,  }\item[{const float}]{ty,  }\item[{const float}]{tz }\end{DoxyParamCaption})}
+
+
+
+Gets a translation matrix according to the input parameters. 
+
+\begin{DoxySince}{Since}
+10-\/17-\/2023 
+\end{DoxySince}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em The} & translation matrix which can be applied through matrix multiplication \\
+\hline
+\mbox{\texttt{ in}}  & {\em tx} & Arbitrary unit for translation in the x-\/direction \\
+\hline
+\mbox{\texttt{ in}}  & {\em ty} & Arbitrary unit for translation in the y-\/direction \\
+\hline
+\mbox{\texttt{ in}}  & {\em tz} & Arbitrary unit for translation in the z-\/direction \\
+\hline
+\end{DoxyParams}
+\Hypertarget{transforms_8c_af7b77bca8365226f9669409567c2ae49}\label{transforms_8c_af7b77bca8365226f9669409567c2ae49} 
+\index{transforms.c@{transforms.c}!lac\_invert\_mat4@{lac\_invert\_mat4}}
+\index{lac\_invert\_mat4@{lac\_invert\_mat4}!transforms.c@{transforms.c}}
+\doxysubsubsection{\texorpdfstring{lac\_invert\_mat4()}{lac\_invert\_mat4()}}
+{\footnotesize\ttfamily LAC\+\_\+\+DECL void lac\+\_\+invert\+\_\+mat4 (\begin{DoxyParamCaption}\item[{mat4 \texorpdfstring{$\ast$}{*}}]{m\+\_\+out,  }\item[{const mat4}]{m\+\_\+in }\end{DoxyParamCaption})}
+
+
+
+This function is designed specifically for inverting the point-\/at matrix @warn This is not a true matrix inversion function; it only works with rotation and translation matrices. 
+
+\label{transforms_8c_lac_invert_mat4_anchor}%
+\Hypertarget{transforms_8c_lac_invert_mat4_anchor}%
+\begin{DoxySince}{Since}
+10-\/17-\/2023 
+\end{DoxySince}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em m\+\_\+out} & The resulting look-\/at matrix \\
+\hline
+\mbox{\texttt{ in}}  & {\em m\+\_\+in} & The matrix to be inverted \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{transforms_8c_a5121ad865aea9ab68699d5169d8c957d}\label{transforms_8c_a5121ad865aea9ab68699d5169d8c957d} 
+\index{transforms.c@{transforms.c}!lac\_ident\_mat4@{lac\_ident\_mat4}}
+\index{lac\_ident\_mat4@{lac\_ident\_mat4}!transforms.c@{transforms.c}}
+\doxysubsubsection{\texorpdfstring{lac\_ident\_mat4}{lac\_ident\_mat4}}
+{\footnotesize\ttfamily mat4 lac\+\_\+ident\+\_\+mat4}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ 1,\ \ \ 0,\ \ \ 0,\ \ \ 0,}
+\DoxyCodeLine{\ \ \ 0,\ \ \ 1,\ \ \ 0,\ \ \ 0,}
+\DoxyCodeLine{\ \ \ 0,\ \ \ 0,\ \ \ 1,\ \ \ 0,}
+\DoxyCodeLine{\ \ \ 0,\ \ \ 0,\ \ \ 0,\ \ \ 1}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+The identity matrix is a special matrix that is essentially equivallent to multiplying by 1 in regular multiplication. 
+
+This makes it a good basic starting point for matrix transformations through matrix multiplication. ~\newline
+ \Hypertarget{transforms_8c_a1693388980e1522a12e187eed4251aee}\label{transforms_8c_a1693388980e1522a12e187eed4251aee} 
+\index{transforms.c@{transforms.c}!lac\_ortho\_proj\_mat4@{lac\_ortho\_proj\_mat4}}
+\index{lac\_ortho\_proj\_mat4@{lac\_ortho\_proj\_mat4}!transforms.c@{transforms.c}}
+\doxysubsubsection{\texorpdfstring{lac\_ortho\_proj\_mat4}{lac\_ortho\_proj\_mat4}}
+{\footnotesize\ttfamily mat4 lac\+\_\+ortho\+\_\+proj\+\_\+mat4}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ 1,\ \ \ 0,\ \ \ 0,\ \ \ 0,}
+\DoxyCodeLine{\ \ \ 0,\ \ \ 1,\ \ \ 0,\ \ \ 0,\ }
+\DoxyCodeLine{\ \ \ 0,\ \ \ 0,\ \ \ 0,\ \ \ 0,\ }
+\DoxyCodeLine{\ \ \ 0,\ \ \ 0,\ \ \ 0,\ \ \ 1}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+An orthographic projection matrix is a projection matrix that creates a 1\+:1 mapping from world space to screen space in terms of vertex coordinates. 
+

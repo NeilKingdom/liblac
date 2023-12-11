@@ -1,5 +1,5 @@
 CC = gcc
-PROFILE ?= DEBUG
+PROFILE ?= RELEASE
 
 CCFLAGS_DEBUG = -g -O0 -fno-builtin -DDEBUG
 CCFLAGS_RELEASE = -O2
@@ -9,7 +9,9 @@ OBJ_DIR := obj
 INC_DIR := include
 BIN_DIR := bin
 TEST_DIR := test
-LIB_DIR := /usr/lib/
+
+TGT_INC_DIR := /usr/include/
+TGT_BIN_DIR := /usr/lib/
 
 SRCS := $(wildcard $(SRC_DIR)/*.c)
 DEPS := $(wildcard $(SRC_DIR)/*.h)
@@ -25,7 +27,8 @@ all: $(BINS)
 
 # Copy libraries to /usr/lib
 install: all
-	cp $(BINS) $(LIB_DIR)
+	cp $(BINS) $(TGT_BIN_DIR)
+	cp $(INC_DIR)/*.h $(TGT_INC_DIR)
 
 # Remove object files and binaries
 clean:
@@ -41,7 +44,7 @@ $(BIN_DIR)/liblac.a: $(OBJS)
 # Create dynamic library
 $(BIN_DIR)/liblac.so: $(SRCS) $(DEPS)
 	$(CC) -o $@ $(SRCS) $(DEPS) -shared -fPIC $(CCFLAGS) $(LDFLAGS)
-	#strip ./bin/liblac.so
+	strip ./bin/liblac.so
 
 # Create objects
 $(OBJ_DIR)/%.o: $(SRCS)
