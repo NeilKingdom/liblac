@@ -155,6 +155,52 @@ LAC_DECL void lac_get_scalar_mat4(
     memcpy(m_out, scl_mat, sizeof(*m_out));
 }
 
+LAC_DECL void lac_get_yaw_mat4(mat4 * restrict m_out, const float yaw) {
+    float cos_yaw, sin_yaw;
+    cos_yaw = cosf(yaw);
+    sin_yaw = sinf(yaw);
+
+    mat4 yaw_mat = {
+        cos_yaw, -sin_yaw,  0,        0,
+        sin_yaw,  cos_yaw,  0,        0,
+        0,        0,        1,        0,
+        0,        0,        0,        1
+    };
+
+    memcpy(m_out, yaw_mat, sizeof(*m_out));
+}
+
+LAC_DECL void lac_get_pitch_mat4(mat4 * restrict m_out, const float pitch) {
+    float cos_pitch, sin_pitch;
+    cos_pitch = cosf(pitch);
+    sin_pitch = sinf(pitch);
+
+    mat4 pitch_mat = {
+        1,    0,           0,          0,
+        0,    cos_pitch,  -sin_pitch,  0,
+        0,    sin_pitch,   cos_pitch,  0,
+        0,    0,           0,          1
+    };
+
+    memcpy(m_out, pitch_mat, sizeof(*m_out));
+}
+
+LAC_DECL void lac_get_roll_mat4(mat4 * restrict m_out, const float roll) {
+    float cos_roll, sin_roll;
+    cos_roll = cosf(roll);
+    sin_roll = sinf(roll);
+
+    mat4 roll_mat = {
+        cos_roll, 0,    sin_roll, 0,
+        0,        1,    0,        0,
+       -sin_roll, 0,    cos_roll, 0,
+        0,        0,    0,        1
+    };
+
+    memcpy(m_out, roll_mat, sizeof(*m_out));
+}
+
+// TODO: Add comment in Doxygen about yaw, pitch, roll
 /**
  * @brief Gets a rotation matrix according to the input angles for each axis
  * @since 10-17-2023
@@ -182,6 +228,13 @@ LAC_DECL void lac_get_rotation_mat4(
 
 #if LAC_IS_ROW_MAJOR
 #else
+    mat4 roll_mat = {
+        cos_rx,   0,    sin_rx,   0,
+        0,        1,    0,        0,
+       -sin_rx,   0,    cos_rx,   0,
+        0,        0,    0,        1
+    };
+
     mat4 yaw_mat = {
         cos_rz,  -sin_rz,   0,    0,
         sin_rz,   cos_rz,   0,    0,
@@ -190,16 +243,9 @@ LAC_DECL void lac_get_rotation_mat4(
     };
 
     mat4 pitch_mat = {
-        cos_ry,   0,    sin_ry,   0,
-        0,        1,    0,        0,
-        -sin_ry,   0,    cos_ry,   0,
-        0,        0,    0,        1
-    };
-
-    mat4 roll_mat = {
         1,    0,        0,        0,
-        0,    cos_rx,  -sin_rx,   0,
-        0,    sin_rx,   cos_rx,   0,
+        0,    cos_ry,  -sin_ry,   0,
+        0,    sin_ry,   cos_ry,   0,
         0,    0,        0,        1
     };
 #endif

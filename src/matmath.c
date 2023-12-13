@@ -244,8 +244,8 @@ LAC_DECL void lac_multiply_mat4(mat4 *m_out, const mat4 m_a, const mat4 m_b) {
 LAC_DECL void lac_multiply_mat2_vec2(vec2 *v_out, const mat2 m_in, const vec2 v_in) {
 #if LAC_IS_ROW_MAJOR
 #else
-   (*v_out)[0] = (m_in[0] * v_in[0]) + (m_in[2] * v_in[1]);
-   (*v_out)[1] = (m_in[1] * v_in[0]) + (m_in[3] * v_in[1]);
+   (*v_out)[0] = (m_in[0] * v_in[0]) + (m_in[1] * v_in[1]);
+   (*v_out)[1] = (m_in[2] * v_in[0]) + (m_in[3] * v_in[1]);
 #endif
 }
 
@@ -259,9 +259,9 @@ LAC_DECL void lac_multiply_mat2_vec2(vec2 *v_out, const mat2 m_in, const vec2 v_
 LAC_DECL void lac_multiply_mat3_vec3(vec3 *v_out, const mat3 m_in, const vec3 v_in) {
 #if LAC_IS_ROW_MAJOR
 #else
-   (*v_out)[0] = (m_in[0] * v_in[0]) + (m_in[3] * v_in[1]) + (m_in[6] * v_in[2]);
-   (*v_out)[1] = (m_in[1] * v_in[0]) + (m_in[4] * v_in[1]) + (m_in[7] * v_in[2]);
-   (*v_out)[2] = (m_in[2] * v_in[0]) + (m_in[5] * v_in[1]) + (m_in[8] * v_in[2]);
+   (*v_out)[0] = (m_in[0] * v_in[0]) + (m_in[1] * v_in[1]) + (m_in[2] * v_in[2]);
+   (*v_out)[1] = (m_in[3] * v_in[0]) + (m_in[4] * v_in[1]) + (m_in[5] * v_in[2]);
+   (*v_out)[2] = (m_in[6] * v_in[0]) + (m_in[7] * v_in[1]) + (m_in[8] * v_in[2]);
 #endif
 }
 
@@ -275,10 +275,10 @@ LAC_DECL void lac_multiply_mat3_vec3(vec3 *v_out, const mat3 m_in, const vec3 v_
 LAC_DECL void lac_multiply_mat4_vec4(vec4 *v_out, const mat4 m_in, const vec4 v_in) {
 #if LAC_IS_ROW_MAJOR
 #else
-   (*v_out)[0] = (m_in[0] * v_in[0]) + (m_in[4] * v_in[1]) + (m_in[8]  * v_in[2]) + (m_in[12] * v_in[3]);
-   (*v_out)[1] = (m_in[1] * v_in[0]) + (m_in[5] * v_in[1]) + (m_in[9]  * v_in[2]) + (m_in[13] * v_in[3]);
-   (*v_out)[2] = (m_in[2] * v_in[0]) + (m_in[6] * v_in[1]) + (m_in[10] * v_in[2]) + (m_in[14] * v_in[3]);
-   (*v_out)[3] = (m_in[3] * v_in[0]) + (m_in[7] * v_in[1]) + (m_in[11] * v_in[2]) + (m_in[15] * v_in[3]);
+   (*v_out)[0] = (m_in[0]  * v_in[0]) + (m_in[1]  * v_in[1]) + (m_in[2]  * v_in[2]) + (m_in[3]  * v_in[3]);
+   (*v_out)[1] = (m_in[4]  * v_in[0]) + (m_in[5]  * v_in[1]) + (m_in[6]  * v_in[2]) + (m_in[7]  * v_in[3]);
+   (*v_out)[2] = (m_in[8]  * v_in[0]) + (m_in[9]  * v_in[1]) + (m_in[10] * v_in[2]) + (m_in[11] * v_in[3]);
+   (*v_out)[3] = (m_in[12] * v_in[0]) + (m_in[13] * v_in[1]) + (m_in[14] * v_in[2]) + (m_in[15] * v_in[3]);
 #endif
 }
 
