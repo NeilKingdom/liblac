@@ -25,8 +25,13 @@ typedef float vec2[2];
 typedef float vec3[3];
 typedef float vec4[4];
 
+#if defined(__GNUC__)
 #pragma GCC diagnostic push 
 #pragma GCC diagnostic ignored "-Wunused-function"
+#elif defined(__clang__)
+#pragma clang diagnostic push 
+#pragma clang diagnostic ignored "-Wunused-function"
+#endif
 static void _lac_warn(char *file, const char *func, int line, const char *msg) {
    fprintf(stderr, "\n=========== WARNING ===========\n"
                    "Backtrace:\n\n"
@@ -34,7 +39,11 @@ static void _lac_warn(char *file, const char *func, int line, const char *msg) {
                    "Short message: %s\n",
                    file, func, line, msg);
 }
+#if defined(__GNUC__)
 #pragma GCC diagnostic pop
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#endif
 
 #define LAC_WARN(msg) (_lac_warn((__FILE__), (__func__), (__LINE__), (msg)))
 
