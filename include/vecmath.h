@@ -1,7 +1,7 @@
 #ifndef VECMATH_H
 #define VECMATH_H
 
-#include "../include/common.h"
+#include "lac_common.h"
 
 #ifdef __cplusplus
 extern "C" {

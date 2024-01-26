@@ -67,8 +67,7 @@
  * - @ref lac_normalize_vec4_anchor "lac_normalize_vec4"
  */
 
-#include "../include/common.h"
-#include <math.h>
+#include "../include/lac_common.h"
 
 /**
  * @brief Calculates the sum between two vectors of size 2

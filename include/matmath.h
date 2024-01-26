@@ -1,7 +1,7 @@
 #ifndef MATMATH_H
 #define MATMATH_H
 
-#include "common.h"
+#include "lac_common.h"
 
 #ifdef __cplusplus
 extern "C" {

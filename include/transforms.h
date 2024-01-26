@@ -1,7 +1,7 @@
 #ifndef MATRICES_H
 #define MATRICES_H
 
-#include "common.h"
+#include "lac_common.h"
 
 #ifdef __cplusplus
 extern "C" {

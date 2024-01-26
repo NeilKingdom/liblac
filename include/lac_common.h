@@ -1,5 +1,5 @@
-#ifndef COMMON_H
-#define COMMON_H
+#ifndef LAC_COMMON_H
+#define LAC_COMMON_H 
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -8,14 +8,18 @@
 #include <errno.h>
 #include <math.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif /* __cplusplus */
+
 /* Define this as static if you want to make all functions static */
 #define LAC_DECL
 /* Define this as false if you want to use column-major ordering */
 #define LAC_IS_ROW_MAJOR false
 
 #define lac_PI 3.14159265358979323846264338327950288f
-#define lac_deg_to_rad(a) ((a) * lac_PI / 180.0)
-#define lac_rad_to_deg(a) ((a) * 180.0 / lac_PI)
+#define lac_deg_to_rad(x) ((x) * (lac_PI / 180.0f))
+#define lac_rad_to_deg(x) ((x) * (180.0f / lac_PI))
 
 typedef float mat2[4];
 typedef float mat3[9];
@@ -47,4 +51,8 @@ static void _lac_warn(char *file, const char *func, int line, const char *msg) {
 
 #define LAC_WARN(msg) (_lac_warn((__FILE__), (__func__), (__LINE__), (msg)))
 
-#endif /* COMMON_H */
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
+
+#endif /* LAC_COMMON_H */
