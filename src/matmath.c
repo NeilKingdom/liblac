@@ -2,21 +2,22 @@
  * @file matmath.c
  * @since 10-17-2023
  * @author Neil Kingdom
+ * @version 1.0
  * @brief matmath.c Contains all of the maths functions which pertain to matrices specifically
  *
  * @section matmul Matrix Multiplication
  *
- * Matrix multiplication is an operation that takes place between two 
- * matrices. The matrices must be of the same size in order to properly 
- * compute the product matrix. Performing matrix multiplication on two 
+ * Matrix multiplication is an operation that takes place between two
+ * matrices. The matrices must be of the same size in order to properly
+ * compute the product matrix. Performing matrix multiplication on two
  * transformation matrices has the effect of combining both transformations
- * into one matrix. Matrix multiplication is non-commutative, meaning that the 
- * ordering of operands within a matrix multiplication has significant impact 
- * upon the resulting product matrix. The way that matrix multiplication is 
- * computed is by taking the dot product of each row and column between the two 
- * input matrices. In row-major ordering, we take the dot product between each 
- * row in the left-hand matrix before moving to the next column in the right-hand 
- * matrix. In column-major ordering, we take the dot product between each column 
+ * into one matrix. Matrix multiplication is non-commutative, meaning that the
+ * ordering of operands within a matrix multiplication has significant impact
+ * upon the resulting product matrix. The way that matrix multiplication is
+ * computed is by taking the dot product of each row and column between the two
+ * input matrices. In row-major ordering, we take the dot product between each
+ * row in the left-hand matrix before moving to the next column in the right-hand
+ * matrix. In column-major ordering, we take the dot product between each column
  * in the left-hand matrix before moving the the next row in the right-hand
  * matrix.
  *
@@ -28,10 +29,10 @@
  *
  * @section transpose Matrix Transposition
  *
- * Transposing is an operation by which we flip a matrix on its 
+ * Transposing is an operation by which we flip a matrix on its
  * diagonal axis. This effectively alters row-major ordered matrices
- * to become column-major ordered, and vice versa. 
- * 
+ * to become column-major ordered, and vice versa.
+ *
  * @subsubsection transpose_related Related Functions
  *
  * - @ref lac_transpose_mat2_anchor "lac_transpose_mat2"
@@ -39,7 +40,7 @@
  * - @ref lac_transpose_mat4_anchor "lac_transpose_mat4"
  */
 
-#include "../include/matmath.h"
+#include "matmath.h"
 
 /**
  * @brief Adds two matrices of size 2x2
@@ -159,7 +160,7 @@ LAC_DECL void lac_subtract_mat4(mat4 *m_out, const mat4 m_a, const mat4 m_b) {
 
 /**
  * @brief Performs matrix multiplication between two matrices of size 2x2
- * @anchor lac_multiply_mat2_anchor 
+ * @anchor lac_multiply_mat2_anchor
  * @since 10-17-2023
  * @param[out] m_out The product matrix
  * @param[in] m_a The multiplicand matrix
@@ -178,7 +179,7 @@ LAC_DECL void lac_multiply_mat2(mat2 *m_out, const mat2 m_a, const mat2 m_b) {
 
 /**
  * @brief Performs matrix multiplication between two matrices of size 3x3
- * @anchor lac_multiply_mat3_anchor 
+ * @anchor lac_multiply_mat3_anchor
  * @since 10-17-2023
  * @param[out] m_out The product matrix
  * @param[in] m_a The multiplicand matrix
@@ -203,7 +204,7 @@ LAC_DECL void lac_multiply_mat3(mat3 *m_out, const mat3 m_a, const mat3 m_b) {
 
 /**
  * @brief Performs matrix multiplication between two matrices of size 4x4
- * @anchor lac_multiply_mat4_anchor 
+ * @anchor lac_multiply_mat4_anchor
  * @since 10-17-2023
  * @param[out] m_out The product matrix
  * @param[in] m_a The multiplicand matrix
@@ -235,56 +236,8 @@ LAC_DECL void lac_multiply_mat4(mat4 *m_out, const mat4 m_a, const mat4 m_b) {
 }
 
 /**
- * @brief Multiplies a matrix of size 2 by a vector of size 2
- * @since 10-22-2023
- * @param[out] v_out The product vector
- * @param[in] m_in The input matrix
- * @param[in] v_in The input vector
- */
-LAC_DECL void lac_multiply_mat2_vec2(vec2 *v_out, const mat2 m_in, const vec2 v_in) {
-#if LAC_IS_ROW_MAJOR
-#else
-   (*v_out)[0] = (m_in[0] * v_in[0]) + (m_in[1] * v_in[1]);
-   (*v_out)[1] = (m_in[2] * v_in[0]) + (m_in[3] * v_in[1]);
-#endif
-}
-
-/**
- * @brief Multiplies a matrix of size 3 by a vector of size 3
- * @since 10-22-2023
- * @param[out] v_out The product vector
- * @param[in] m_in The input matrix
- * @param[in] v_in The input vector
- */
-LAC_DECL void lac_multiply_mat3_vec3(vec3 *v_out, const mat3 m_in, const vec3 v_in) {
-#if LAC_IS_ROW_MAJOR
-#else
-   (*v_out)[0] = (m_in[0] * v_in[0]) + (m_in[1] * v_in[1]) + (m_in[2] * v_in[2]);
-   (*v_out)[1] = (m_in[3] * v_in[0]) + (m_in[4] * v_in[1]) + (m_in[5] * v_in[2]);
-   (*v_out)[2] = (m_in[6] * v_in[0]) + (m_in[7] * v_in[1]) + (m_in[8] * v_in[2]);
-#endif
-}
-
-/**
- * @brief Multiplies a matrix of size 4 by a vector of size 4
- * @since 10-22-2023
- * @param[out] v_out The product vector
- * @param[in] m_in The input matrix
- * @param[in] v_in The input vector
- */
-LAC_DECL void lac_multiply_mat4_vec4(vec4 *v_out, const mat4 m_in, const vec4 v_in) {
-#if LAC_IS_ROW_MAJOR
-#else
-   (*v_out)[0] = (m_in[0]  * v_in[0]) + (m_in[1]  * v_in[1]) + (m_in[2]  * v_in[2]) + (m_in[3]  * v_in[3]);
-   (*v_out)[1] = (m_in[4]  * v_in[0]) + (m_in[5]  * v_in[1]) + (m_in[6]  * v_in[2]) + (m_in[7]  * v_in[3]);
-   (*v_out)[2] = (m_in[8]  * v_in[0]) + (m_in[9]  * v_in[1]) + (m_in[10] * v_in[2]) + (m_in[11] * v_in[3]);
-   (*v_out)[3] = (m_in[12] * v_in[0]) + (m_in[13] * v_in[1]) + (m_in[14] * v_in[2]) + (m_in[15] * v_in[3]);
-#endif
-}
-
-/**
  * @brief Transpose a matrix of size 2
- * @anchor lac_transpose_mat2_anchor 
+ * @anchor lac_transpose_mat2_anchor
  * @since 10-17-2023
  * @param[out] m_out The transposed matrix
  * @param[in] m_in The matrix to be transposed
@@ -299,7 +252,7 @@ LAC_DECL void lac_transpose_mat2(mat2 *m_out, const mat2 m_in) {
 
 /**
  * @brief Transpose a matrix of size 3
- * @anchor lac_transpose_mat3_anchor 
+ * @anchor lac_transpose_mat3_anchor
  * @since 10-17-2023
  * @param[out] m_out The transposed matrix
  * @param[in] m_in The matrix to be transposed
@@ -320,7 +273,7 @@ LAC_DECL void lac_transpose_mat3(mat3 *m_out, const mat3 m_in) {
 
 /**
  * @brief Transpose a matrix of size 4
- * @anchor lac_transpose_mat4_anchor 
+ * @anchor lac_transpose_mat4_anchor
  * @since 10-17-2023
  * @param[out] m_out The transposed matrix
  * @param[in] m_in The matrix to be transposed

@@ -2,7 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../include/matmath.h"
+#include "transforms.h"
+#include "matmath.h"
 
 START_TEST(dot_prod_mat4) {
    mat4 m_a = {
@@ -28,7 +29,7 @@ START_TEST(dot_prod_mat4) {
 
    mat4 actual = { 0 };
 
-   lac_dot_prod_mat4(m_a, m_b, &actual);
+   lac_multiply_mat4(&actual, m_a, m_b);
 
    printf("Expected:\n"
          "%.2f %.2f %.2f %.2f\n"

@@ -2,16 +2,17 @@
  * @file vecmath.c
  * @author Neil Kingdom
  * @since 10-17-2023
+ * @version 1.0
  * @brief vecmath.c Contains all of the maths functions which pertain to vectors specifically
  *
  * @section dotprod Dot Product
  *
- * The dot product, a.k.a scalar product, is an operation that 
- * can be performed by summing the product of each component 
+ * The dot product, a.k.a scalar product, is an operation that
+ * can be performed by summing the product of each component
  * between two vectors. The operation returns a single number
  * known as the scalar value. This value can be used to determine
- * similarity between two vectors, and is often used for 
- * computing how much lighting a given surface should receive 
+ * similarity between two vectors, and is often used for
+ * computing how much lighting a given surface should receive
  * in 3D graphics, amongst other practical applications.
  *
  * @subsection dotprod_related Related Functions
@@ -22,20 +23,20 @@
  *
  * @section crossprod Cross Product
  *
- * The cross product is an operation between two vectors which is 
- * calculated by taking the difference of each product between 
- * complimentary pairs in each vector. The formula for this looks 
+ * The cross product is an operation between two vectors which is
+ * calculated by taking the difference of each product between
+ * complimentary pairs in each vector. The formula for this looks
  * something like:
  * w1 = u2v3 - u3v2
- * This is computed for each component of w. Taking the cross product 
- * yields a vector that is orthogonal to both operand vectors. 
- * The normalized version of this orthogonal vector is classically 
+ * This is computed for each component of w. Taking the cross product
+ * yields a vector that is orthogonal to both operand vectors.
+ * The normalized version of this orthogonal vector is classically
  * coined as the "normal". The normal is typically used in 3D graphics
  * to determine which faces of a mesh should or shouldn't be drawn
  * on top of others. In other words, it provides z-order information,
  * as well as being useful for calculating the amount of lighting that
  * a surface should receive by comparing it with the dot product of
- * a point light. Important to note is that the cross product is 
+ * a point light. Important to note is that the cross product is
  * uniquely applicable to vectors of size 3 only. The equivallent for
  * vectors of size 2 is known as the "outer product" and for vectors
  * of size 4, the "wedge product".
@@ -48,17 +49,17 @@
  *
  * It is often beneficial to nomalize vectors so that their magnitude
  * is of length 1. When a vector is normalized, we can easily apply
- * a scalar value to make it any magnitude we'd like. For instance, 
- * we might have a direction vector which is normalized and then 
- * scaled depending upon the velocity of a moving object. Similar to 
+ * a scalar value to make it any magnitude we'd like. For instance,
+ * we might have a direction vector which is normalized and then
+ * scaled depending upon the velocity of a moving object. Similar to
  * how we normalize anything, in order to normalize a vector, we must
- * divide by its magnitude. Since multiplication is computationally 
- * cheaper than division, it is slightlty more efficient to multiply 
- * by the inverse of the vectors magnitude, which yields the same 
- * result. In order to compute the magnitude of a vector, we use 
- * Pythegoreas' Theorum and take the square root of the sum of 
- * squares of each side length. This is because in linear algeabra 
- * the magnitude is synonymous with the hypotenuse in trigonometry. 
+ * divide by its magnitude. Since multiplication is computationally
+ * cheaper than division, it is slightlty more efficient to multiply
+ * by the inverse of the vectors magnitude, which yields the same
+ * result. In order to compute the magnitude of a vector, we use
+ * Pythegoreas' Theorum and take the square root of the sum of
+ * squares of each side length. This is because in linear algeabra
+ * the magnitude is synonymous with the hypotenuse in trigonometry.
  *
  * @subsection normalization_related Related Functions
  *
@@ -67,7 +68,7 @@
  * - @ref lac_normalize_vec4_anchor "lac_normalize_vec4"
  */
 
-#include "../include/lac_common.h"
+#include "lac_common.h"
 
 /**
  * @brief Calculates the sum between two vectors of size 2
@@ -187,6 +188,54 @@ LAC_DECL void lac_multiply_vec4(vec4 *v_out, const vec4 v_in, float scalar) {
 }
 
 /**
+ * @brief Multiplies a matrix of size 2 by a vector of size 2
+ * @since 10-22-2023
+ * @param[out] v_out The product vector
+ * @param[in] v_in The input vector
+ * @param[in] m_in The input matrix
+ */
+LAC_DECL void lac_multiply_vec2_mat2(vec2 *v_out, const vec2 v_in, const mat2 m_in) {
+#if LAC_IS_ROW_MAJOR
+#else
+   (*v_out)[0] = (m_in[0] * v_in[0]) + (m_in[1] * v_in[1]);
+   (*v_out)[1] = (m_in[2] * v_in[0]) + (m_in[3] * v_in[1]);
+#endif
+}
+
+/**
+ * @brief Multiplies a matrix of size 3 by a vector of size 3
+ * @since 10-22-2023
+ * @param[out] v_out The product vector
+ * @param[in] v_in The input vector
+ * @param[in] m_in The input matrix
+ */
+LAC_DECL void lac_multiply_vec3_mat3(vec3 *v_out, const vec3 v_in, const mat3 m_in) {
+#if LAC_IS_ROW_MAJOR
+#else
+   (*v_out)[0] = (m_in[0] * v_in[0]) + (m_in[1] * v_in[1]) + (m_in[2] * v_in[2]);
+   (*v_out)[1] = (m_in[3] * v_in[0]) + (m_in[4] * v_in[1]) + (m_in[5] * v_in[2]);
+   (*v_out)[2] = (m_in[6] * v_in[0]) + (m_in[7] * v_in[1]) + (m_in[8] * v_in[2]);
+#endif
+}
+
+/**
+ * @brief Multiplies a matrix of size 4 by a vector of size 4
+ * @since 10-22-2023
+ * @param[out] v_out The product vector
+ * @param[in] v_in The input vector
+ * @param[in] m_in The input matrix
+ */
+LAC_DECL void lac_multiply_vec4_mat4(vec4 *v_out, const vec4 v_in, const mat4 m_in) {
+#if LAC_IS_ROW_MAJOR
+#else
+   (*v_out)[0] = (m_in[0]  * v_in[0]) + (m_in[1]  * v_in[1]) + (m_in[2]  * v_in[2]) + (m_in[3]  * v_in[3]);
+   (*v_out)[1] = (m_in[4]  * v_in[0]) + (m_in[5]  * v_in[1]) + (m_in[6]  * v_in[2]) + (m_in[7]  * v_in[3]);
+   (*v_out)[2] = (m_in[8]  * v_in[0]) + (m_in[9]  * v_in[1]) + (m_in[10] * v_in[2]) + (m_in[11] * v_in[3]);
+   (*v_out)[3] = (m_in[12] * v_in[0]) + (m_in[13] * v_in[1]) + (m_in[14] * v_in[2]) + (m_in[15] * v_in[3]);
+#endif
+}
+
+/**
  * @brief Scales a vector of size 2 down by a factor of "scalar"
  * @since 10-19-2023
  * @param[out] v_out The scaled vector
@@ -301,7 +350,7 @@ LAC_DECL void lac_calc_cross_prod(vec3 *v_out, const vec3 v_a, const vec3 v_b) {
  */
 LAC_DECL void lac_calc_magnitude_vec2(float * restrict magnitude, const vec2 v_in) {
     *magnitude = sqrtf((v_in[0] * v_in[0]) + (v_in[1] * v_in[1]));
-} 
+}
 
 /**
  * @brief Calculates the magnitude for a given vector of size 3
@@ -311,7 +360,7 @@ LAC_DECL void lac_calc_magnitude_vec2(float * restrict magnitude, const vec2 v_i
  */
 LAC_DECL void lac_calc_magnitude_vec3(float * restrict magnitude, const vec3 v_in) {
     *magnitude = sqrtf((v_in[0] * v_in[0]) + (v_in[1] * v_in[1]) + (v_in[2] * v_in[2]));
-} 
+}
 
 /**
  * @brief Calculates the magnitude for a given vector of size 4
@@ -321,7 +370,7 @@ LAC_DECL void lac_calc_magnitude_vec3(float * restrict magnitude, const vec3 v_i
  */
 LAC_DECL void lac_calc_magnitude_vec4(float * restrict magnitude, const vec4 v_in) {
     *magnitude = sqrtf((v_in[0] * v_in[0]) + (v_in[1] * v_in[1]) + (v_in[2] * v_in[2]) + (v_in[3] * v_in[3]));
-} 
+}
 
 /**
  * @brief Normalize a vector of size 2
@@ -378,17 +427,16 @@ LAC_DECL void lac_normalize_vec4(vec4 *v_out, const vec4 v_in) {
     float magnitude;
     lac_calc_magnitude_vec4(&magnitude, v_in);
 
-    if (magnitude > 0.0f) {
+    if (magnitude != 0.0f) {
         float inv_magnitude = 1.0f / magnitude;
         (*v_out)[0] = v_in[0] * inv_magnitude;
         (*v_out)[1] = v_in[1] * inv_magnitude;
         (*v_out)[2] = v_in[2] * inv_magnitude;
         (*v_out)[3] = v_in[3] * inv_magnitude;
-    } else { // v_in already had magnitude 0
+    } else {
         (*v_out)[0] = 0.0f;
         (*v_out)[1] = 0.0f;
         (*v_out)[2] = 0.0f;
         (*v_out)[3] = 0.0f;
     }
 }
-

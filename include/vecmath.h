@@ -21,6 +21,10 @@ void lac_multiply_vec2(vec2 *v_out, const vec2 v_in, float scalar);
 void lac_multiply_vec3(vec3 *v_out, const vec3 v_in, float scalar);
 void lac_multiply_vec4(vec4 *v_out, const vec4 v_in, float scalar);
 
+void lac_multiply_vec2_mat2(vec2 *v_out, const vec2 v_in, const mat2 m_in);
+void lac_multiply_vec3_mat3(vec3 *v_out, const vec3 v_in, const mat3 m_in);
+void lac_multiply_vec4_mat4(vec4 *v_out, const vec4 v_in, const mat4 m_in);
+
 void lac_divide_vec2(vec2 *v_out, const vec2 v_in, float scalar);
 void lac_divide_vec3(vec3 *v_out, const vec3 v_in, float scalar);
 void lac_divide_vec4(vec4 *v_out, const vec4 v_in, float scalar);

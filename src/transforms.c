@@ -2,37 +2,38 @@
  * @file transforms.c
  * @author Neil Kingdom
  * @since 10-17-2023
+ * @version 1.0
  * @brief transforms.c provides functions for transforming matrices
- * 
+ *
  * "Geometry provides us with four types of transformations,
  * namely, rotation, reflection, translation, and resizing."
  *
  * @section pointat Point-At Matrix
  *
- * Cameras can be controlled in a few ways. One method is to have a 
- * static camera, which never actually moves. Instead, we translate and 
- * rotate every object in the scene/world around the camera to give the 
- * illusion of movement. This method has certain benefits, but is 
- * generally avoided in 3D graphics. The reason being is that when we 
+ * Cameras can be controlled in a few ways. One method is to have a
+ * static camera, which never actually moves. Instead, we translate and
+ * rotate every object in the scene/world around the camera to give the
+ * illusion of movement. This method has certain benefits, but is
+ * generally avoided in 3D graphics. The reason being is that when we
  * translate an object in world space, its origin point suddenly changes.
  * In order to now apply rotation, each object must first be translated
- * to the original origin point, then rotated, then translated back to 
- * its previous location. A secondary approach is to use angles to 
- * describe rotation. This approach, however, becomes increasingly 
+ * to the original origin point, then rotated, then translated back to
+ * its previous location. A secondary approach is to use angles to
+ * describe rotation. This approach, however, becomes increasingly
  * cumbersome, as it is quite difficult to have precise movement when
- * you have to guess at the number of degrees to rotate the camera in 
- * for all directions. The traditional method of moving our camera is 
- * to use a point-at matrix. In this scenario, we pass a point that we 
+ * you have to guess at the number of degrees to rotate the camera in
+ * for all directions. The traditional method of moving our camera is
+ * to use a point-at matrix. In this scenario, we pass a point that we
  * want to have the camera point towards, as well as a vector representing
- * the direction that the camera is currently looking at, and then we 
- * calculate a new point-at vector which shares the same origin point 
- * as our current point-at vector, but which now has a direction facing 
- * the point that we passed. Instead of returning just one vector, 
- * however, we return a matrix consisting of 3 unit vectors representing 
- * the cardinal directions. This ensures that the orientation of our 
- * camera is correct. Traditionally, we call these the up, forward, and 
- * right vectors, and the origin point of our matrix, we call our eye 
- * point. 
+ * the direction that the camera is currently looking at, and then we
+ * calculate a new point-at vector which shares the same origin point
+ * as our current point-at vector, but which now has a direction facing
+ * the point that we passed. Instead of returning just one vector,
+ * however, we return a matrix consisting of 3 unit vectors representing
+ * the cardinal directions. This ensures that the orientation of our
+ * camera is correct. Traditionally, we call these the up, forward, and
+ * right vectors, and the origin point of our matrix, we call our eye
+ * point.
  *
  * @subsection pointat_related Related Functions
  *
@@ -40,14 +41,14 @@
  * - @ref lac_invert_mat4_anchor "lac_invert_mat4"
  */
 
-#include "../include/matmath.h"
-#include "../include/vecmath.h"
+#include "matmath.h"
+#include "vecmath.h"
 
 /**
- * The identity matrix is a special matrix that is essentially 
+ * The identity matrix is a special matrix that is essentially
  * equivallent to multiplying by 1 in regular multiplication. This makes
- * it a good basic starting point for matrix transformations through 
- * matrix multiplication.  
+ * it a good basic starting point for matrix transformations through
+ * matrix multiplication.
  */
 mat4 lac_ident_mat4 = {
     1,   0,   0,   0,
@@ -57,28 +58,28 @@ mat4 lac_ident_mat4 = {
 };
 
 /**
- * An orthographic projection matrix is a projection matrix that creates a 
+ * An orthographic projection matrix is a projection matrix that creates a
  * 1:1 mapping from world space to screen space in terms of vertex coordinates.
  */
 mat4 lac_ortho_proj_mat4 = {
     1,   0,   0,   0,
-    0,   1,   0,   0, 
-    0,   0,   0,   0, 
+    0,   1,   0,   0,
+    0,   0,   0,   0,
     0,   0,   0,   1
 };
 
 /**
  * @brief This function reflects a matrix along one or more planes
- * @since 10-17-2023 
+ * @since 10-17-2023
  * @param[out] m_out A reflection matrix that can be applied through matrix multiplication
  * @param[in] yz_plane If set to true, reflection is applied about the y-z plane
  * @param[in] xz_plane If set to true, reflection is applied about the x-z plane
  * @param[in] xy_plane If set to true, reflection is applied about the x-y plane
  */
 LAC_DECL void lac_get_reflection_mat4(
-    mat4 * restrict m_out, 
-    const bool yz_plane, 
-    const bool xz_plane, 
+    mat4 * restrict m_out,
+    const bool yz_plane,
+    const bool xz_plane,
     const bool xy_plane
 ) {
     mat4 ref_mat = { 0 };
@@ -110,9 +111,9 @@ LAC_DECL void lac_get_reflection_mat4(
  * @param[in] tz Arbitrary unit for translation in the z-direction
  */
 LAC_DECL void lac_get_translation_mat4(
-    mat4 * restrict m_out, 
-    const float tx, 
-    const float ty, 
+    mat4 * restrict m_out,
+    const float tx,
+    const float ty,
     const float tz
 ) {
 #if LAC_IS_ROW_MAJOR
@@ -137,9 +138,9 @@ LAC_DECL void lac_get_translation_mat4(
  * @param[in] sz Arbitrary unit for scaling in the z-direction
  */
 LAC_DECL void lac_get_scalar_mat4(
-    mat4 * restrict m_out, 
-    const float sx, 
-    const float sy, 
+    mat4 * restrict m_out,
+    const float sx,
+    const float sy,
     const float sz
 ) {
 #if LAC_IS_ROW_MAJOR
@@ -210,9 +211,9 @@ LAC_DECL void lac_get_roll_mat4(mat4 * restrict m_out, const float roll) {
  * @param[in] rz Rotation angle in the z-axis (given in radians)
  */
 LAC_DECL void lac_get_rotation_mat4(
-    mat4 * restrict m_out, 
-    const float rx, 
-    const float ry, 
+    mat4 * restrict m_out,
+    const float rx,
+    const float ry,
     const float rz
 ) {
     float cos_rx, sin_rx, cos_ry, sin_ry, cos_rz, sin_rz;
@@ -256,18 +257,18 @@ LAC_DECL void lac_get_rotation_mat4(
 }
 
 /**
- * @brief Gets a normalized point-at matrix 
+ * @brief Gets a normalized point-at matrix
  * @anchor lac_get_point_at_mat4_anchor
  * @since 10-20-2023
- * @param[out] m_out The point-at matrix 
+ * @param[out] m_out The point-at matrix
  * @param[in] v_eye A vector representing the origin of the camera
  * @param[in] v_target A vector representing the target point in 3D space for the camera to point towards
  * @param[in] v_up A vector representing the "up" direction (used for camera orientation)
  */
 LAC_DECL void lac_get_point_at_mat4(
-    mat4 * restrict m_out, 
-    const vec3 v_eye, 
-    const vec3 v_target, 
+    mat4 * restrict m_out,
+    const vec3 v_eye,
+    const vec3 v_target,
     const vec3 v_up
 ) {
     vec3 forward_unit, right_unit, up_unit, v_res;
@@ -306,7 +307,7 @@ LAC_DECL void lac_get_point_at_mat4(
  * @anchor lac_invert_mat4_anchor
  * @since 10-17-2023
  * @param[out] m_out The resulting look-at matrix
- * @param[in] m_in The matrix to be inverted 
+ * @param[in] m_in The matrix to be inverted
  */
 LAC_DECL void lac_invert_mat4(mat4 *m_out, const mat4 m_in) {
     float dot_prod;
@@ -315,7 +316,7 @@ LAC_DECL void lac_invert_mat4(mat4 *m_out, const mat4 m_in) {
 #else
     lac_calc_dot_prod_vec3(
         &dot_prod,
-        (vec3){ m_in[3], m_in[7], m_in[11] }, 
+        (vec3){ m_in[3], m_in[7], m_in[11] },
         (vec3){ m_in[0], m_in[4], m_in[8]  }
     );
     (*m_out)[0]  = m_in[0];
@@ -325,7 +326,7 @@ LAC_DECL void lac_invert_mat4(mat4 *m_out, const mat4 m_in) {
 
     lac_calc_dot_prod_vec3(
         &dot_prod,
-        (vec3){ m_in[3], m_in[7], m_in[11] }, 
+        (vec3){ m_in[3], m_in[7], m_in[11] },
         (vec3){ m_in[1], m_in[5], m_in[9]  }
     );
     (*m_out)[4]  = m_in[1];
@@ -335,7 +336,7 @@ LAC_DECL void lac_invert_mat4(mat4 *m_out, const mat4 m_in) {
 
     lac_calc_dot_prod_vec3(
         &dot_prod,
-        (vec3){ m_in[3], m_in[7], m_in[11] }, 
+        (vec3){ m_in[3], m_in[7], m_in[11] },
         (vec3){ m_in[2], m_in[6], m_in[10] }
     );
     (*m_out)[8]  = m_in[2];
@@ -356,14 +357,14 @@ LAC_DECL void lac_invert_mat4(mat4 *m_out, const mat4 m_in) {
  * @param[out] m_out The resulting projection matrix that can be applied through matrix multiplication
  * @param[in] aspect The aspect ratio of the screen (taken by height/width)
  * @param[in] fov The field of view (given as an angle in degrees)
- * @param[in] The "near" clipping z-plane 
+ * @param[in] The "near" clipping z-plane
  * @param[in] The "far" clipping z-plane
  */
 LAC_DECL void lac_get_projection_mat4(
-    mat4 * restrict m_out, 
-    const float aspect, 
-    const float fov, 
-    const float znear, 
+    mat4 * restrict m_out,
+    const float aspect,
+    const float fov,
+    const float znear,
     const float zfar
 ) {
 #if LAC_IS_ROW_MAJOR
