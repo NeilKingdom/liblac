@@ -1,11 +1,11 @@
 \doxysection{matmath.\+h}
-\hypertarget{matmath_8h_source}{}\label{matmath_8h_source}\index{/home/neil/devel/github/liblac/include/matmath.h@{/home/neil/devel/github/liblac/include/matmath.h}}
+\hypertarget{matmath_8h_source}{}\label{matmath_8h_source}\index{/home/neil/devel/projects/liblac/include/matmath.h@{/home/neil/devel/projects/liblac/include/matmath.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MATMATH\_H}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MATMATH\_H}}
 \DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}common.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}lac\_common.h"{}}}
 \DoxyCodeLine{00005\ }
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
 \DoxyCodeLine{00007\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
@@ -21,19 +21,15 @@
 \DoxyCodeLine{00017\ \textcolor{keywordtype}{void}\ lac\_multiply\_mat3(mat3\ *m\_out,\ \textcolor{keyword}{const}\ mat3\ m\_a,\ \textcolor{keyword}{const}\ mat3\ m\_b);}
 \DoxyCodeLine{00018\ \textcolor{keywordtype}{void}\ lac\_multiply\_mat4(mat4\ *m\_out,\ \textcolor{keyword}{const}\ mat4\ m\_a,\ \textcolor{keyword}{const}\ mat4\ m\_b);}
 \DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \textcolor{keywordtype}{void}\ lac\_multiply\_mat2\_vec2(vec2\ *v\_out,\ \textcolor{keyword}{const}\ mat2\ m\_in,\ \textcolor{keyword}{const}\ vec2\ v\_in);}
-\DoxyCodeLine{00021\ \textcolor{keywordtype}{void}\ lac\_multiply\_mat3\_vec3(vec3\ *v\_out,\ \textcolor{keyword}{const}\ mat3\ m\_in,\ \textcolor{keyword}{const}\ vec3\ v\_in);}
-\DoxyCodeLine{00022\ \textcolor{keywordtype}{void}\ lac\_multiply\_mat4\_vec4(vec4\ *v\_out,\ \textcolor{keyword}{const}\ mat4\ m\_in,\ \textcolor{keyword}{const}\ vec4\ v\_in);}
+\DoxyCodeLine{00020\ \textcolor{keywordtype}{void}\ lac\_transpose\_mat2(mat2\ *m\_out,\ \textcolor{keyword}{const}\ mat2\ m\_in);}
+\DoxyCodeLine{00021\ \textcolor{keywordtype}{void}\ lac\_transpose\_mat3(mat3\ *m\_out,\ \textcolor{keyword}{const}\ mat3\ m\_in);}
+\DoxyCodeLine{00022\ \textcolor{keywordtype}{void}\ lac\_transpose\_mat4(mat4\ *m\_out,\ \textcolor{keyword}{const}\ mat4\ m\_in);}
 \DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ lac\_transpose\_mat2(mat2\ *m\_out,\ \textcolor{keyword}{const}\ mat2\ m\_in);}
-\DoxyCodeLine{00025\ \textcolor{keywordtype}{void}\ lac\_transpose\_mat3(mat3\ *m\_out,\ \textcolor{keyword}{const}\ mat3\ m\_in);}
-\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ lac\_transpose\_mat4(mat4\ *m\_out,\ \textcolor{keyword}{const}\ mat4\ m\_in);}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00025\ \}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_cplusplus\ */}\textcolor{preprocessor}{}}
 \DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
-\DoxyCodeLine{00029\ \}}
-\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_cplusplus\ */}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ MATMATH\_H\ */}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ MATMATH\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00029\ }
 
 \end{DoxyCode}

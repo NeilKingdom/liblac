@@ -345,8 +345,8 @@ LAC_DECL void lac_calc_cross_prod(vec3 *v_out, const vec3 v_a, const vec3 v_b) {
 /**
  * @brief Calculates the magnitude for a given vector of size 2.
  * @since 12-10-2023
- * @param magnitude The calculated magnitude
- * @param The vector for which the magnitude is calculated
+ * @param magnitude magnitude The calculated magnitude
+ * @param v_in The vector for which the magnitude is calculated
  */
 LAC_DECL void lac_calc_magnitude_vec2(float *magnitude, const vec2 v_in) {
     *magnitude = sqrtf((v_in[0] * v_in[0]) + (v_in[1] * v_in[1]));
@@ -356,7 +356,7 @@ LAC_DECL void lac_calc_magnitude_vec2(float *magnitude, const vec2 v_in) {
  * @brief Calculates the magnitude for a given vector of size 3.
  * @since 12-10-2023
  * @param magnitude The calculated magnitude
- * @param The vector for which the magnitude is calculated
+ * @param v_in The vector for which the magnitude is calculated
  */
 LAC_DECL void lac_calc_magnitude_vec3(float *magnitude, const vec3 v_in) {
     *magnitude = sqrtf((v_in[0] * v_in[0]) + (v_in[1] * v_in[1]) + (v_in[2] * v_in[2]));
@@ -366,7 +366,7 @@ LAC_DECL void lac_calc_magnitude_vec3(float *magnitude, const vec3 v_in) {
  * @brief Calculates the magnitude for a given vector of size 4.
  * @since 12-10-2023
  * @param magnitude The calculated magnitude
- * @param The vector for which the magnitude is calculated
+ * @param v_in The vector for which the magnitude is calculated
  */
 LAC_DECL void lac_calc_magnitude_vec4(float *magnitude, const vec4 v_in) {
     *magnitude = sqrtf((v_in[0] * v_in[0]) + (v_in[1] * v_in[1]) + (v_in[2] * v_in[2]) + (v_in[3] * v_in[3]));

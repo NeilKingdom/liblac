@@ -1,10 +1,10 @@
-<pre>
+```
  _ _ _     _
 | (_) |__ | | __ _  ___
 | | | '_ \| |/ _` |/ __|
 | | | |_) | | (_| | (__
 |_|_|_.__/|_|\__,_|\___|
-</pre>
+```
 
 ✝️ This software was written in the name of the __Father__ and of the __Son__ and of the __Holy Spirit__; Amen.
 
@@ -22,8 +22,8 @@ There are certainly much more efficient algorithms for doing vector and matrix m
 with modern hardware features such as SIMD. These tend to make code less portable, however, which
 was a minor consideration as well. You will notice that the APIs are written in a functional manner
 (although not purely functional). This is to say that the mutation of input parameters is generally
-avoided, except for the output parameter. This places the responsibility of managing
-owners on you, the maintainer, not on the library. Each API function is named following a specific
+avoided, except for the output parameter. This places the responsibility of managing resource ownership
+on you, the maintainer, not on the library. Each API function is named following a specific
 convention. Each API function begins with lac_, which is intentionally done to reduce namespace
 collisions and to differentiate from other libraries. Additionally, each API function follows a
 verb-subject structure. This makes it easy to anticipate the names of similar functionality. For
@@ -43,7 +43,7 @@ boolean flags, etc.
 In order to use liblac for your application(s) run the following command:
 
 ```console
-$ sudo make install
+sudo make install
 ```
 
 This installs both the shared object/dll and archive/static versions of the library in
@@ -51,22 +51,22 @@ This installs both the shared object/dll and archive/static versions of the libr
 command instead:
 
 ```console
-$ sudo make LIB_DIR=/full/path/to/install/ install
+sudo make LIB_DIR=/full/path/to/install/ install
 ```
 
 If you want to simply build the binaries but not copy them to an installation directory,
 run the following command instead:
 
 ```console
-$ sudo make all
+sudo make all
 ```
 
 This will place both the shared object/dll and archive/static versions of the library in
 the repo's bin directory.
 
-In order to use the library within your application, ensure that either the installation
-directory is checked by the linker (for ld this is either /lib/ or /usr/lib/), or alternatively
-ensure that the installation directory is present in $LD_LIBRARY_PATH. If using the shared
-object version, ensure that you provide -llac as an option to your compiler. If using GCC, you
-can specify the -L flag followed by the installation directory to have GCC check for files
-specified with -l.
+In order to link with the shared object version of the library, it will need to be placed in a location where
+the linker (traditionally ld) will find it. By default, ld looks in /usr/ and /usr/lib/, which is where the
+make install Makefile rule places it by default. If you opted to place it somewhere else, you'll need to
+ensure that the path either exists in the $LD_LIBRARY_PATH environment variable, or that the shared object is
+build using the -Wl,-rpath=</path/to/so_file.so> flag. You'll need to also use the -L flag to specify where the
+library exists when compiling, as well as -llac to link with the library.

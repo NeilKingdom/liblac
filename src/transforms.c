@@ -10,7 +10,32 @@
  *
  * @section ypr Yaw Pitch Roll
  *
- * TODO: Add comments
+ * Yaw, pitch, and roll are terms used to describe the rotation
+ * (traditionally of an aircraft) as it moves through a medium. Yaw,
+ * pitch and roll do not necessarily correspond to any particular axes
+ * in cartesian space, but are more-so aimed towards describing the
+ * movement relative to the body of the object in question. In an airplane,
+ * the roll describes the axis that runs parallel to the fusalage of the
+ * plane. In other words, when the airplane tilts its wings, the airplane
+ * rolls to one side. The pitch would describe ascension or descension of
+ * the plane, in which the nose of the plane is tilted upwards or downwards,
+ * or in other words, a rotation about the planes center of mass that
+ * transforms the tail and nose. Finally, there is yaw, which when talking
+ * about planes is less applicable, since they don't naturally move about
+ * this axis very much. This axis describes rotation about the plane's center
+ * of mass such that the nose and tail turn to the left or right. When
+ * applied to 3D graphics, the roll generally represents the x axis, the
+ * pitch represents the y axis, and the yaw represents the z axis. This also
+ * assumes the right-hand rule, whereby you point your index finger forwards
+ * (x axis), your ring finger left-wards (y axis) and your thumb upwards
+ * (z axis).
+ *
+ * ```
+ *             z (up)
+ * (forward) x |
+ *            \|
+ *  (left) y---+
+ * ```
  *
  * @subsection ypr_related Related Functions
  *
@@ -115,7 +140,7 @@ LAC_DECL void lac_get_reflection_mat4(
 /**
  * @brief Gets a translation matrix according to the input parameters.
  * @since 10-17-2023
- * @param The translation matrix which can be applied through matrix multiplication
+ * @param m_out The translation matrix which can be applied through matrix multiplication
  * @param tx Arbitrary unit for translation in the x-direction
  * @param ty Arbitrary unit for translation in the y-direction
  * @param tz Arbitrary unit for translation in the z-direction
@@ -142,7 +167,7 @@ LAC_DECL void lac_get_translation_mat4(
 /**
  * @brief Gets a scalar matrix according to the input parameters.
  * @since 10-17-2023
- * @param The scalar matrix which can be applied through matrix multiplication
+ * @param m_out The scalar matrix which can be applied through matrix multiplication
  * @param sx Arbitrary unit for scaling in the x-direction
  * @param sy Arbitrary unit for scaling in the y-direction
  * @param sz Arbitrary unit for scaling in the z-direction
@@ -171,7 +196,7 @@ LAC_DECL void lac_get_scalar_mat4(
  * @anchor lac_get_yaw_mat4_anchor
  * @since 10-17-2023
  * @param m_out The rotation matrix which can be applied through matrix multiplication
- * @param roll Rotation angle about the yaw axis (given in radians)
+ * @param yaw Rotation angle about the yaw axis (given in radians)
  */
 LAC_DECL void lac_get_yaw_mat4(mat4 *m_out, const float yaw) {
     float cos_yaw, sin_yaw;
@@ -193,7 +218,7 @@ LAC_DECL void lac_get_yaw_mat4(mat4 *m_out, const float yaw) {
  * @anchor lac_get_pitch_mat4_anchor
  * @since 10-17-2023
  * @param m_out The rotation matrix which can be applied through matrix multiplication
- * @param roll Rotation angle about the pitch axis (given in radians)
+ * @param pitch Rotation angle about the pitch axis (given in radians)
  */
 LAC_DECL void lac_get_pitch_mat4(mat4 *m_out, const float pitch) {
     float cos_pitch, sin_pitch;
@@ -236,10 +261,10 @@ LAC_DECL void lac_get_roll_mat4(mat4 *m_out, const float roll) {
  * @brief Gets a rotation matrix according to the input angles for each axis.
  * @anchor lac_get_rotation_mat4_anchor
  * @since 10-17-2023
- * @param[out] m_out The rotation matrix which can be applied through matrix multiplication
- * @param[in] rx Rotation angle in the x-axis (given in radians)
- * @param[in] ry Rotation angle in the y-axis (given in radians)
- * @param[in] rz Rotation angle in the z-axis (given in radians)
+ * @param m_out The rotation matrix which can be applied through matrix multiplication
+ * @param rx Rotation angle in the x-axis (given in radians)
+ * @param ry Rotation angle in the y-axis (given in radians)
+ * @param rz Rotation angle in the z-axis (given in radians)
  */
 LAC_DECL void lac_get_rotation_mat4(
     mat4 *m_out,
@@ -334,7 +359,7 @@ LAC_DECL void lac_get_point_at_mat4(
 
 /**
  * @brief This function is designed specifically for inverting the point-at matrix.
- * @warn This is not a true matrix inversion function; it only works with rotation and translation matrices.
+ * @warning This is not a true matrix inversion function; it only works with rotation and translation matrices.
  * @anchor lac_invert_mat4_anchor
  * @since 10-17-2023
  * @param m_out The resulting look-at matrix
@@ -388,8 +413,8 @@ LAC_DECL void lac_invert_mat4(mat4 *m_out, const mat4 m_in) {
  * @param m_out The resulting projection matrix that can be applied through matrix multiplication
  * @param aspect The aspect ratio of the screen (taken by height/width)
  * @param fov The field of view (given as an angle in degrees)
- * @param The "near" clipping z-plane
- * @param The "far" clipping z-plane
+ * @param znear The "near" clipping z-plane
+ * @param zfar The "far" clipping z-plane
  */
 LAC_DECL void lac_get_projection_mat4(
     mat4 *m_out,
