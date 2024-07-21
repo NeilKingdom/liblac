@@ -1,4 +1,3 @@
-.clangd
-compile_flags.txt
 bin
 obj
+compile_flags.txt
