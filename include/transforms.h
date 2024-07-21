@@ -1,7 +1,9 @@
-#ifndef MATRICES_H
-#define MATRICES_H
+#ifndef TRANSFORMS_H
+#define TRANSFORMS_H
 
 #include "lac_common.h"
+#include "matmath.h"
+#include "vecmath.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -27,4 +29,4 @@ void lac_invert_mat4(mat4 *m_out, const mat4 m_in);
 }
 #endif /* __cplusplus */
 
-#endif /* MATRICES_H */
+#endif /* TRANSFORMS_H */

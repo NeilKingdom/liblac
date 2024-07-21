@@ -1,5 +1,5 @@
 #ifndef LAC_COMMON_H
-#define LAC_COMMON_H 
+#define LAC_COMMON_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -29,27 +29,57 @@ typedef float vec2[2];
 typedef float vec3[3];
 typedef float vec4[4];
 
+typedef enum {
+    LAC_NOTE,
+    LAC_WARNING,
+    LAC_ERROR
+} LacLogLevel_t;
+
 #if defined(__GNUC__)
-#pragma GCC diagnostic push 
+#pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-function"
 #elif defined(__clang__)
-#pragma clang diagnostic push 
+#pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunused-function"
 #endif
-static void _lac_warn(char *file, const char *func, int line, const char *msg) {
-   fprintf(stderr, "\n=========== WARNING ===========\n"
-                   "Backtrace:\n\n"
-                   "File: %s, Function: %s, Line: %d\n"
-                   "Short message: %s\n",
-                   file, func, line, msg);
+
+static void _lac_log(
+    const char *file,
+    const char *func,
+    const int line,
+    const char *msg,
+    const LacLogLevel_t level) {
+
+    char header[20];
+    switch (level) {
+        case LAC_NOTE:
+            strncpy(header, "NOTE", 20);
+            break;
+        case LAC_WARNING:
+            strncpy(header, "WARNING", 20);
+            break;
+        case LAC_ERROR:
+            strncpy(header, "ERROR", 20);
+            break;
+    }
+
+    fprintf((level == LAC_NOTE) ? stdout : stderr,
+        "\n=========== %s ===========\n"
+        "Logger: %s\n"
+        "File: %s, Function: %s, Line: %d\n",
+        header, msg, file, func, line
+    );
 }
+
 #if defined(__GNUC__)
 #pragma GCC diagnostic pop
 #elif defined(__clang__)
 #pragma clang diagnostic pop
 #endif
 
-#define LAC_WARN(msg) (_lac_warn((__FILE__), (__func__), (__LINE__), (msg)))
+#define LAC_LOG(msg, level) do { \
+    _lac_log((__FILE__), (__func__), (__LINE__), (msg), (level)); \
+} while (0)
 
 #ifdef __cplusplus
 }

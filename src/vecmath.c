@@ -3,7 +3,7 @@
  * @author Neil Kingdom
  * @since 10-17-2023
  * @version 1.0
- * @brief vecmath.c Contains all of the maths functions which pertain to vectors specifically
+ * @brief Contains all of the maths functions which pertain to vectors specifically.
  *
  * @section dotprod Dot Product
  *
@@ -71,11 +71,11 @@
 #include "lac_common.h"
 
 /**
- * @brief Calculates the sum between two vectors of size 2
+ * @brief Calculates the sum between two vectors of size 2.
  * @since 10-19-2023
- * @param[out] v_out The sum vector
- * @param[in] v_a The Augend vector
- * @param[in] v_b The Addend vector
+ * @param v_out The sum vector
+ * @param v_a The Augend vector
+ * @param v_b The Addend vector
  */
 LAC_DECL void lac_add_vec2(vec2 *v_out, const vec2 v_a, const vec2 v_b) {
     (*v_out)[0] = v_a[0] + v_b[0];
@@ -83,11 +83,11 @@ LAC_DECL void lac_add_vec2(vec2 *v_out, const vec2 v_a, const vec2 v_b) {
 }
 
 /**
- * @brief Calculates the sum between two vectors of size 3
+ * @brief Calculates the sum between two vectors of size 3.
  * @since 10-19-2023
- * @param[out] v_out The sum vector
- * @param[in] v_a The Augend vector
- * @param[in] v_b The Addend vector
+ * @param v_out The sum vector
+ * @param v_a The Augend vector
+ * @param v_b The Addend vector
  */
 LAC_DECL void lac_add_vec3(vec3 *v_out, const vec3 v_a, const vec3 v_b) {
     (*v_out)[0] = v_a[0] + v_b[0];
@@ -96,11 +96,11 @@ LAC_DECL void lac_add_vec3(vec3 *v_out, const vec3 v_a, const vec3 v_b) {
 }
 
 /**
- * @brief Calculates the sum between two vectors of size 4
+ * @brief Calculates the sum between two vectors of size 4.
  * @since 10-19-2023
- * @param[out] v_out The sum vector
- * @param[in] v_a The Augend vector
- * @param[in] v_b The Addend vector
+ * @param v_out The sum vector
+ * @param v_a The Augend vector
+ * @param v_b The Addend vector
  */
 LAC_DECL void lac_add_vec4(vec4 *v_out, const vec4 v_a, const vec4 v_b) {
     (*v_out)[0] = v_a[0] + v_b[0];
@@ -110,11 +110,11 @@ LAC_DECL void lac_add_vec4(vec4 *v_out, const vec4 v_a, const vec4 v_b) {
 }
 
 /**
- * @brief Calculates the difference between two vectors of size 2
+ * @brief Calculates the difference between two vectors of size 2.
  * @since 10-17-2023
- * @param[out] v_out The difference vector
- * @param[in] v_a The minuend vector
- * @param[in] v_b The subtrahend vector
+ * @param v_out The difference vector
+ * @param v_a The minuend vector
+ * @param v_b The subtrahend vector
  */
 LAC_DECL void lac_subtract_vec2(vec2 *v_out, const vec2 v_a, const vec2 v_b) {
     (*v_out)[0] = v_a[0] - v_b[0];
@@ -122,11 +122,11 @@ LAC_DECL void lac_subtract_vec2(vec2 *v_out, const vec2 v_a, const vec2 v_b) {
 }
 
 /**
- * @brief Calculates the difference between two vectors of size 3
+ * @brief Calculates the difference between two vectors of size 3.
  * @since 10-17-2023
- * @param[out] v_out The difference vector
- * @param[in] v_a The minuend vector
- * @param[in] v_b The subtrahend vector
+ * @param v_out The difference vector
+ * @param v_a The minuend vector
+ * @param v_b The subtrahend vector
  */
 LAC_DECL void lac_subtract_vec3(vec3 *v_out, const vec3 v_a, const vec3 v_b) {
     (*v_out)[0] = v_a[0] - v_b[0];
@@ -135,11 +135,11 @@ LAC_DECL void lac_subtract_vec3(vec3 *v_out, const vec3 v_a, const vec3 v_b) {
 }
 
 /**
- * @brief Calculates the difference between two vectors of size 4
+ * @brief Calculates the difference between two vectors of size 4.
  * @since 10-17-2023
- * @param[out] v_out The difference vector
- * @param[in] v_a The minuend vector
- * @param[in] v_b The subtrahend vector
+ * @param v_out The difference vector
+ * @param v_a The minuend vector
+ * @param v_b The subtrahend vector
  */
 LAC_DECL void lac_subtract_vec4(vec4 *v_out, const vec4 v_a, const vec4 v_b) {
     (*v_out)[0] = v_a[0] - v_b[0];
@@ -149,11 +149,11 @@ LAC_DECL void lac_subtract_vec4(vec4 *v_out, const vec4 v_a, const vec4 v_b) {
 }
 
 /**
- * @brief Scales a vector of size 2 up by a factor of "scalar"
+ * @brief Scales a vector of size 2 up by a factor of "scalar".
  * @since 10-19-2023
- * @param[out] v_out The scaled vector
- * @param[in] v_in The vector to be scaled
- * @param[in] scalar A constant representing the multiplier
+ * @param v_out The scaled vector
+ * @param v_in The vector to be scaled
+ * @param scalar A constant representing the multiplier
  */
 LAC_DECL void lac_multiply_vec2(vec2 *v_out, const vec2 v_in, float scalar) {
     (*v_out)[0] = v_in[0] * scalar;
@@ -161,11 +161,11 @@ LAC_DECL void lac_multiply_vec2(vec2 *v_out, const vec2 v_in, float scalar) {
 }
 
 /**
- * @brief Scales a vector of size 3 up by a factor of "scalar"
+ * @brief Scales a vector of size 3 up by a factor of "scalar".
  * @since 10-19-2023
- * @param[out] v_out The scaled vector
- * @param[in] v_in The vector to be scaled
- * @param[in] scalar A constant representing the multiplier
+ * @param v_out The scaled vector
+ * @param v_in The vector to be scaled
+ * @param scalar A constant representing the multiplier
  */
 LAC_DECL void lac_multiply_vec3(vec3 *v_out, const vec3 v_in, float scalar) {
     (*v_out)[0] = v_in[0] * scalar;
@@ -174,11 +174,11 @@ LAC_DECL void lac_multiply_vec3(vec3 *v_out, const vec3 v_in, float scalar) {
 }
 
 /**
- * @brief Scales a vector of size 4 up by a factor of "scalar"
+ * @brief Scales a vector of size 4 up by a factor of "scalar".
  * @since 10-19-2023
- * @param[out] v_out The scaled vector
- * @param[in] v_in The vector to be scaled
- * @param[in] scalar A constant representing the multiplier
+ * @param v_out The scaled vector
+ * @param v_in The vector to be scaled
+ * @param scalar A constant representing the multiplier
  */
 LAC_DECL void lac_multiply_vec4(vec4 *v_out, const vec4 v_in, float scalar) {
     (*v_out)[0] = v_in[0] * scalar;
@@ -188,11 +188,11 @@ LAC_DECL void lac_multiply_vec4(vec4 *v_out, const vec4 v_in, float scalar) {
 }
 
 /**
- * @brief Multiplies a matrix of size 2 by a vector of size 2
+ * @brief Multiplies a matrix of size 2 by a vector of size 2.
  * @since 10-22-2023
- * @param[out] v_out The product vector
- * @param[in] v_in The input vector
- * @param[in] m_in The input matrix
+ * @param v_out The product vector
+ * @param v_in The input vector
+ * @param m_in The input matrix
  */
 LAC_DECL void lac_multiply_vec2_mat2(vec2 *v_out, const vec2 v_in, const mat2 m_in) {
 #if LAC_IS_ROW_MAJOR
@@ -203,11 +203,11 @@ LAC_DECL void lac_multiply_vec2_mat2(vec2 *v_out, const vec2 v_in, const mat2 m_
 }
 
 /**
- * @brief Multiplies a matrix of size 3 by a vector of size 3
+ * @brief Multiplies a matrix of size 3 by a vector of size 3.
  * @since 10-22-2023
- * @param[out] v_out The product vector
- * @param[in] v_in The input vector
- * @param[in] m_in The input matrix
+ * @param v_out The product vector
+ * @param v_in The input vector
+ * @param m_in The input matrix
  */
 LAC_DECL void lac_multiply_vec3_mat3(vec3 *v_out, const vec3 v_in, const mat3 m_in) {
 #if LAC_IS_ROW_MAJOR
@@ -219,11 +219,11 @@ LAC_DECL void lac_multiply_vec3_mat3(vec3 *v_out, const vec3 v_in, const mat3 m_
 }
 
 /**
- * @brief Multiplies a matrix of size 4 by a vector of size 4
+ * @brief Multiplies a matrix of size 4 by a vector of size 4.
  * @since 10-22-2023
- * @param[out] v_out The product vector
- * @param[in] v_in The input vector
- * @param[in] m_in The input matrix
+ * @param v_out The product vector
+ * @param v_in The input vector
+ * @param m_in The input matrix
  */
 LAC_DECL void lac_multiply_vec4_mat4(vec4 *v_out, const vec4 v_in, const mat4 m_in) {
 #if LAC_IS_ROW_MAJOR
@@ -236,15 +236,15 @@ LAC_DECL void lac_multiply_vec4_mat4(vec4 *v_out, const vec4 v_in, const mat4 m_
 }
 
 /**
- * @brief Scales a vector of size 2 down by a factor of "scalar"
+ * @brief Scales a vector of size 2 down by a factor of "scalar".
  * @since 10-19-2023
- * @param[out] v_out The scaled vector
- * @param[in] v_in The vector to be scaled
- * @param[in] scalar A constant representing the divisor
+ * @param v_out The scaled vector
+ * @param v_in The vector to be scaled
+ * @param scalar A constant representing the divisor
  */
 LAC_DECL void lac_divide_vec2(vec2 *v_out, const vec2 v_in, float scalar) {
     if (scalar == 0.0f) {
-        LAC_WARN("Attempted divide by 0");
+        LAC_LOG("Attempted divide by 0", LAC_WARNING);
         (*v_out)[0] = 0.0f;
         (*v_out)[1] = 0.0f;
     } else {
@@ -254,15 +254,15 @@ LAC_DECL void lac_divide_vec2(vec2 *v_out, const vec2 v_in, float scalar) {
 }
 
 /**
- * @brief Scales a vector of size 3 down by a factor of "scalar"
+ * @brief Scales a vector of size 3 down by a factor of "scalar".
  * @since 10-19-2023
- * @param[out] v_out The scaled vector
- * @param[in] v_in The vector to be scaled
- * @param[in] scalar A constant representing the divisor
+ * @param v_out The scaled vector
+ * @param v_in The vector to be scaled
+ * @param scalar A constant representing the divisor
  */
 LAC_DECL void lac_divide_vec3(vec3 *v_out, const vec3 v_in, float scalar) {
     if (scalar == 0.0f) {
-        LAC_WARN("Attempted divide by 0");
+        LAC_LOG("Attempted divide by 0", LAC_WARNING);
         (*v_out)[0] = 0.0f;
         (*v_out)[1] = 0.0f;
     } else {
@@ -273,15 +273,15 @@ LAC_DECL void lac_divide_vec3(vec3 *v_out, const vec3 v_in, float scalar) {
 }
 
 /**
- * @brief Scales a vector of size 3 down by a factor of "scalar"
+ * @brief Scales a vector of size 3 down by a factor of "scalar".
  * @since 10-19-2023
- * @param[out] v_out The scaled vector
- * @param[in] v_in The vector to be scaled
- * @param[in] scalar A constant representing the divisor
+ * @param v_out The scaled vector
+ * @param v_in The vector to be scaled
+ * @param scalar A constant representing the divisor
  */
 LAC_DECL void lac_divide_vec4(vec4 *v_out, const vec4 v_in, float scalar) {
     if (scalar == 0.0f) {
-        LAC_WARN("Attempted divide by 0");
+        LAC_LOG("Attempted divide by 0", LAC_WARNING);
         (*v_out)[0] = 0.0f;
         (*v_out)[1] = 0.0f;
     } else {
@@ -293,48 +293,48 @@ LAC_DECL void lac_divide_vec4(vec4 *v_out, const vec4 v_in, float scalar) {
 }
 
 /**
- * @brief Calculates the dot product given two vectors of size 2
+ * @brief Calculates the dot product given two vectors of size 2.
  * @anchor lac_calc_dot_prod_vec2_anchor
  * @since 10-17-2023
- * @param[out] dot_prod The scalar value
- * @param[in] v_a The left-hand operand for the operation
- * @param[in] v_b The right-hand operand for the operation
+ * @param dot_prod The scalar value
+ * @param v_a The left-hand operand for the operation
+ * @param v_b The right-hand operand for the operation
  */
-LAC_DECL void lac_calc_dot_prod_vec2(float * restrict dot_prod, const vec2 v_a, const vec2 v_b) {
+LAC_DECL void lac_calc_dot_prod_vec2(float *dot_prod, const vec2 v_a, const vec2 v_b) {
     *dot_prod = (v_a[0] * v_b[0]) + (v_a[1] * v_b[1]);
 }
 
 /**
- * @brief Calculates the dot product given two vectors of size 3
+ * @brief Calculates the dot product given two vectors of size 3.
  * @anchor lac_calc_dot_prod_vec3_anchor
  * @since 10-17-2023
- * @param[out] dot_prod The scalar value
- * @param[in] v_a The left-hand operand for the operation
- * @param[in] v_b The right-hand operand for the operation
+ * @param dot_prod The scalar value
+ * @param v_a The left-hand operand for the operation
+ * @param v_b The right-hand operand for the operation
  */
-LAC_DECL void lac_calc_dot_prod_vec3(float * restrict dot_prod, const vec3 v_a, const vec3 v_b) {
+LAC_DECL void lac_calc_dot_prod_vec3(float *dot_prod, const vec3 v_a, const vec3 v_b) {
     *dot_prod = (v_a[0] * v_b[0]) + (v_a[1] * v_b[1]) + (v_a[2] * v_b[2]);
 }
 
 /**
- * @brief Calculates the dot product given two vectors of size 4
+ * @brief Calculates the dot product given two vectors of size 4.
  * @anchor lac_calc_dot_prod_vec4_anchor
  * @since 10-17-2023
- * @param[out] dot_prod The scalar value
- * @param[in] v_a The left-hand operand for the operation
- * @param[in] v_b The right-hand operand for the operation
+ * @param dot_prod The scalar value
+ * @param v_a The left-hand operand for the operation
+ * @param v_b The right-hand operand for the operation
  */
-LAC_DECL void lac_calc_dot_prod_vec4(float * restrict dot_prod, const vec4 v_a, const vec4 v_b) {
+LAC_DECL void lac_calc_dot_prod_vec4(float *dot_prod, const vec4 v_a, const vec4 v_b) {
     *dot_prod = (v_a[0] * v_b[0]) + (v_a[1] * v_b[1]) + (v_a[2] * v_b[2]) + (v_a[3] * v_b[3]);
 }
 
 /**
- * @brief Calculates the cross product given two vectors of size 3
+ * @brief Calculates the cross product given two vectors of size 3.
  * @anchor lac_calc_cross_prod_anchor
  * @since 10-17-2023
- * @param[out] v_out The resulting vector, orthogonal to v_a and v_b
- * @param[in] v_a The left-hand operand for the operation
- * @param[in] v_b The right-hand operand for the operation
+ * @param v_out The resulting vector, orthogonal to v_a and v_b
+ * @param v_a The left-hand operand for the operation
+ * @param v_b The right-hand operand for the operation
  */
 LAC_DECL void lac_calc_cross_prod(vec3 *v_out, const vec3 v_a, const vec3 v_b) {
     (*v_out)[0] = (v_a[1] * v_b[2]) - (v_a[2] * v_b[1]);
@@ -343,41 +343,41 @@ LAC_DECL void lac_calc_cross_prod(vec3 *v_out, const vec3 v_a, const vec3 v_b) {
 }
 
 /**
- * @brief Calculates the magnitude for a given vector of size 2
+ * @brief Calculates the magnitude for a given vector of size 2.
  * @since 12-10-2023
- * @param[out] magnitude The calculated magnitude
- * @param[in] The vector for which the magnitude is calculated
+ * @param magnitude The calculated magnitude
+ * @param The vector for which the magnitude is calculated
  */
-LAC_DECL void lac_calc_magnitude_vec2(float * restrict magnitude, const vec2 v_in) {
+LAC_DECL void lac_calc_magnitude_vec2(float *magnitude, const vec2 v_in) {
     *magnitude = sqrtf((v_in[0] * v_in[0]) + (v_in[1] * v_in[1]));
 }
 
 /**
- * @brief Calculates the magnitude for a given vector of size 3
+ * @brief Calculates the magnitude for a given vector of size 3.
  * @since 12-10-2023
- * @param[out] magnitude The calculated magnitude
- * @param[in] The vector for which the magnitude is calculated
+ * @param magnitude The calculated magnitude
+ * @param The vector for which the magnitude is calculated
  */
-LAC_DECL void lac_calc_magnitude_vec3(float * restrict magnitude, const vec3 v_in) {
+LAC_DECL void lac_calc_magnitude_vec3(float *magnitude, const vec3 v_in) {
     *magnitude = sqrtf((v_in[0] * v_in[0]) + (v_in[1] * v_in[1]) + (v_in[2] * v_in[2]));
 }
 
 /**
- * @brief Calculates the magnitude for a given vector of size 4
+ * @brief Calculates the magnitude for a given vector of size 4.
  * @since 12-10-2023
- * @param[out] magnitude The calculated magnitude
- * @param[in] The vector for which the magnitude is calculated
+ * @param magnitude The calculated magnitude
+ * @param The vector for which the magnitude is calculated
  */
-LAC_DECL void lac_calc_magnitude_vec4(float * restrict magnitude, const vec4 v_in) {
+LAC_DECL void lac_calc_magnitude_vec4(float *magnitude, const vec4 v_in) {
     *magnitude = sqrtf((v_in[0] * v_in[0]) + (v_in[1] * v_in[1]) + (v_in[2] * v_in[2]) + (v_in[3] * v_in[3]));
 }
 
 /**
- * @brief Normalize a vector of size 2
+ * @brief Normalize a vector of size 2.
  * @anchor lac_normalize_vec2_anchor
  * @since 10-17-2023
- * @param[out] v_out The normalized vector
- * @param[in] v_in The vector to be normalized
+ * @param v_out The normalized vector
+ * @param v_in The vector to be normalized
  */
 LAC_DECL void lac_normalize_vec2(vec2 *v_out, const vec2 v_in) {
     float magnitude;
@@ -387,18 +387,19 @@ LAC_DECL void lac_normalize_vec2(vec2 *v_out, const vec2 v_in) {
         float inv_magnitude = 1.0f / magnitude;
         (*v_out)[0] = v_in[0] * inv_magnitude;
         (*v_out)[1] = v_in[1] * inv_magnitude;
-    } else { // v_in already had magnitude 0
+    /* v_in already had magnitude 0 */
+    } else {
         (*v_out)[0] = 0.0f;
         (*v_out)[1] = 0.0f;
     }
 }
 
 /**
- * @brief Normalize a vector of size 3
+ * @brief Normalize a vector of size 3.
  * @anchor lac_normalize_vec3_anchor
  * @since 10-17-2023
- * @param[out] v_out The normalized vector
- * @param[in] v_in The vector to be normalized
+ * @param v_out The normalized vector
+ * @param v_in The vector to be normalized
  */
 LAC_DECL void lac_normalize_vec3(vec3 *v_out, const vec3 v_in) {
     float magnitude;
@@ -409,7 +410,8 @@ LAC_DECL void lac_normalize_vec3(vec3 *v_out, const vec3 v_in) {
         (*v_out)[0] = v_in[0] * inv_magnitude;
         (*v_out)[1] = v_in[1] * inv_magnitude;
         (*v_out)[2] = v_in[2] * inv_magnitude;
-    } else { // v_in already had magnitude 0
+    /* v_in already had magnitude 0 */
+    } else {
         (*v_out)[0] = 0.0f;
         (*v_out)[1] = 0.0f;
         (*v_out)[2] = 0.0f;
@@ -417,11 +419,11 @@ LAC_DECL void lac_normalize_vec3(vec3 *v_out, const vec3 v_in) {
 }
 
 /**
- * @brief Normalize a vector of size 4
+ * @brief Normalize a vector of size 4.
  * @anchor lac_normalize_vec4_anchor
  * @since 10-17-2023
- * @param[out] v_out The normalized vector
- * @param[in] v_in The vector to be normalized
+ * @param v_out The normalized vector
+ * @param v_in The vector to be normalized
  */
 LAC_DECL void lac_normalize_vec4(vec4 *v_out, const vec4 v_in) {
     float magnitude;
@@ -433,6 +435,7 @@ LAC_DECL void lac_normalize_vec4(vec4 *v_out, const vec4 v_in) {
         (*v_out)[1] = v_in[1] * inv_magnitude;
         (*v_out)[2] = v_in[2] * inv_magnitude;
         (*v_out)[3] = v_in[3] * inv_magnitude;
+    /* v_in already had magnitude 0 */
     } else {
         (*v_out)[0] = 0.0f;
         (*v_out)[1] = 0.0f;

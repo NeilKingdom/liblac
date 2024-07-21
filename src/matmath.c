@@ -3,7 +3,7 @@
  * @since 10-17-2023
  * @author Neil Kingdom
  * @version 1.0
- * @brief matmath.c Contains all of the maths functions which pertain to matrices specifically
+ * @brief matmath.c Contains all of the maths functions which pertain to matrices specifically.
  *
  * @section matmul Matrix Multiplication
  *
@@ -43,11 +43,11 @@
 #include "matmath.h"
 
 /**
- * @brief Adds two matrices of size 2x2
+ * @brief Adds two matrices of size 2x2.
  * @since 10-17-2023
- * @param[out] m_out The sum matrix
- * @param[in] m_a The augend matrix
- * @param[in] m_a The addend matrix
+ * @param m_out The sum matrix
+ * @param m_a The augend matrix
+ * @param m_a The addend matrix
  */
 LAC_DECL void lac_add_mat2(mat2 *m_out, const mat2 m_a, const mat2 m_b) {
    (*m_out)[0] = m_a[0] + m_b[0];
@@ -57,11 +57,11 @@ LAC_DECL void lac_add_mat2(mat2 *m_out, const mat2 m_a, const mat2 m_b) {
 }
 
 /**
- * @brief Adds two matrices of size 3x3
+ * @brief Adds two matrices of size 3x3.
  * @since 10-17-2023
- * @param[out] m_out The sum matrix
- * @param[in] m_a The augend matrix
- * @param[in] m_a The addend matrix
+ * @param m_out The sum matrix
+ * @param m_a The augend matrix
+ * @param m_a The addend matrix
  */
 LAC_DECL void lac_add_mat3(mat3 *m_out, const mat3 m_a, const mat3 m_b) {
    (*m_out)[0] = m_a[0] + m_b[0];
@@ -75,11 +75,11 @@ LAC_DECL void lac_add_mat3(mat3 *m_out, const mat3 m_a, const mat3 m_b) {
 }
 
 /**
- * @brief Adds two matrices of size 4x4
+ * @brief Adds two matrices of size 4x4.
  * @since 10-17-2023
- * @param[out] m_out The sum matrix
- * @param[in] m_a The augend matrix
- * @param[in] m_a The addend matrix
+ * @param m_out The sum matrix
+ * @param m_a The augend matrix
+ * @param m_a The addend matrix
  */
 LAC_DECL void lac_add_mat4(mat4 *m_out, const mat4 m_a, const mat4 m_b) {
    (*m_out)[0]  = m_a[0]  + m_b[0];
@@ -101,11 +101,11 @@ LAC_DECL void lac_add_mat4(mat4 *m_out, const mat4 m_a, const mat4 m_b) {
 }
 
 /**
- * @brief Subtracts two matrices of size 2x2
+ * @brief Subtracts two matrices of size 2x2.
  * @since 10-17-2023
- * @param[out] m_out The difference matrix
- * @param[in] m_a The minuend matrix
- * @param[in] m_a The subtrahend matrix
+ * @param m_out The difference matrix
+ * @param m_a The minuend matrix
+ * @param m_a The subtrahend matrix
  */
 LAC_DECL void lac_subtract_mat2(mat2 *m_out, const mat2 m_a, const mat2 m_b) {
    (*m_out)[0] = m_a[0] - m_b[0];
@@ -115,11 +115,11 @@ LAC_DECL void lac_subtract_mat2(mat2 *m_out, const mat2 m_a, const mat2 m_b) {
 }
 
 /**
- * @brief Subtracts two matrices of size 3x3
+ * @brief Subtracts two matrices of size 3x3.
  * @since 10-17-2023
- * @param[out] m_out The difference matrix
- * @param[in] m_a The minuend matrix
- * @param[in] m_a The subtrahend matrix
+ * @param m_out The difference matrix
+ * @param m_a The minuend matrix
+ * @param m_a The subtrahend matrix
  */
 LAC_DECL void lac_subtract_mat3(mat3 *m_out, const mat3 m_a, const mat3 m_b) {
    (*m_out)[0] = m_a[0] - m_b[0];
@@ -133,11 +133,11 @@ LAC_DECL void lac_subtract_mat3(mat3 *m_out, const mat3 m_a, const mat3 m_b) {
 }
 
 /**
- * @brief Subtracts two matrices of size 4x4
+ * @brief Subtracts two matrices of size 4x4.
  * @since 10-17-2023
- * @param[out] m_out The difference matrix
- * @param[in] m_a The minuend matrix
- * @param[in] m_a The subtrahend matrix
+ * @param m_out The difference matrix
+ * @param m_a The minuend matrix
+ * @param m_a The subtrahend matrix
  */
 LAC_DECL void lac_subtract_mat4(mat4 *m_out, const mat4 m_a, const mat4 m_b) {
    (*m_out)[0]  = m_a[0]  - m_b[0];
@@ -159,12 +159,12 @@ LAC_DECL void lac_subtract_mat4(mat4 *m_out, const mat4 m_a, const mat4 m_b) {
 }
 
 /**
- * @brief Performs matrix multiplication between two matrices of size 2x2
+ * @brief Performs matrix multiplication between two matrices of size 2x2.
  * @anchor lac_multiply_mat2_anchor
  * @since 10-17-2023
- * @param[out] m_out The product matrix
- * @param[in] m_a The multiplicand matrix
- * @param[in] m_b The multiplier matrix
+ * @param m_out The product matrix
+ * @param m_a The multiplicand matrix
+ * @param m_b The multiplier matrix
  */
 LAC_DECL void lac_multiply_mat2(mat2 *m_out, const mat2 m_a, const mat2 m_b) {
 #if LAC_IS_ROW_MAJOR
@@ -178,12 +178,12 @@ LAC_DECL void lac_multiply_mat2(mat2 *m_out, const mat2 m_a, const mat2 m_b) {
 }
 
 /**
- * @brief Performs matrix multiplication between two matrices of size 3x3
+ * @brief Performs matrix multiplication between two matrices of size 3x3.
  * @anchor lac_multiply_mat3_anchor
  * @since 10-17-2023
- * @param[out] m_out The product matrix
- * @param[in] m_a The multiplicand matrix
- * @param[in] m_b The multiplier matrix
+ * @param m_out The product matrix
+ * @param m_a The multiplicand matrix
+ * @param m_b The multiplier matrix
  */
 LAC_DECL void lac_multiply_mat3(mat3 *m_out, const mat3 m_a, const mat3 m_b) {
 #if LAC_IS_ROW_MAJOR
@@ -203,12 +203,12 @@ LAC_DECL void lac_multiply_mat3(mat3 *m_out, const mat3 m_a, const mat3 m_b) {
 }
 
 /**
- * @brief Performs matrix multiplication between two matrices of size 4x4
+ * @brief Performs matrix multiplication between two matrices of size 4x4.
  * @anchor lac_multiply_mat4_anchor
  * @since 10-17-2023
- * @param[out] m_out The product matrix
- * @param[in] m_a The multiplicand matrix
- * @param[in] m_b The multiplier matrix
+ * @param m_out The product matrix
+ * @param m_a The multiplicand matrix
+ * @param m_b The multiplier matrix
  */
 LAC_DECL void lac_multiply_mat4(mat4 *m_out, const mat4 m_a, const mat4 m_b) {
 #if LAC_IS_ROW_MAJOR
@@ -236,11 +236,11 @@ LAC_DECL void lac_multiply_mat4(mat4 *m_out, const mat4 m_a, const mat4 m_b) {
 }
 
 /**
- * @brief Transpose a matrix of size 2
+ * @brief Transpose a matrix of size 2.
  * @anchor lac_transpose_mat2_anchor
  * @since 10-17-2023
- * @param[out] m_out The transposed matrix
- * @param[in] m_in The matrix to be transposed
+ * @param m_out The transposed matrix
+ * @param m_in The matrix to be transposed
  */
 LAC_DECL void lac_transpose_mat2(mat2 *m_out, const mat2 m_in) {
    (*m_out)[0] = m_in[0];
@@ -251,11 +251,11 @@ LAC_DECL void lac_transpose_mat2(mat2 *m_out, const mat2 m_in) {
 }
 
 /**
- * @brief Transpose a matrix of size 3
+ * @brief Transpose a matrix of size 3.
  * @anchor lac_transpose_mat3_anchor
  * @since 10-17-2023
- * @param[out] m_out The transposed matrix
- * @param[in] m_in The matrix to be transposed
+ * @param m_out The transposed matrix
+ * @param m_in The matrix to be transposed
  */
 LAC_DECL void lac_transpose_mat3(mat3 *m_out, const mat3 m_in) {
    (*m_out)[0] = m_in[0];
@@ -272,11 +272,11 @@ LAC_DECL void lac_transpose_mat3(mat3 *m_out, const mat3 m_in) {
 }
 
 /**
- * @brief Transpose a matrix of size 4
+ * @brief Transpose a matrix of size 4.
  * @anchor lac_transpose_mat4_anchor
  * @since 10-17-2023
- * @param[out] m_out The transposed matrix
- * @param[in] m_in The matrix to be transposed
+ * @param m_out The transposed matrix
+ * @param m_in The matrix to be transposed
  */
 LAC_DECL void lac_transpose_mat4(mat4 *m_out, const mat4 m_in) {
    (*m_out)[0]  = m_in[0];

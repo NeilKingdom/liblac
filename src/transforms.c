@@ -3,10 +3,21 @@
  * @author Neil Kingdom
  * @since 10-17-2023
  * @version 1.0
- * @brief transforms.c provides functions for transforming matrices
+ * @brief Provides functions for transforming matrices.
  *
  * "Geometry provides us with four types of transformations,
  * namely, rotation, reflection, translation, and resizing."
+ *
+ * @section ypr Yaw Pitch Roll
+ *
+ * TODO: Add comments
+ *
+ * @subsection ypr_related Related Functions
+ *
+ * - @ref lac_get_yaw_mat4_anchor "lac_get_yaw_mat4"
+ * - @ref lac_get_pitch_mat4_anchor "lac_get_pitch_mat4"
+ * - @ref lac_get_roll_mat4_anchor "lac_get_roll_mat4"
+ * - @ref lac_get_rotation_mat4_anchor "lac_get_rotation_mat4"
  *
  * @section pointat Point-At Matrix
  *
@@ -41,8 +52,7 @@
  * - @ref lac_invert_mat4_anchor "lac_invert_mat4"
  */
 
-#include "matmath.h"
-#include "vecmath.h"
+#include "transforms.h"
 
 /**
  * The identity matrix is a special matrix that is essentially
@@ -69,15 +79,15 @@ mat4 lac_ortho_proj_mat4 = {
 };
 
 /**
- * @brief This function reflects a matrix along one or more planes
+ * @brief This function reflects a matrix along one or more planes.
  * @since 10-17-2023
- * @param[out] m_out A reflection matrix that can be applied through matrix multiplication
- * @param[in] yz_plane If set to true, reflection is applied about the y-z plane
- * @param[in] xz_plane If set to true, reflection is applied about the x-z plane
- * @param[in] xy_plane If set to true, reflection is applied about the x-y plane
+ * @param m_out A reflection matrix that can be applied through matrix multiplication
+ * @param yz_plane If set to true, reflection is applied about the y-z plane
+ * @param xz_plane If set to true, reflection is applied about the x-z plane
+ * @param xy_plane If set to true, reflection is applied about the x-y plane
  */
 LAC_DECL void lac_get_reflection_mat4(
-    mat4 * restrict m_out,
+    mat4 *m_out,
     const bool yz_plane,
     const bool xz_plane,
     const bool xy_plane
@@ -85,9 +95,9 @@ LAC_DECL void lac_get_reflection_mat4(
     mat4 ref_mat = { 0 };
     memcpy(ref_mat, lac_ident_mat4, sizeof(*ref_mat));
 
-    /* Flip sign for axes that should be reflected */
 #if LAC_IS_ROW_MAJOR
 #else
+    /* Flip sign for axes that should be reflected */
     if (yz_plane) {
         ref_mat[0] = -1;
     }
@@ -103,15 +113,15 @@ LAC_DECL void lac_get_reflection_mat4(
 }
 
 /**
- * @brief Gets a translation matrix according to the input parameters
+ * @brief Gets a translation matrix according to the input parameters.
  * @since 10-17-2023
- * @param[out] The translation matrix which can be applied through matrix multiplication
- * @param[in] tx Arbitrary unit for translation in the x-direction
- * @param[in] ty Arbitrary unit for translation in the y-direction
- * @param[in] tz Arbitrary unit for translation in the z-direction
+ * @param The translation matrix which can be applied through matrix multiplication
+ * @param tx Arbitrary unit for translation in the x-direction
+ * @param ty Arbitrary unit for translation in the y-direction
+ * @param tz Arbitrary unit for translation in the z-direction
  */
 LAC_DECL void lac_get_translation_mat4(
-    mat4 * restrict m_out,
+    mat4 *m_out,
     const float tx,
     const float ty,
     const float tz
@@ -130,15 +140,15 @@ LAC_DECL void lac_get_translation_mat4(
 }
 
 /**
- * @brief Gets a scalar matrix according to the input parameters
+ * @brief Gets a scalar matrix according to the input parameters.
  * @since 10-17-2023
- * @param[out] The scalar matrix which can be applied through matrix multiplication
- * @param[in] sx Arbitrary unit for scaling in the x-direction
- * @param[in] sy Arbitrary unit for scaling in the y-direction
- * @param[in] sz Arbitrary unit for scaling in the z-direction
+ * @param The scalar matrix which can be applied through matrix multiplication
+ * @param sx Arbitrary unit for scaling in the x-direction
+ * @param sy Arbitrary unit for scaling in the y-direction
+ * @param sz Arbitrary unit for scaling in the z-direction
  */
 LAC_DECL void lac_get_scalar_mat4(
-    mat4 * restrict m_out,
+    mat4 *m_out,
     const float sx,
     const float sy,
     const float sz
@@ -156,7 +166,14 @@ LAC_DECL void lac_get_scalar_mat4(
     memcpy(m_out, scl_mat, sizeof(*m_out));
 }
 
-LAC_DECL void lac_get_yaw_mat4(mat4 * restrict m_out, const float yaw) {
+/**
+ * @brief Gets a rotation matrix according to the input angle of yaw.
+ * @anchor lac_get_yaw_mat4_anchor
+ * @since 10-17-2023
+ * @param m_out The rotation matrix which can be applied through matrix multiplication
+ * @param roll Rotation angle about the yaw axis (given in radians)
+ */
+LAC_DECL void lac_get_yaw_mat4(mat4 *m_out, const float yaw) {
     float cos_yaw, sin_yaw;
     cos_yaw = cosf(yaw);
     sin_yaw = sinf(yaw);
@@ -171,7 +188,14 @@ LAC_DECL void lac_get_yaw_mat4(mat4 * restrict m_out, const float yaw) {
     memcpy(m_out, yaw_mat, sizeof(*m_out));
 }
 
-LAC_DECL void lac_get_pitch_mat4(mat4 * restrict m_out, const float pitch) {
+/**
+ * @brief Gets a rotation matrix according to the input angle of pitch.
+ * @anchor lac_get_pitch_mat4_anchor
+ * @since 10-17-2023
+ * @param m_out The rotation matrix which can be applied through matrix multiplication
+ * @param roll Rotation angle about the pitch axis (given in radians)
+ */
+LAC_DECL void lac_get_pitch_mat4(mat4 *m_out, const float pitch) {
     float cos_pitch, sin_pitch;
     cos_pitch = cosf(pitch);
     sin_pitch = sinf(pitch);
@@ -186,7 +210,14 @@ LAC_DECL void lac_get_pitch_mat4(mat4 * restrict m_out, const float pitch) {
     memcpy(m_out, pitch_mat, sizeof(*m_out));
 }
 
-LAC_DECL void lac_get_roll_mat4(mat4 * restrict m_out, const float roll) {
+/**
+ * @brief Gets a rotation matrix according to the input angle of roll.
+ * @anchor lac_get_roll_mat4_anchor
+ * @since 10-17-2023
+ * @param m_out The rotation matrix which can be applied through matrix multiplication
+ * @param roll Rotation angle about the roll axis (given in radians)
+ */
+LAC_DECL void lac_get_roll_mat4(mat4 *m_out, const float roll) {
     float cos_roll, sin_roll;
     cos_roll = cosf(roll);
     sin_roll = sinf(roll);
@@ -201,9 +232,9 @@ LAC_DECL void lac_get_roll_mat4(mat4 * restrict m_out, const float roll) {
     memcpy(m_out, roll_mat, sizeof(*m_out));
 }
 
-// TODO: Add comment in Doxygen about yaw, pitch, roll
 /**
- * @brief Gets a rotation matrix according to the input angles for each axis
+ * @brief Gets a rotation matrix according to the input angles for each axis.
+ * @anchor lac_get_rotation_mat4_anchor
  * @since 10-17-2023
  * @param[out] m_out The rotation matrix which can be applied through matrix multiplication
  * @param[in] rx Rotation angle in the x-axis (given in radians)
@@ -211,7 +242,7 @@ LAC_DECL void lac_get_roll_mat4(mat4 * restrict m_out, const float roll) {
  * @param[in] rz Rotation angle in the z-axis (given in radians)
  */
 LAC_DECL void lac_get_rotation_mat4(
-    mat4 * restrict m_out,
+    mat4 *m_out,
     const float rx,
     const float ry,
     const float rz
@@ -251,22 +282,22 @@ LAC_DECL void lac_get_rotation_mat4(
     };
 #endif
 
-    /* Get the final rotation matrix by obtaining dot product of yaw * pitch * roll */
+    /* Get the final rotation matrix by obtaining dot product of (yaw * pitch * roll) */
     lac_multiply_mat4(&rot_mat, yaw_mat, pitch_mat);
     lac_multiply_mat4(m_out, rot_mat, roll_mat);
 }
 
 /**
- * @brief Gets a normalized point-at matrix
+ * @brief Gets a normalized point-at matrix.
  * @anchor lac_get_point_at_mat4_anchor
  * @since 10-20-2023
- * @param[out] m_out The point-at matrix
- * @param[in] v_eye A vector representing the origin of the camera
- * @param[in] v_target A vector representing the target point in 3D space for the camera to point towards
- * @param[in] v_up A vector representing the "up" direction (used for camera orientation)
+ * @param m_out The point-at matrix
+ * @param v_eye A vector representing the origin of the camera
+ * @param v_target A vector representing the target point in 3D space for the camera to point towards
+ * @param v_up A vector representing the "up" direction (used for camera orientation)
  */
 LAC_DECL void lac_get_point_at_mat4(
-    mat4 * restrict m_out,
+    mat4 *m_out,
     const vec3 v_eye,
     const vec3 v_target,
     const vec3 v_up
@@ -274,19 +305,19 @@ LAC_DECL void lac_get_point_at_mat4(
     vec3 forward_unit, right_unit, up_unit, v_res;
     float dot_prod;
 
-    // Calculate forward_unit
+    /* Calculate forward_unit */
     lac_subtract_vec3(&v_res, v_target, v_eye);
     lac_normalize_vec3(&forward_unit, v_res);
 
-    // Calculate up_unit
+    /* Calculate up_unit */
     lac_calc_dot_prod_vec3(&dot_prod, v_up, forward_unit);
     lac_multiply_vec3(&v_res, forward_unit, dot_prod);
     lac_subtract_vec3(&up_unit, v_up, v_res);
     lac_normalize_vec3(&up_unit, up_unit);
 
-    // Calculate right_unit
+    /* Calculate right_unit */
     lac_calc_cross_prod(&right_unit, up_unit, forward_unit);
-    // Normalizing here isn't necessary since forward_unit & up_unit are normals
+    /* Normalizing here isn't necessary since forward_unit & up_unit are normals */
 
 #if LAC_IS_ROW_MAJOR
 #else
@@ -302,12 +333,12 @@ LAC_DECL void lac_get_point_at_mat4(
 }
 
 /**
- * @brief This function is designed specifically for inverting the point-at matrix
+ * @brief This function is designed specifically for inverting the point-at matrix.
  * @warn This is not a true matrix inversion function; it only works with rotation and translation matrices.
  * @anchor lac_invert_mat4_anchor
  * @since 10-17-2023
- * @param[out] m_out The resulting look-at matrix
- * @param[in] m_in The matrix to be inverted
+ * @param m_out The resulting look-at matrix
+ * @param m_in The matrix to be inverted
  */
 LAC_DECL void lac_invert_mat4(mat4 *m_out, const mat4 m_in) {
     float dot_prod;
@@ -352,16 +383,16 @@ LAC_DECL void lac_invert_mat4(mat4 *m_out, const mat4 m_in) {
 }
 
 /**
- * @brief Returns a frustum projection matrix according to the input parameters
+ * @brief Returns a frustum projection matrix according to the input parameters.
  * @since 10-17-2023
- * @param[out] m_out The resulting projection matrix that can be applied through matrix multiplication
- * @param[in] aspect The aspect ratio of the screen (taken by height/width)
- * @param[in] fov The field of view (given as an angle in degrees)
- * @param[in] The "near" clipping z-plane
- * @param[in] The "far" clipping z-plane
+ * @param m_out The resulting projection matrix that can be applied through matrix multiplication
+ * @param aspect The aspect ratio of the screen (taken by height/width)
+ * @param fov The field of view (given as an angle in degrees)
+ * @param The "near" clipping z-plane
+ * @param The "far" clipping z-plane
  */
 LAC_DECL void lac_get_projection_mat4(
-    mat4 * restrict m_out,
+    mat4 *m_out,
     const float aspect,
     const float fov,
     const float znear,
