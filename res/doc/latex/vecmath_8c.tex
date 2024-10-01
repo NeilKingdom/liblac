@@ -2,7 +2,7 @@
 \hypertarget{vecmath_8c}{}\label{vecmath_8c}\index{/home/neil/devel/projects/liblac/src/vecmath.c@{/home/neil/devel/projects/liblac/src/vecmath.c}}
 
 
-Contains all of the maths functions which pertain to vectors specifically.  
+Contains all of the maths which primarily operate on vectors.  
 
 
 {\ttfamily \#include "{}lac\+\_\+common.\+h"{}}\newline
@@ -10,65 +10,69 @@ Contains all of the maths functions which pertain to vectors specifically.
 \begin{DoxyCompactItemize}
 \item 
 LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_ac2a7de5ba09980a174f4c93c1d027eec}{lac\+\_\+add\+\_\+vec2}} (vec2 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec2 v\+\_\+a, const vec2 v\+\_\+b)
-\begin{DoxyCompactList}\small\item\em Calculates the sum between two vectors of size 2. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Calculates the sum between two vectors of length 2. \end{DoxyCompactList}\item 
 LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a05e87ed58ef1599fa04059f9f375590e}{lac\+\_\+add\+\_\+vec3}} (vec3 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec3 v\+\_\+a, const vec3 v\+\_\+b)
-\begin{DoxyCompactList}\small\item\em Calculates the sum between two vectors of size 3. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Calculates the sum between two vectors of length 3. \end{DoxyCompactList}\item 
 LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a415933891f4ccb23290c16afe0914db1}{lac\+\_\+add\+\_\+vec4}} (vec4 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec4 v\+\_\+a, const vec4 v\+\_\+b)
-\begin{DoxyCompactList}\small\item\em Calculates the sum between two vectors of size 4. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Calculates the sum between two vectors of length 4. \end{DoxyCompactList}\item 
 LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a953cd69ea07b41724d09c93447ad4a42}{lac\+\_\+subtract\+\_\+vec2}} (vec2 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec2 v\+\_\+a, const vec2 v\+\_\+b)
-\begin{DoxyCompactList}\small\item\em Calculates the difference between two vectors of size 2. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Calculates the difference between two vectors of length 2. \end{DoxyCompactList}\item 
 LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a1b7fc32157a1836721bab00db1814fa9}{lac\+\_\+subtract\+\_\+vec3}} (vec3 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec3 v\+\_\+a, const vec3 v\+\_\+b)
-\begin{DoxyCompactList}\small\item\em Calculates the difference between two vectors of size 3. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Calculates the difference between two vectors of length 3. \end{DoxyCompactList}\item 
 LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a7b7fb052384e29c4e6294aef3338e88c}{lac\+\_\+subtract\+\_\+vec4}} (vec4 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec4 v\+\_\+a, const vec4 v\+\_\+b)
-\begin{DoxyCompactList}\small\item\em Calculates the difference between two vectors of size 4. \end{DoxyCompactList}\item 
-LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a8b93f802277521742a4c955435e2816c}{lac\+\_\+multiply\+\_\+vec2}} (vec2 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec2 v\+\_\+in, float scalar)
-\begin{DoxyCompactList}\small\item\em Scales a vector of size 2 up by a factor of "{}scalar"{}. \end{DoxyCompactList}\item 
-LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_ab8fc1bad9b5eb771d3ba558f01a801dc}{lac\+\_\+multiply\+\_\+vec3}} (vec3 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec3 v\+\_\+in, float scalar)
-\begin{DoxyCompactList}\small\item\em Scales a vector of size 3 up by a factor of "{}scalar"{}. \end{DoxyCompactList}\item 
-LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_af9960268ecdf3595ca750becb90e21e5}{lac\+\_\+multiply\+\_\+vec4}} (vec4 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec4 v\+\_\+in, float scalar)
-\begin{DoxyCompactList}\small\item\em Scales a vector of size 4 up by a factor of "{}scalar"{}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Calculates the difference between two vectors of length 4. \end{DoxyCompactList}\item 
+LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a815ae143115601195b569479c246bef1}{lac\+\_\+multiply\+\_\+vec2}} (vec2 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec2 v\+\_\+in, const float scalar)
+\begin{DoxyCompactList}\small\item\em Scales a vector of length 2 by a factor of {\bfseries{scalar}}. \end{DoxyCompactList}\item 
+LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a37ca45b5d07166fa3f77ab80c46f4c11}{lac\+\_\+multiply\+\_\+vec3}} (vec3 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec3 v\+\_\+in, const float scalar)
+\begin{DoxyCompactList}\small\item\em Scales a vector of length 3 by a factor of {\bfseries{scalar}}. \end{DoxyCompactList}\item 
+LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a9499ee089ba38c51df621034c4548aed}{lac\+\_\+multiply\+\_\+vec4}} (vec4 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec4 v\+\_\+in, const float scalar)
+\begin{DoxyCompactList}\small\item\em Scales a vector of length 4 by a factor of {\bfseries{scalar}}. \end{DoxyCompactList}\item 
 LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a6ff699816cd4fc7acdc1f997bb36197f}{lac\+\_\+multiply\+\_\+vec2\+\_\+mat2}} (vec2 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec2 v\+\_\+in, const mat2 m\+\_\+in)
-\begin{DoxyCompactList}\small\item\em Multiplies a matrix of size 2 by a vector of size 2. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Multiplies a 2x2 matrix by a vector of length 2. \end{DoxyCompactList}\item 
 LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a4d8d9c21061e2b2bc089014bb244c389}{lac\+\_\+multiply\+\_\+vec3\+\_\+mat3}} (vec3 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec3 v\+\_\+in, const mat3 m\+\_\+in)
-\begin{DoxyCompactList}\small\item\em Multiplies a matrix of size 3 by a vector of size 3. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Multiplies a 3x3 matrix by a vector of length 3. \end{DoxyCompactList}\item 
 LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a947e17d0218927ee026c3cf445c50157}{lac\+\_\+multiply\+\_\+vec4\+\_\+mat4}} (vec4 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec4 v\+\_\+in, const mat4 m\+\_\+in)
-\begin{DoxyCompactList}\small\item\em Multiplies a matrix of size 4 by a vector of size 4. \end{DoxyCompactList}\item 
-LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a94427707858e98b0758af896301cbaf8}{lac\+\_\+divide\+\_\+vec2}} (vec2 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec2 v\+\_\+in, float scalar)
-\begin{DoxyCompactList}\small\item\em Scales a vector of size 2 down by a factor of "{}scalar"{}. \end{DoxyCompactList}\item 
-LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a40249f4b843dd352c56b0fc887169a7f}{lac\+\_\+divide\+\_\+vec3}} (vec3 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec3 v\+\_\+in, float scalar)
-\begin{DoxyCompactList}\small\item\em Scales a vector of size 3 down by a factor of "{}scalar"{}. \end{DoxyCompactList}\item 
-LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_ae512b963f90b6e1e3ab23f288782dc92}{lac\+\_\+divide\+\_\+vec4}} (vec4 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec4 v\+\_\+in, float scalar)
-\begin{DoxyCompactList}\small\item\em Scales a vector of size 3 down by a factor of "{}scalar"{}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Multiplies a 4x4 matrix by a vector of length 4. \end{DoxyCompactList}\item 
+LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_afd0faaf2399abf7bb8b406aeb69c31e5}{lac\+\_\+divide\+\_\+vec2}} (vec2 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec2 v\+\_\+in, const float scalar)
+\begin{DoxyCompactList}\small\item\em Reduces a vector of length 2 by a factor of {\bfseries{scalar}}. \end{DoxyCompactList}\item 
+LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_aa66f7c2fa9a9f5d97ffeece688a5e895}{lac\+\_\+divide\+\_\+vec3}} (vec3 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec3 v\+\_\+in, const float scalar)
+\begin{DoxyCompactList}\small\item\em Reduces a vector of length 3 by a factor of {\bfseries{scalar}}. \end{DoxyCompactList}\item 
+LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a57d51150f33591e5e74d6b1ea49f984e}{lac\+\_\+divide\+\_\+vec4}} (vec4 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec4 v\+\_\+in, const float scalar)
+\begin{DoxyCompactList}\small\item\em Reduces a vector of length 4 by a factor of {\bfseries{scalar}}. \end{DoxyCompactList}\item 
 LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_aa87e1c2d57fd3af015c0e00e216910b8}{lac\+\_\+calc\+\_\+dot\+\_\+prod\+\_\+vec2}} (float \texorpdfstring{$\ast$}{*}dot\+\_\+prod, const vec2 v\+\_\+a, const vec2 v\+\_\+b)
-\begin{DoxyCompactList}\small\item\em Calculates the dot product given two vectors of size 2. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Calculates the dot product given two vectors of length 2. \end{DoxyCompactList}\item 
 LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a8299f053be4ed2e8ef31444c5c83bbf9}{lac\+\_\+calc\+\_\+dot\+\_\+prod\+\_\+vec3}} (float \texorpdfstring{$\ast$}{*}dot\+\_\+prod, const vec3 v\+\_\+a, const vec3 v\+\_\+b)
-\begin{DoxyCompactList}\small\item\em Calculates the dot product given two vectors of size 3. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Calculates the dot product given two vectors of length 3. \end{DoxyCompactList}\item 
 LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a955397320a001c46be8643f89dc8730d}{lac\+\_\+calc\+\_\+dot\+\_\+prod\+\_\+vec4}} (float \texorpdfstring{$\ast$}{*}dot\+\_\+prod, const vec4 v\+\_\+a, const vec4 v\+\_\+b)
-\begin{DoxyCompactList}\small\item\em Calculates the dot product given two vectors of size 4. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Calculates the dot product given two vectors of length 4. \end{DoxyCompactList}\item 
 LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a665320089055fe2937d034da475288de}{lac\+\_\+calc\+\_\+cross\+\_\+prod}} (vec3 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec3 v\+\_\+a, const vec3 v\+\_\+b)
-\begin{DoxyCompactList}\small\item\em Calculates the cross product given two vectors of size 3. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Calculates the cross product given two vectors of length 3. \end{DoxyCompactList}\item 
 LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a37ce323ae532adcfdbf7908cf96581ac}{lac\+\_\+calc\+\_\+magnitude\+\_\+vec2}} (float \texorpdfstring{$\ast$}{*}magnitude, const vec2 v\+\_\+in)
-\begin{DoxyCompactList}\small\item\em Calculates the magnitude for a given vector of size 2. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Calculates the magnitude for a given vector of length 2. \end{DoxyCompactList}\item 
 LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_af1a3f92d5256ff0af9aafa744502adfd}{lac\+\_\+calc\+\_\+magnitude\+\_\+vec3}} (float \texorpdfstring{$\ast$}{*}magnitude, const vec3 v\+\_\+in)
-\begin{DoxyCompactList}\small\item\em Calculates the magnitude for a given vector of size 3. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Calculates the magnitude for a given vector of length 3. \end{DoxyCompactList}\item 
 LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_ad355e77dd0a9c8176ee81948083a687b}{lac\+\_\+calc\+\_\+magnitude\+\_\+vec4}} (float \texorpdfstring{$\ast$}{*}magnitude, const vec4 v\+\_\+in)
-\begin{DoxyCompactList}\small\item\em Calculates the magnitude for a given vector of size 4. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Calculates the magnitude for a given vector of length 4. \end{DoxyCompactList}\item 
 LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a786ccac4eeb1c2f7a311fef86c9584aa}{lac\+\_\+normalize\+\_\+vec2}} (vec2 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec2 v\+\_\+in)
-\begin{DoxyCompactList}\small\item\em Normalize a vector of size 2. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Normalize a vector of length 2. \end{DoxyCompactList}\item 
 LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_ad9affd365959c79946bdf4baaf9286d7}{lac\+\_\+normalize\+\_\+vec3}} (vec3 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec3 v\+\_\+in)
-\begin{DoxyCompactList}\small\item\em Normalize a vector of size 3. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Normalize a vector of length 3. \end{DoxyCompactList}\item 
 LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a0b5f173fff835152b610cd0c4f7b6694}{lac\+\_\+normalize\+\_\+vec4}} (vec4 \texorpdfstring{$\ast$}{*}v\+\_\+out, const vec4 v\+\_\+in)
-\begin{DoxyCompactList}\small\item\em Normalize a vector of size 4. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Normalize a vector of length 4. \end{DoxyCompactList}\item 
+LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a64d98a634821b9d9ee208fe8439effcd}{lac\+\_\+polar\+\_\+to\+\_\+cartesian}} (vec2 \texorpdfstring{$\ast$}{*}v\+\_\+out, const float len, const float angle)
+\begin{DoxyCompactList}\small\item\em Convert polar coordinates given by {\bfseries{angle}} and {\bfseries{len}} to cartesian space. \end{DoxyCompactList}\item 
+LAC\+\_\+\+DECL void \mbox{\hyperlink{vecmath_8c_a5a7344945f3a4244332b22b5d12f0144}{lac\+\_\+cartesian\+\_\+to\+\_\+polar}} (float \texorpdfstring{$\ast$}{*}restrict len, float \texorpdfstring{$\ast$}{*}restrict angle, const vec2 v\+\_\+in)
+\begin{DoxyCompactList}\small\item\em Convert cartesian coordinates given by {\bfseries{v\+\_\+in}} to polar coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Contains all of the maths functions which pertain to vectors specifically. 
+Contains all of the maths which primarily operate on vectors. 
 
 \begin{DoxyAuthor}{Author}
 Neil Kingdom 
 \end{DoxyAuthor}
 \begin{DoxySince}{Since}
-10-\/17-\/2023 
+17-\/10-\/2023 
 \end{DoxySince}
 \begin{DoxyVersion}{Version}
 1.\+0 
@@ -81,7 +85,9 @@ The dot product, a.\+k.\+a scalar product, is an operation that can be performed
 \item \doxylink{vecmath_8c_lac_calc_dot_prod_vec3_anchor}{lac\+\_\+calc\+\_\+dot\+\_\+prod\+\_\+vec3}
 \item \doxylink{vecmath_8c_lac_calc_dot_prod_vec4_anchor}{lac\+\_\+calc\+\_\+dot\+\_\+prod\+\_\+vec4}
 \end{DoxyItemize}\hypertarget{vecmath_8c_crossprod}{}\doxysubsection{\texorpdfstring{Cross Product}{Cross Product}}\label{vecmath_8c_crossprod}
-The cross product is an operation between two vectors which is calculated by taking the difference of each product between complimentary pairs in each vector. The formula for this looks something like\+: w1 = u2v3 -\/ u3v2 This is computed for each component of w. Taking the cross product yields a vector that is orthogonal to both operand vectors. The normalized version of this orthogonal vector is classically coined as the "{}normal"{}. The normal is typically used in 3D graphics to determine which faces of a mesh should or shouldn\textquotesingle{}t be drawn on top of others. In other words, it provides z-\/order information, as well as being useful for calculating the amount of lighting that a surface should receive by comparing it with the dot product of a point light. Important to note is that the cross product is uniquely applicable to vectors of size 3 only. The equivallent for vectors of size 2 is known as the "{}outer product"{} and for vectors of size 4, the "{}wedge product"{}.\hypertarget{vecmath_8c_crossprod_related}{}\doxysubsubsection{\texorpdfstring{Related Functions}{Related Functions}}\label{vecmath_8c_crossprod_related}
+The cross product is an operation between two vectors which is calculated by taking the difference of each product between complimentary pairs in each vector. The formula for this looks something like\+: \begin{quote}
+w1 = u2v3 -\/ u3v2 \end{quote}
+This is computed for each component of w. Taking the cross product yields a vector that is orthogonal to both operand vectors. The normalized version of this orthogonal vector is classically coined as the "{}normal"{}. The normal is typically used in 3D graphics to determine which faces of a mesh should or shouldn\textquotesingle{}t be drawn on top of others. In other words, it provides z-\/order information, as well as being useful for calculating the amount of lighting that a surface should receive by comparing it with the dot product of a point light. Important to note is that the cross product is uniquely applicable to vectors of size 3 only. The equivallent for vectors of size 2 is known as the "{}outer product"{} and for vectors of size 4, the "{}wedge product"{}.\hypertarget{vecmath_8c_crossprod_related}{}\doxysubsubsection{\texorpdfstring{Related Functions}{Related Functions}}\label{vecmath_8c_crossprod_related}
 
 \begin{DoxyItemize}
 \item \doxylink{vecmath_8c_lac_calc_cross_prod_anchor}{lac\+\_\+calc\+\_\+cross\+\_\+prod}
@@ -91,7 +97,15 @@ It is often beneficial to nomalize vectors so that their magnitude is of length 
 \begin{DoxyItemize}
 \item \doxylink{vecmath_8c_lac_normalize_vec2_anchor}{lac\+\_\+normalize\+\_\+vec2}
 \item \doxylink{vecmath_8c_lac_normalize_vec3_anchor}{lac\+\_\+normalize\+\_\+vec3}
-\item \doxylink{vecmath_8c_lac_normalize_vec4_anchor}{lac\+\_\+normalize\+\_\+vec4} 
+\item \doxylink{vecmath_8c_lac_normalize_vec4_anchor}{lac\+\_\+normalize\+\_\+vec4}
+\end{DoxyItemize}\hypertarget{vecmath_8c_polarcart}{}\doxysubsection{\texorpdfstring{Polar and Cartesian Coordinates}{Polar and Cartesian Coordinates}}\label{vecmath_8c_polarcart}
+Most of you will be familiar with the cartesian coordinate system popularized by Rene Descartes. This coordinate system imagines one or more infinitely traversable planes representing each dimension in Euclidian space. It traditionally uses x. y. and z to represent numbers along the three axes.
+
+Polar coordinates are specifically a 2 dimensional coordinate system. All points within the polar coordinate system are relative to the polar axis, which is equivallent to (0, 0) in cartesian coordinates. The polar axis extends along what would normally be the x axis and it extends infinitely to the right. Every polar coordinate will be determined by a length and an angle which are relative to the polar axis. The angle component is known as the angular coordinate and the length component is known as the radial coordinate. We can convert from polar to cartesian coordinates quite easily by multiplying the radial coordinate length by cos of the andular coordinate to get x and likewise the length times sin of the angle for the y component.\hypertarget{vecmath_8c_polarcart_related}{}\doxysubsubsection{\texorpdfstring{Related Functions}{Related Functions}}\label{vecmath_8c_polarcart_related}
+
+\begin{DoxyItemize}
+\item \doxylink{vecmath_8c_lac_cartesian_to_polar_anchor}{lac\+\_\+cartesian\+\_\+to\+\_\+polar}
+\item \doxylink{vecmath_8c_lac_polar_to_cartesian_anchor}{lac\+\_\+polar\+\_\+to\+\_\+cartesian} 
 \end{DoxyItemize}
 
 \doxysubsection{Function Documentation}
@@ -103,18 +117,18 @@ LAC\+\_\+\+DECL void lac\+\_\+add\+\_\+vec2 (\begin{DoxyParamCaption}\item[{vec2
 
 
 
-Calculates the sum between two vectors of size 2. 
+Calculates the sum between two vectors of length 2. 
 
 \begin{DoxySince}{Since}
-10-\/19-\/2023 
+19-\/10-\/2023 
 \end{DoxySince}
 
 \begin{DoxyParams}{Parameters}
-{\em v\+\_\+out} & The sum vector \\
+{\em v\+\_\+out\mbox{[}out\mbox{]}} & The sum vector \\
 \hline
-{\em v\+\_\+a} & The Augend vector \\
+{\em v\+\_\+a\mbox{[}in\mbox{]}} & The Augend vector \\
 \hline
-{\em v\+\_\+b} & The Addend vector \\
+{\em v\+\_\+b\mbox{[}in\mbox{]}} & The Addend vector \\
 \hline
 \end{DoxyParams}
 \Hypertarget{vecmath_8c_a05e87ed58ef1599fa04059f9f375590e}\index{vecmath.c@{vecmath.c}!lac\_add\_vec3@{lac\_add\_vec3}}
@@ -125,18 +139,18 @@ LAC\+\_\+\+DECL void lac\+\_\+add\+\_\+vec3 (\begin{DoxyParamCaption}\item[{vec3
 
 
 
-Calculates the sum between two vectors of size 3. 
+Calculates the sum between two vectors of length 3. 
 
 \begin{DoxySince}{Since}
-10-\/19-\/2023 
+19-\/10-\/2023 
 \end{DoxySince}
 
-\begin{DoxyParams}{Parameters}
-{\em v\+\_\+out} & The sum vector \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The sum vector \\
 \hline
-{\em v\+\_\+a} & The Augend vector \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+a} & The Augend vector \\
 \hline
-{\em v\+\_\+b} & The Addend vector \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+b} & The Addend vector \\
 \hline
 \end{DoxyParams}
 \Hypertarget{vecmath_8c_a415933891f4ccb23290c16afe0914db1}\index{vecmath.c@{vecmath.c}!lac\_add\_vec4@{lac\_add\_vec4}}
@@ -147,18 +161,18 @@ LAC\+\_\+\+DECL void lac\+\_\+add\+\_\+vec4 (\begin{DoxyParamCaption}\item[{vec4
 
 
 
-Calculates the sum between two vectors of size 4. 
+Calculates the sum between two vectors of length 4. 
 
 \begin{DoxySince}{Since}
-10-\/19-\/2023 
+19-\/10-\/2023 
 \end{DoxySince}
 
-\begin{DoxyParams}{Parameters}
-{\em v\+\_\+out} & The sum vector \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The sum vector \\
 \hline
-{\em v\+\_\+a} & The Augend vector \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+a} & The Augend vector \\
 \hline
-{\em v\+\_\+b} & The Addend vector \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+b} & The Addend vector \\
 \hline
 \end{DoxyParams}
 \Hypertarget{vecmath_8c_a665320089055fe2937d034da475288de}\index{vecmath.c@{vecmath.c}!lac\_calc\_cross\_prod@{lac\_calc\_cross\_prod}}
@@ -169,20 +183,20 @@ LAC\+\_\+\+DECL void lac\+\_\+calc\+\_\+cross\+\_\+prod (\begin{DoxyParamCaption
 
 
 
-Calculates the cross product given two vectors of size 3. 
+Calculates the cross product given two vectors of length 3. 
 
 \label{vecmath_8c_lac_calc_cross_prod_anchor}%
 \Hypertarget{vecmath_8c_lac_calc_cross_prod_anchor}%
 \begin{DoxySince}{Since}
-10-\/17-\/2023 
+17-\/10-\/2023 
 \end{DoxySince}
 
-\begin{DoxyParams}{Parameters}
-{\em v\+\_\+out} & The resulting vector, orthogonal to v\+\_\+a and v\+\_\+b \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The resulting vector, orthogonal to v\+\_\+a and v\+\_\+b \\
 \hline
-{\em v\+\_\+a} & The left-\/hand operand for the operation \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+a} & The left-\/hand operand for the operation \\
 \hline
-{\em v\+\_\+b} & The right-\/hand operand for the operation \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+b} & The right-\/hand operand for the operation \\
 \hline
 \end{DoxyParams}
 \Hypertarget{vecmath_8c_aa87e1c2d57fd3af015c0e00e216910b8}\index{vecmath.c@{vecmath.c}!lac\_calc\_dot\_prod\_vec2@{lac\_calc\_dot\_prod\_vec2}}
@@ -193,20 +207,20 @@ LAC\+\_\+\+DECL void lac\+\_\+calc\+\_\+dot\+\_\+prod\+\_\+vec2 (\begin{DoxyPara
 
 
 
-Calculates the dot product given two vectors of size 2. 
+Calculates the dot product given two vectors of length 2. 
 
 \label{vecmath_8c_lac_calc_dot_prod_vec2_anchor}%
 \Hypertarget{vecmath_8c_lac_calc_dot_prod_vec2_anchor}%
 \begin{DoxySince}{Since}
-10-\/17-\/2023 
+17-\/10-\/2023 
 \end{DoxySince}
 
-\begin{DoxyParams}{Parameters}
-{\em dot\+\_\+prod} & The scalar value \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em dot\+\_\+prod} & The scalar value \\
 \hline
-{\em v\+\_\+a} & The left-\/hand operand for the operation \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+a} & The left-\/hand operand for the operation \\
 \hline
-{\em v\+\_\+b} & The right-\/hand operand for the operation \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+b} & The right-\/hand operand for the operation \\
 \hline
 \end{DoxyParams}
 \Hypertarget{vecmath_8c_a8299f053be4ed2e8ef31444c5c83bbf9}\index{vecmath.c@{vecmath.c}!lac\_calc\_dot\_prod\_vec3@{lac\_calc\_dot\_prod\_vec3}}
@@ -217,20 +231,20 @@ LAC\+\_\+\+DECL void lac\+\_\+calc\+\_\+dot\+\_\+prod\+\_\+vec3 (\begin{DoxyPara
 
 
 
-Calculates the dot product given two vectors of size 3. 
+Calculates the dot product given two vectors of length 3. 
 
 \label{vecmath_8c_lac_calc_dot_prod_vec3_anchor}%
 \Hypertarget{vecmath_8c_lac_calc_dot_prod_vec3_anchor}%
 \begin{DoxySince}{Since}
-10-\/17-\/2023 
+17-\/10-\/2023 
 \end{DoxySince}
 
-\begin{DoxyParams}{Parameters}
-{\em dot\+\_\+prod} & The scalar value \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em dot\+\_\+prod} & The scalar value \\
 \hline
-{\em v\+\_\+a} & The left-\/hand operand for the operation \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+a} & The left-\/hand operand for the operation \\
 \hline
-{\em v\+\_\+b} & The right-\/hand operand for the operation \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+b} & The right-\/hand operand for the operation \\
 \hline
 \end{DoxyParams}
 \Hypertarget{vecmath_8c_a955397320a001c46be8643f89dc8730d}\index{vecmath.c@{vecmath.c}!lac\_calc\_dot\_prod\_vec4@{lac\_calc\_dot\_prod\_vec4}}
@@ -241,20 +255,20 @@ LAC\+\_\+\+DECL void lac\+\_\+calc\+\_\+dot\+\_\+prod\+\_\+vec4 (\begin{DoxyPara
 
 
 
-Calculates the dot product given two vectors of size 4. 
+Calculates the dot product given two vectors of length 4. 
 
 \label{vecmath_8c_lac_calc_dot_prod_vec4_anchor}%
 \Hypertarget{vecmath_8c_lac_calc_dot_prod_vec4_anchor}%
 \begin{DoxySince}{Since}
-10-\/17-\/2023 
+17-\/10-\/2023 
 \end{DoxySince}
 
-\begin{DoxyParams}{Parameters}
-{\em dot\+\_\+prod} & The scalar value \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em dot\+\_\+prod} & The scalar value \\
 \hline
-{\em v\+\_\+a} & The left-\/hand operand for the operation \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+a} & The left-\/hand operand for the operation \\
 \hline
-{\em v\+\_\+b} & The right-\/hand operand for the operation \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+b} & The right-\/hand operand for the operation \\
 \hline
 \end{DoxyParams}
 \Hypertarget{vecmath_8c_a37ce323ae532adcfdbf7908cf96581ac}\index{vecmath.c@{vecmath.c}!lac\_calc\_magnitude\_vec2@{lac\_calc\_magnitude\_vec2}}
@@ -265,16 +279,16 @@ LAC\+\_\+\+DECL void lac\+\_\+calc\+\_\+magnitude\+\_\+vec2 (\begin{DoxyParamCap
 
 
 
-Calculates the magnitude for a given vector of size 2. 
+Calculates the magnitude for a given vector of length 2. 
 
 \begin{DoxySince}{Since}
-12-\/10-\/2023 
+10-\/12-\/2023 
 \end{DoxySince}
 
-\begin{DoxyParams}{Parameters}
-{\em magnitude} & magnitude The calculated magnitude \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em magnitude} & The calculated magnitude \\
 \hline
-{\em v\+\_\+in} & The vector for which the magnitude is calculated \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+in} & The vector for which the magnitude is calculated \\
 \hline
 \end{DoxyParams}
 \Hypertarget{vecmath_8c_af1a3f92d5256ff0af9aafa744502adfd}\index{vecmath.c@{vecmath.c}!lac\_calc\_magnitude\_vec3@{lac\_calc\_magnitude\_vec3}}
@@ -285,16 +299,16 @@ LAC\+\_\+\+DECL void lac\+\_\+calc\+\_\+magnitude\+\_\+vec3 (\begin{DoxyParamCap
 
 
 
-Calculates the magnitude for a given vector of size 3. 
+Calculates the magnitude for a given vector of length 3. 
 
 \begin{DoxySince}{Since}
-12-\/10-\/2023 
+10-\/12-\/2023 
 \end{DoxySince}
 
-\begin{DoxyParams}{Parameters}
-{\em magnitude} & The calculated magnitude \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em magnitude} & The calculated magnitude \\
 \hline
-{\em v\+\_\+in} & The vector for which the magnitude is calculated \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+in} & The vector for which the magnitude is calculated \\
 \hline
 \end{DoxyParams}
 \Hypertarget{vecmath_8c_ad355e77dd0a9c8176ee81948083a687b}\index{vecmath.c@{vecmath.c}!lac\_calc\_magnitude\_vec4@{lac\_calc\_magnitude\_vec4}}
@@ -305,104 +319,128 @@ LAC\+\_\+\+DECL void lac\+\_\+calc\+\_\+magnitude\+\_\+vec4 (\begin{DoxyParamCap
 
 
 
-Calculates the magnitude for a given vector of size 4. 
+Calculates the magnitude for a given vector of length 4. 
 
 \begin{DoxySince}{Since}
-12-\/10-\/2023 
+10-\/12-\/2023 
 \end{DoxySince}
 
-\begin{DoxyParams}{Parameters}
-{\em magnitude} & The calculated magnitude \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em magnitude} & The calculated magnitude \\
 \hline
-{\em v\+\_\+in} & The vector for which the magnitude is calculated \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+in} & The vector for which the magnitude is calculated \\
 \hline
 \end{DoxyParams}
-\Hypertarget{vecmath_8c_a94427707858e98b0758af896301cbaf8}\index{vecmath.c@{vecmath.c}!lac\_divide\_vec2@{lac\_divide\_vec2}}
+\Hypertarget{vecmath_8c_a5a7344945f3a4244332b22b5d12f0144}\index{vecmath.c@{vecmath.c}!lac\_cartesian\_to\_polar@{lac\_cartesian\_to\_polar}}
+\index{lac\_cartesian\_to\_polar@{lac\_cartesian\_to\_polar}!vecmath.c@{vecmath.c}}
+\doxysubsubsection{\texorpdfstring{lac\_cartesian\_to\_polar()}{lac\_cartesian\_to\_polar()}}
+{\footnotesize\ttfamily \label{vecmath_8c_a5a7344945f3a4244332b22b5d12f0144} 
+LAC\+\_\+\+DECL void lac\+\_\+cartesian\+\_\+to\+\_\+polar (\begin{DoxyParamCaption}\item[{float \texorpdfstring{$\ast$}{*}restrict}]{len}{, }\item[{float \texorpdfstring{$\ast$}{*}restrict}]{angle}{, }\item[{const vec2}]{v\+\_\+in}{}\end{DoxyParamCaption})}
+
+
+
+Convert cartesian coordinates given by {\bfseries{v\+\_\+in}} to polar coordinates. 
+
+\label{vecmath_8c_lac_cartesian_to_polar_anchor}%
+\Hypertarget{vecmath_8c_lac_cartesian_to_polar_anchor}%
+\begin{DoxySince}{Since}
+24-\/09-\/2024 
+\end{DoxySince}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em len} & The radial coordinate \\
+\hline
+\mbox{\texttt{ out}}  & {\em angle} & The angular coordinate (given in radians) \\
+\hline
+\mbox{\texttt{ in}}  & {\em v\+\_\+in} & A vector which represents the cartesian coordinates being converted \\
+\hline
+\end{DoxyParams}
+\Hypertarget{vecmath_8c_afd0faaf2399abf7bb8b406aeb69c31e5}\index{vecmath.c@{vecmath.c}!lac\_divide\_vec2@{lac\_divide\_vec2}}
 \index{lac\_divide\_vec2@{lac\_divide\_vec2}!vecmath.c@{vecmath.c}}
 \doxysubsubsection{\texorpdfstring{lac\_divide\_vec2()}{lac\_divide\_vec2()}}
-{\footnotesize\ttfamily \label{vecmath_8c_a94427707858e98b0758af896301cbaf8} 
-LAC\+\_\+\+DECL void lac\+\_\+divide\+\_\+vec2 (\begin{DoxyParamCaption}\item[{vec2 \texorpdfstring{$\ast$}{*}}]{v\+\_\+out}{, }\item[{const vec2}]{v\+\_\+in}{, }\item[{float}]{scalar}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{vecmath_8c_afd0faaf2399abf7bb8b406aeb69c31e5} 
+LAC\+\_\+\+DECL void lac\+\_\+divide\+\_\+vec2 (\begin{DoxyParamCaption}\item[{vec2 \texorpdfstring{$\ast$}{*}}]{v\+\_\+out}{, }\item[{const vec2}]{v\+\_\+in}{, }\item[{const float}]{scalar}{}\end{DoxyParamCaption})}
 
 
 
-Scales a vector of size 2 down by a factor of "{}scalar"{}. 
+Reduces a vector of length 2 by a factor of {\bfseries{scalar}}. 
 
 \begin{DoxySince}{Since}
-10-\/19-\/2023 
+19-\/10-\/2023 
 \end{DoxySince}
 
-\begin{DoxyParams}{Parameters}
-{\em v\+\_\+out} & The scaled vector \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The scaled vector \\
 \hline
-{\em v\+\_\+in} & The vector to be scaled \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+in} & The vector to be scaled \\
 \hline
-{\em scalar} & A constant representing the divisor \\
+\mbox{\texttt{ in}}  & {\em scalar} & A constant representing the divisor \\
 \hline
 \end{DoxyParams}
-\Hypertarget{vecmath_8c_a40249f4b843dd352c56b0fc887169a7f}\index{vecmath.c@{vecmath.c}!lac\_divide\_vec3@{lac\_divide\_vec3}}
+\Hypertarget{vecmath_8c_aa66f7c2fa9a9f5d97ffeece688a5e895}\index{vecmath.c@{vecmath.c}!lac\_divide\_vec3@{lac\_divide\_vec3}}
 \index{lac\_divide\_vec3@{lac\_divide\_vec3}!vecmath.c@{vecmath.c}}
 \doxysubsubsection{\texorpdfstring{lac\_divide\_vec3()}{lac\_divide\_vec3()}}
-{\footnotesize\ttfamily \label{vecmath_8c_a40249f4b843dd352c56b0fc887169a7f} 
-LAC\+\_\+\+DECL void lac\+\_\+divide\+\_\+vec3 (\begin{DoxyParamCaption}\item[{vec3 \texorpdfstring{$\ast$}{*}}]{v\+\_\+out}{, }\item[{const vec3}]{v\+\_\+in}{, }\item[{float}]{scalar}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{vecmath_8c_aa66f7c2fa9a9f5d97ffeece688a5e895} 
+LAC\+\_\+\+DECL void lac\+\_\+divide\+\_\+vec3 (\begin{DoxyParamCaption}\item[{vec3 \texorpdfstring{$\ast$}{*}}]{v\+\_\+out}{, }\item[{const vec3}]{v\+\_\+in}{, }\item[{const float}]{scalar}{}\end{DoxyParamCaption})}
 
 
 
-Scales a vector of size 3 down by a factor of "{}scalar"{}. 
+Reduces a vector of length 3 by a factor of {\bfseries{scalar}}. 
 
 \begin{DoxySince}{Since}
-10-\/19-\/2023 
+19-\/10-\/2023 
 \end{DoxySince}
 
-\begin{DoxyParams}{Parameters}
-{\em v\+\_\+out} & The scaled vector \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The scaled vector \\
 \hline
-{\em v\+\_\+in} & The vector to be scaled \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+in} & The vector to be scaled \\
 \hline
-{\em scalar} & A constant representing the divisor \\
+\mbox{\texttt{ in}}  & {\em scalar} & A constant representing the divisor \\
 \hline
 \end{DoxyParams}
-\Hypertarget{vecmath_8c_ae512b963f90b6e1e3ab23f288782dc92}\index{vecmath.c@{vecmath.c}!lac\_divide\_vec4@{lac\_divide\_vec4}}
+\Hypertarget{vecmath_8c_a57d51150f33591e5e74d6b1ea49f984e}\index{vecmath.c@{vecmath.c}!lac\_divide\_vec4@{lac\_divide\_vec4}}
 \index{lac\_divide\_vec4@{lac\_divide\_vec4}!vecmath.c@{vecmath.c}}
 \doxysubsubsection{\texorpdfstring{lac\_divide\_vec4()}{lac\_divide\_vec4()}}
-{\footnotesize\ttfamily \label{vecmath_8c_ae512b963f90b6e1e3ab23f288782dc92} 
-LAC\+\_\+\+DECL void lac\+\_\+divide\+\_\+vec4 (\begin{DoxyParamCaption}\item[{vec4 \texorpdfstring{$\ast$}{*}}]{v\+\_\+out}{, }\item[{const vec4}]{v\+\_\+in}{, }\item[{float}]{scalar}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{vecmath_8c_a57d51150f33591e5e74d6b1ea49f984e} 
+LAC\+\_\+\+DECL void lac\+\_\+divide\+\_\+vec4 (\begin{DoxyParamCaption}\item[{vec4 \texorpdfstring{$\ast$}{*}}]{v\+\_\+out}{, }\item[{const vec4}]{v\+\_\+in}{, }\item[{const float}]{scalar}{}\end{DoxyParamCaption})}
 
 
 
-Scales a vector of size 3 down by a factor of "{}scalar"{}. 
+Reduces a vector of length 4 by a factor of {\bfseries{scalar}}. 
 
 \begin{DoxySince}{Since}
-10-\/19-\/2023 
+19-\/10-\/2023 
 \end{DoxySince}
 
-\begin{DoxyParams}{Parameters}
-{\em v\+\_\+out} & The scaled vector \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The scaled vector \\
 \hline
-{\em v\+\_\+in} & The vector to be scaled \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+in} & The vector to be scaled \\
 \hline
-{\em scalar} & A constant representing the divisor \\
+\mbox{\texttt{ in}}  & {\em scalar} & A constant representing the divisor \\
 \hline
 \end{DoxyParams}
-\Hypertarget{vecmath_8c_a8b93f802277521742a4c955435e2816c}\index{vecmath.c@{vecmath.c}!lac\_multiply\_vec2@{lac\_multiply\_vec2}}
+\Hypertarget{vecmath_8c_a815ae143115601195b569479c246bef1}\index{vecmath.c@{vecmath.c}!lac\_multiply\_vec2@{lac\_multiply\_vec2}}
 \index{lac\_multiply\_vec2@{lac\_multiply\_vec2}!vecmath.c@{vecmath.c}}
 \doxysubsubsection{\texorpdfstring{lac\_multiply\_vec2()}{lac\_multiply\_vec2()}}
-{\footnotesize\ttfamily \label{vecmath_8c_a8b93f802277521742a4c955435e2816c} 
-LAC\+\_\+\+DECL void lac\+\_\+multiply\+\_\+vec2 (\begin{DoxyParamCaption}\item[{vec2 \texorpdfstring{$\ast$}{*}}]{v\+\_\+out}{, }\item[{const vec2}]{v\+\_\+in}{, }\item[{float}]{scalar}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{vecmath_8c_a815ae143115601195b569479c246bef1} 
+LAC\+\_\+\+DECL void lac\+\_\+multiply\+\_\+vec2 (\begin{DoxyParamCaption}\item[{vec2 \texorpdfstring{$\ast$}{*}}]{v\+\_\+out}{, }\item[{const vec2}]{v\+\_\+in}{, }\item[{const float}]{scalar}{}\end{DoxyParamCaption})}
 
 
 
-Scales a vector of size 2 up by a factor of "{}scalar"{}. 
+Scales a vector of length 2 by a factor of {\bfseries{scalar}}. 
 
 \begin{DoxySince}{Since}
-10-\/19-\/2023 
+19-\/10-\/2023 
 \end{DoxySince}
 
-\begin{DoxyParams}{Parameters}
-{\em v\+\_\+out} & The scaled vector \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The scaled vector \\
 \hline
-{\em v\+\_\+in} & The vector to be scaled \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+in} & The vector to be scaled \\
 \hline
-{\em scalar} & A constant representing the multiplier \\
+\mbox{\texttt{ in}}  & {\em scalar} & A constant representing the multiplier \\
 \hline
 \end{DoxyParams}
 \Hypertarget{vecmath_8c_a6ff699816cd4fc7acdc1f997bb36197f}\index{vecmath.c@{vecmath.c}!lac\_multiply\_vec2\_mat2@{lac\_multiply\_vec2\_mat2}}
@@ -413,40 +451,40 @@ LAC\+\_\+\+DECL void lac\+\_\+multiply\+\_\+vec2\+\_\+mat2 (\begin{DoxyParamCapt
 
 
 
-Multiplies a matrix of size 2 by a vector of size 2. 
+Multiplies a 2x2 matrix by a vector of length 2. 
 
 \begin{DoxySince}{Since}
-10-\/22-\/2023 
+22-\/10-\/2023 
 \end{DoxySince}
 
-\begin{DoxyParams}{Parameters}
-{\em v\+\_\+out} & The product vector \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The product vector \\
 \hline
-{\em v\+\_\+in} & The input vector \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+in} & The input vector \\
 \hline
-{\em m\+\_\+in} & The input matrix \\
+\mbox{\texttt{ in}}  & {\em m\+\_\+in} & The input matrix \\
 \hline
 \end{DoxyParams}
-\Hypertarget{vecmath_8c_ab8fc1bad9b5eb771d3ba558f01a801dc}\index{vecmath.c@{vecmath.c}!lac\_multiply\_vec3@{lac\_multiply\_vec3}}
+\Hypertarget{vecmath_8c_a37ca45b5d07166fa3f77ab80c46f4c11}\index{vecmath.c@{vecmath.c}!lac\_multiply\_vec3@{lac\_multiply\_vec3}}
 \index{lac\_multiply\_vec3@{lac\_multiply\_vec3}!vecmath.c@{vecmath.c}}
 \doxysubsubsection{\texorpdfstring{lac\_multiply\_vec3()}{lac\_multiply\_vec3()}}
-{\footnotesize\ttfamily \label{vecmath_8c_ab8fc1bad9b5eb771d3ba558f01a801dc} 
-LAC\+\_\+\+DECL void lac\+\_\+multiply\+\_\+vec3 (\begin{DoxyParamCaption}\item[{vec3 \texorpdfstring{$\ast$}{*}}]{v\+\_\+out}{, }\item[{const vec3}]{v\+\_\+in}{, }\item[{float}]{scalar}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{vecmath_8c_a37ca45b5d07166fa3f77ab80c46f4c11} 
+LAC\+\_\+\+DECL void lac\+\_\+multiply\+\_\+vec3 (\begin{DoxyParamCaption}\item[{vec3 \texorpdfstring{$\ast$}{*}}]{v\+\_\+out}{, }\item[{const vec3}]{v\+\_\+in}{, }\item[{const float}]{scalar}{}\end{DoxyParamCaption})}
 
 
 
-Scales a vector of size 3 up by a factor of "{}scalar"{}. 
+Scales a vector of length 3 by a factor of {\bfseries{scalar}}. 
 
 \begin{DoxySince}{Since}
-10-\/19-\/2023 
+19-\/10-\/2023 
 \end{DoxySince}
 
-\begin{DoxyParams}{Parameters}
-{\em v\+\_\+out} & The scaled vector \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The scaled vector \\
 \hline
-{\em v\+\_\+in} & The vector to be scaled \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+in} & The vector to be scaled \\
 \hline
-{\em scalar} & A constant representing the multiplier \\
+\mbox{\texttt{ in}}  & {\em scalar} & A constant representing the multiplier \\
 \hline
 \end{DoxyParams}
 \Hypertarget{vecmath_8c_a4d8d9c21061e2b2bc089014bb244c389}\index{vecmath.c@{vecmath.c}!lac\_multiply\_vec3\_mat3@{lac\_multiply\_vec3\_mat3}}
@@ -457,40 +495,40 @@ LAC\+\_\+\+DECL void lac\+\_\+multiply\+\_\+vec3\+\_\+mat3 (\begin{DoxyParamCapt
 
 
 
-Multiplies a matrix of size 3 by a vector of size 3. 
+Multiplies a 3x3 matrix by a vector of length 3. 
 
 \begin{DoxySince}{Since}
-10-\/22-\/2023 
+22-\/10-\/2023 
 \end{DoxySince}
 
-\begin{DoxyParams}{Parameters}
-{\em v\+\_\+out} & The product vector \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The product vector \\
 \hline
-{\em v\+\_\+in} & The input vector \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+in} & The input vector \\
 \hline
-{\em m\+\_\+in} & The input matrix \\
+\mbox{\texttt{ in}}  & {\em m\+\_\+in} & The input matrix \\
 \hline
 \end{DoxyParams}
-\Hypertarget{vecmath_8c_af9960268ecdf3595ca750becb90e21e5}\index{vecmath.c@{vecmath.c}!lac\_multiply\_vec4@{lac\_multiply\_vec4}}
+\Hypertarget{vecmath_8c_a9499ee089ba38c51df621034c4548aed}\index{vecmath.c@{vecmath.c}!lac\_multiply\_vec4@{lac\_multiply\_vec4}}
 \index{lac\_multiply\_vec4@{lac\_multiply\_vec4}!vecmath.c@{vecmath.c}}
 \doxysubsubsection{\texorpdfstring{lac\_multiply\_vec4()}{lac\_multiply\_vec4()}}
-{\footnotesize\ttfamily \label{vecmath_8c_af9960268ecdf3595ca750becb90e21e5} 
-LAC\+\_\+\+DECL void lac\+\_\+multiply\+\_\+vec4 (\begin{DoxyParamCaption}\item[{vec4 \texorpdfstring{$\ast$}{*}}]{v\+\_\+out}{, }\item[{const vec4}]{v\+\_\+in}{, }\item[{float}]{scalar}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{vecmath_8c_a9499ee089ba38c51df621034c4548aed} 
+LAC\+\_\+\+DECL void lac\+\_\+multiply\+\_\+vec4 (\begin{DoxyParamCaption}\item[{vec4 \texorpdfstring{$\ast$}{*}}]{v\+\_\+out}{, }\item[{const vec4}]{v\+\_\+in}{, }\item[{const float}]{scalar}{}\end{DoxyParamCaption})}
 
 
 
-Scales a vector of size 4 up by a factor of "{}scalar"{}. 
+Scales a vector of length 4 by a factor of {\bfseries{scalar}}. 
 
 \begin{DoxySince}{Since}
-10-\/19-\/2023 
+19-\/10-\/2023 
 \end{DoxySince}
 
-\begin{DoxyParams}{Parameters}
-{\em v\+\_\+out} & The scaled vector \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The scaled vector \\
 \hline
-{\em v\+\_\+in} & The vector to be scaled \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+in} & The vector to be scaled \\
 \hline
-{\em scalar} & A constant representing the multiplier \\
+\mbox{\texttt{ in}}  & {\em scalar} & A constant representing the multiplier \\
 \hline
 \end{DoxyParams}
 \Hypertarget{vecmath_8c_a947e17d0218927ee026c3cf445c50157}\index{vecmath.c@{vecmath.c}!lac\_multiply\_vec4\_mat4@{lac\_multiply\_vec4\_mat4}}
@@ -501,18 +539,18 @@ LAC\+\_\+\+DECL void lac\+\_\+multiply\+\_\+vec4\+\_\+mat4 (\begin{DoxyParamCapt
 
 
 
-Multiplies a matrix of size 4 by a vector of size 4. 
+Multiplies a 4x4 matrix by a vector of length 4. 
 
 \begin{DoxySince}{Since}
-10-\/22-\/2023 
+22-\/10-\/2023 
 \end{DoxySince}
 
-\begin{DoxyParams}{Parameters}
-{\em v\+\_\+out} & The product vector \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The product vector \\
 \hline
-{\em v\+\_\+in} & The input vector \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+in} & The input vector \\
 \hline
-{\em m\+\_\+in} & The input matrix \\
+\mbox{\texttt{ in}}  & {\em m\+\_\+in} & The input matrix \\
 \hline
 \end{DoxyParams}
 \Hypertarget{vecmath_8c_a786ccac4eeb1c2f7a311fef86c9584aa}\index{vecmath.c@{vecmath.c}!lac\_normalize\_vec2@{lac\_normalize\_vec2}}
@@ -523,18 +561,18 @@ LAC\+\_\+\+DECL void lac\+\_\+normalize\+\_\+vec2 (\begin{DoxyParamCaption}\item
 
 
 
-Normalize a vector of size 2. 
+Normalize a vector of length 2. 
 
 \label{vecmath_8c_lac_normalize_vec2_anchor}%
 \Hypertarget{vecmath_8c_lac_normalize_vec2_anchor}%
 \begin{DoxySince}{Since}
-10-\/17-\/2023 
+17-\/10-\/2023 
 \end{DoxySince}
 
-\begin{DoxyParams}{Parameters}
-{\em v\+\_\+out} & The normalized vector \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The normalized vector \\
 \hline
-{\em v\+\_\+in} & The vector to be normalized \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+in} & The vector to be normalized \\
 \hline
 \end{DoxyParams}
 \Hypertarget{vecmath_8c_ad9affd365959c79946bdf4baaf9286d7}\index{vecmath.c@{vecmath.c}!lac\_normalize\_vec3@{lac\_normalize\_vec3}}
@@ -545,18 +583,18 @@ LAC\+\_\+\+DECL void lac\+\_\+normalize\+\_\+vec3 (\begin{DoxyParamCaption}\item
 
 
 
-Normalize a vector of size 3. 
+Normalize a vector of length 3. 
 
 \label{vecmath_8c_lac_normalize_vec3_anchor}%
 \Hypertarget{vecmath_8c_lac_normalize_vec3_anchor}%
 \begin{DoxySince}{Since}
-10-\/17-\/2023 
+17-\/10-\/2023 
 \end{DoxySince}
 
-\begin{DoxyParams}{Parameters}
-{\em v\+\_\+out} & The normalized vector \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The normalized vector \\
 \hline
-{\em v\+\_\+in} & The vector to be normalized \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+in} & The vector to be normalized \\
 \hline
 \end{DoxyParams}
 \Hypertarget{vecmath_8c_a0b5f173fff835152b610cd0c4f7b6694}\index{vecmath.c@{vecmath.c}!lac\_normalize\_vec4@{lac\_normalize\_vec4}}
@@ -567,18 +605,42 @@ LAC\+\_\+\+DECL void lac\+\_\+normalize\+\_\+vec4 (\begin{DoxyParamCaption}\item
 
 
 
-Normalize a vector of size 4. 
+Normalize a vector of length 4. 
 
 \label{vecmath_8c_lac_normalize_vec4_anchor}%
 \Hypertarget{vecmath_8c_lac_normalize_vec4_anchor}%
 \begin{DoxySince}{Since}
-10-\/17-\/2023 
+17-\/10-\/2023 
 \end{DoxySince}
 
-\begin{DoxyParams}{Parameters}
-{\em v\+\_\+out} & The normalized vector \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The normalized vector \\
 \hline
-{\em v\+\_\+in} & The vector to be normalized \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+in} & The vector to be normalized \\
+\hline
+\end{DoxyParams}
+\Hypertarget{vecmath_8c_a64d98a634821b9d9ee208fe8439effcd}\index{vecmath.c@{vecmath.c}!lac\_polar\_to\_cartesian@{lac\_polar\_to\_cartesian}}
+\index{lac\_polar\_to\_cartesian@{lac\_polar\_to\_cartesian}!vecmath.c@{vecmath.c}}
+\doxysubsubsection{\texorpdfstring{lac\_polar\_to\_cartesian()}{lac\_polar\_to\_cartesian()}}
+{\footnotesize\ttfamily \label{vecmath_8c_a64d98a634821b9d9ee208fe8439effcd} 
+LAC\+\_\+\+DECL void lac\+\_\+polar\+\_\+to\+\_\+cartesian (\begin{DoxyParamCaption}\item[{vec2 \texorpdfstring{$\ast$}{*}}]{v\+\_\+out}{, }\item[{const float}]{len}{, }\item[{const float}]{angle}{}\end{DoxyParamCaption})}
+
+
+
+Convert polar coordinates given by {\bfseries{angle}} and {\bfseries{len}} to cartesian space. 
+
+\label{vecmath_8c_lac_polar_to_cartesian_anchor}%
+\Hypertarget{vecmath_8c_lac_polar_to_cartesian_anchor}%
+\begin{DoxySince}{Since}
+24-\/09-\/2024 
+\end{DoxySince}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & A vector which represents the conversion to cartesian coordinates \\
+\hline
+\mbox{\texttt{ in}}  & {\em len} & The radial coordinate \\
+\hline
+\mbox{\texttt{ in}}  & {\em angle} & The angular coordinate (given in radians) \\
 \hline
 \end{DoxyParams}
 \Hypertarget{vecmath_8c_a953cd69ea07b41724d09c93447ad4a42}\index{vecmath.c@{vecmath.c}!lac\_subtract\_vec2@{lac\_subtract\_vec2}}
@@ -589,18 +651,18 @@ LAC\+\_\+\+DECL void lac\+\_\+subtract\+\_\+vec2 (\begin{DoxyParamCaption}\item[
 
 
 
-Calculates the difference between two vectors of size 2. 
+Calculates the difference between two vectors of length 2. 
 
 \begin{DoxySince}{Since}
-10-\/17-\/2023 
+17-\/10-\/2023 
 \end{DoxySince}
 
-\begin{DoxyParams}{Parameters}
-{\em v\+\_\+out} & The difference vector \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The difference vector \\
 \hline
-{\em v\+\_\+a} & The minuend vector \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+a} & The minuend vector \\
 \hline
-{\em v\+\_\+b} & The subtrahend vector \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+b} & The subtrahend vector \\
 \hline
 \end{DoxyParams}
 \Hypertarget{vecmath_8c_a1b7fc32157a1836721bab00db1814fa9}\index{vecmath.c@{vecmath.c}!lac\_subtract\_vec3@{lac\_subtract\_vec3}}
@@ -611,18 +673,18 @@ LAC\+\_\+\+DECL void lac\+\_\+subtract\+\_\+vec3 (\begin{DoxyParamCaption}\item[
 
 
 
-Calculates the difference between two vectors of size 3. 
+Calculates the difference between two vectors of length 3. 
 
 \begin{DoxySince}{Since}
-10-\/17-\/2023 
+17-\/10-\/2023 
 \end{DoxySince}
 
-\begin{DoxyParams}{Parameters}
-{\em v\+\_\+out} & The difference vector \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The difference vector \\
 \hline
-{\em v\+\_\+a} & The minuend vector \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+a} & The minuend vector \\
 \hline
-{\em v\+\_\+b} & The subtrahend vector \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+b} & The subtrahend vector \\
 \hline
 \end{DoxyParams}
 \Hypertarget{vecmath_8c_a7b7fb052384e29c4e6294aef3338e88c}\index{vecmath.c@{vecmath.c}!lac\_subtract\_vec4@{lac\_subtract\_vec4}}
@@ -633,17 +695,17 @@ LAC\+\_\+\+DECL void lac\+\_\+subtract\+\_\+vec4 (\begin{DoxyParamCaption}\item[
 
 
 
-Calculates the difference between two vectors of size 4. 
+Calculates the difference between two vectors of length 4. 
 
 \begin{DoxySince}{Since}
-10-\/17-\/2023 
+17-\/10-\/2023 
 \end{DoxySince}
 
-\begin{DoxyParams}{Parameters}
-{\em v\+\_\+out} & The difference vector \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em v\+\_\+out} & The difference vector \\
 \hline
-{\em v\+\_\+a} & The minuend vector \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+a} & The minuend vector \\
 \hline
-{\em v\+\_\+b} & The subtrahend vector \\
+\mbox{\texttt{ in}}  & {\em v\+\_\+b} & The subtrahend vector \\
 \hline
 \end{DoxyParams}

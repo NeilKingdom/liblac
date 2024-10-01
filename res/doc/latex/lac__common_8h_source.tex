@@ -1,0 +1,100 @@
+\doxysection{lac\+\_\+common.\+h}
+\hypertarget{lac__common_8h_source}{}\label{lac__common_8h_source}\index{/home/neil/devel/projects/liblac/include/lac\_common.h@{/home/neil/devel/projects/liblac/include/lac\_common.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ LAC\_COMMON\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ LAC\_COMMON\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <errno.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00012\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_cplusplus\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{comment}{/*\ Define\ this\ as\ static\ if\ you\ want\ to\ make\ all\ functions\ static\ */}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ LAC\_DECL}}
+\DoxyCodeLine{00017\ \textcolor{comment}{/*\ Define\ this\ as\ false\ if\ you\ want\ to\ use\ column-\/major\ ordering\ */}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ LAC\_IS\_ROW\_MAJOR\ true}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ lac\_PI\ 3.14159265358979323846264338327950288f}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{float}\ mat2[4];}
+\DoxyCodeLine{00023\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{float}\ mat3[9];}
+\DoxyCodeLine{00024\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{float}\ mat4[16];}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{float}\ vec2[2];}
+\DoxyCodeLine{00027\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{float}\ vec3[3];}
+\DoxyCodeLine{00028\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{float}\ vec4[4];}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ LAC\_NOTE,}
+\DoxyCodeLine{00032\ \ \ \ \ LAC\_WARNING,}
+\DoxyCodeLine{00033\ \ \ \ \ LAC\_ERROR}
+\DoxyCodeLine{00034\ \}\ LacLogLevel\_t;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#if\ defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#pragma\ GCC\ diagnostic\ push}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#pragma\ GCC\ diagnostic\ ignored\ "{}-\/Wunused-\/function"{}}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#elif\ defined(\_\_clang\_\_)}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#pragma\ clang\ diagnostic\ push}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#pragma\ clang\ diagnostic\ ignored\ "{}-\/Wunused-\/function"{}}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \_lac\_log(}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *file,}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *func,}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ line,}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *msg,}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{const}\ LacLogLevel\_t\ level)\ \{}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{char}\ header[20];}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{switch}\ (level)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LAC\_NOTE:}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ strncpy(header,\ \textcolor{stringliteral}{"{}NOTE"{}},\ 20);}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LAC\_WARNING:}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ strncpy(header,\ \textcolor{stringliteral}{"{}WARNING"{}},\ 20);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LAC\_ERROR:}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ strncpy(header,\ \textcolor{stringliteral}{"{}ERROR"{}},\ 20);}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ fprintf((level\ ==\ LAC\_NOTE)\ ?\ stdout\ :\ stderr,}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)n===========\ \%s\ ===========\(\backslash\)n"{}}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Logger:\ \%s\(\backslash\)n"{}}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}File:\ \%s,\ Function:\ \%s,\ Line:\ \%d\(\backslash\)n"{}},}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ header,\ msg,\ file,\ func,\ line}
+\DoxyCodeLine{00069\ \ \ \ \ );}
+\DoxyCodeLine{00070\ \}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#if\ defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#pragma\ GCC\ diagnostic\ pop}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#elif\ defined(\_\_clang\_\_)}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#pragma\ clang\ diagnostic\ pop}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#define\ LAC\_LOG(msg,\ level)\ do\ \{\ \(\backslash\)}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\ \ \ \ \_lac\_log((\_\_FILE\_\_),\ (\_\_func\_\_),\ (\_\_LINE\_\_),\ (msg),\ (level));\ \(\backslash\)}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\}\ while\ (0)}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00088\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ lac\_deg\_to\_rad(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ deg)\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordflow}{return}\ deg\ *\ (lac\_PI\ /\ 180.0f);}
+\DoxyCodeLine{00090\ \}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00098\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ lac\_rad\_to\_deg(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ rad)\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordflow}{return}\ rad\ *\ (180.0f\ /\ lac\_PI);}
+\DoxyCodeLine{00100\ \}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00103\ \}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_cplusplus\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LAC\_COMMON\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

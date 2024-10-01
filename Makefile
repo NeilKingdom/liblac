@@ -44,7 +44,9 @@ $(BIN_DIR)/liblac.a: $(OBJS)
 # Create dynamic library
 $(BIN_DIR)/liblac.so: $(SRCS) $(DEPS)
 	$(CC) -o $@ $(SRCS) $(DEPS) -shared -fPIC $(CCFLAGS) $(LDFLAGS)
+ifeq ($(PROFILE), RELEASE)
 	strip ./bin/liblac.so
+endif
 
 # Create objects
 $(OBJ_DIR)/%.o: $(SRCS)

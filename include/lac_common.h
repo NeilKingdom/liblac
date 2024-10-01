@@ -15,11 +15,9 @@ extern "C" {
 /* Define this as static if you want to make all functions static */
 #define LAC_DECL
 /* Define this as false if you want to use column-major ordering */
-#define LAC_IS_ROW_MAJOR false
+#define LAC_IS_ROW_MAJOR true
 
 #define lac_PI 3.14159265358979323846264338327950288f
-#define lac_deg_to_rad(x) ((x) * (lac_PI / 180.0f))
-#define lac_rad_to_deg(x) ((x) * (180.0f / lac_PI))
 
 typedef float mat2[4];
 typedef float mat3[9];
@@ -80,6 +78,26 @@ static void _lac_log(
 #define LAC_LOG(msg, level) do { \
     _lac_log((__FILE__), (__func__), (__LINE__), (msg), (level)); \
 } while (0)
+
+/**
+ * @brief Converts degrees to radians.
+ * @since 30-09-2024
+ * @param[in] deg An angle given in degrees
+ * @returns The conversion of angle __deg__ to radians
+ */
+static inline float lac_deg_to_rad(const float deg) {
+    return deg * (lac_PI / 180.0f);
+}
+
+/**
+ * @brief Converts radians to degrees.
+ * @since 30-09-2024
+ * @param[in] rad An angle given in radians
+ * @returns The conversion of angle __rad__ to degrees
+ */
+static inline float lac_rad_to_deg(const float rad) {
+    return rad * (180.0f / lac_PI);
+}
 
 #ifdef __cplusplus
 }

@@ -21,17 +21,17 @@
 \DoxyCodeLine{00017\ \textcolor{keywordtype}{void}\ lac\_subtract\_vec3(vec3\ *v\_out,\ \textcolor{keyword}{const}\ vec3\ v\_a,\ \textcolor{keyword}{const}\ vec3\ v\_b);}
 \DoxyCodeLine{00018\ \textcolor{keywordtype}{void}\ lac\_subtract\_vec4(vec4\ *v\_out,\ \textcolor{keyword}{const}\ vec4\ v\_a,\ \textcolor{keyword}{const}\ vec4\ v\_b);}
 \DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \textcolor{keywordtype}{void}\ lac\_multiply\_vec2(vec2\ *v\_out,\ \textcolor{keyword}{const}\ vec2\ v\_in,\ \textcolor{keywordtype}{float}\ scalar);}
-\DoxyCodeLine{00021\ \textcolor{keywordtype}{void}\ lac\_multiply\_vec3(vec3\ *v\_out,\ \textcolor{keyword}{const}\ vec3\ v\_in,\ \textcolor{keywordtype}{float}\ scalar);}
-\DoxyCodeLine{00022\ \textcolor{keywordtype}{void}\ lac\_multiply\_vec4(vec4\ *v\_out,\ \textcolor{keyword}{const}\ vec4\ v\_in,\ \textcolor{keywordtype}{float}\ scalar);}
+\DoxyCodeLine{00020\ \textcolor{keywordtype}{void}\ lac\_multiply\_vec2(vec2\ *v\_out,\ \textcolor{keyword}{const}\ vec2\ v\_in,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ scalar);}
+\DoxyCodeLine{00021\ \textcolor{keywordtype}{void}\ lac\_multiply\_vec3(vec3\ *v\_out,\ \textcolor{keyword}{const}\ vec3\ v\_in,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ scalar);}
+\DoxyCodeLine{00022\ \textcolor{keywordtype}{void}\ lac\_multiply\_vec4(vec4\ *v\_out,\ \textcolor{keyword}{const}\ vec4\ v\_in,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ scalar);}
 \DoxyCodeLine{00023\ }
 \DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ lac\_multiply\_vec2\_mat2(vec2\ *v\_out,\ \textcolor{keyword}{const}\ vec2\ v\_in,\ \textcolor{keyword}{const}\ mat2\ m\_in);}
 \DoxyCodeLine{00025\ \textcolor{keywordtype}{void}\ lac\_multiply\_vec3\_mat3(vec3\ *v\_out,\ \textcolor{keyword}{const}\ vec3\ v\_in,\ \textcolor{keyword}{const}\ mat3\ m\_in);}
 \DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ lac\_multiply\_vec4\_mat4(vec4\ *v\_out,\ \textcolor{keyword}{const}\ vec4\ v\_in,\ \textcolor{keyword}{const}\ mat4\ m\_in);}
 \DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \textcolor{keywordtype}{void}\ lac\_divide\_vec2(vec2\ *v\_out,\ \textcolor{keyword}{const}\ vec2\ v\_in,\ \textcolor{keywordtype}{float}\ scalar);}
-\DoxyCodeLine{00029\ \textcolor{keywordtype}{void}\ lac\_divide\_vec3(vec3\ *v\_out,\ \textcolor{keyword}{const}\ vec3\ v\_in,\ \textcolor{keywordtype}{float}\ scalar);}
-\DoxyCodeLine{00030\ \textcolor{keywordtype}{void}\ lac\_divide\_vec4(vec4\ *v\_out,\ \textcolor{keyword}{const}\ vec4\ v\_in,\ \textcolor{keywordtype}{float}\ scalar);}
+\DoxyCodeLine{00028\ \textcolor{keywordtype}{void}\ lac\_divide\_vec2(vec2\ *v\_out,\ \textcolor{keyword}{const}\ vec2\ v\_in,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ scalar);}
+\DoxyCodeLine{00029\ \textcolor{keywordtype}{void}\ lac\_divide\_vec3(vec3\ *v\_out,\ \textcolor{keyword}{const}\ vec3\ v\_in,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ scalar);}
+\DoxyCodeLine{00030\ \textcolor{keywordtype}{void}\ lac\_divide\_vec4(vec4\ *v\_out,\ \textcolor{keyword}{const}\ vec4\ v\_in,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ scalar);}
 \DoxyCodeLine{00031\ }
 \DoxyCodeLine{00032\ \textcolor{keywordtype}{void}\ lac\_calc\_dot\_prod\_vec2(\textcolor{keywordtype}{float}\ *dot\_prod,\ \textcolor{keyword}{const}\ vec2\ v\_a,\ \textcolor{keyword}{const}\ vec2\ v\_b);}
 \DoxyCodeLine{00033\ \textcolor{keywordtype}{void}\ lac\_calc\_dot\_prod\_vec3(\textcolor{keywordtype}{float}\ *dot\_prod,\ \textcolor{keyword}{const}\ vec3\ v\_a,\ \textcolor{keyword}{const}\ vec3\ v\_b);}
@@ -39,18 +39,21 @@
 \DoxyCodeLine{00035\ }
 \DoxyCodeLine{00036\ \textcolor{keywordtype}{void}\ lac\_calc\_cross\_prod(vec3\ *v\_out,\ \textcolor{keyword}{const}\ vec3\ v\_a,\ \textcolor{keyword}{const}\ vec3\ v\_b);}
 \DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ \textcolor{keywordtype}{void}\ lac\_calc\_magnitude\_vec2(\textcolor{keywordtype}{float}\ *magnitude,\ \textcolor{keyword}{const}\ vec4\ v\_in);\ }
-\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ lac\_calc\_magnitude\_vec3(\textcolor{keywordtype}{float}\ *magnitude,\ \textcolor{keyword}{const}\ vec4\ v\_in);\ }
-\DoxyCodeLine{00040\ \textcolor{keywordtype}{void}\ lac\_calc\_magnitude\_vec4(\textcolor{keywordtype}{float}\ *magnitude,\ \textcolor{keyword}{const}\ vec4\ v\_in);\ }
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{void}\ lac\_calc\_magnitude\_vec2(\textcolor{keywordtype}{float}\ *magnitude,\ \textcolor{keyword}{const}\ vec2\ v\_in);}
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ lac\_calc\_magnitude\_vec3(\textcolor{keywordtype}{float}\ *magnitude,\ \textcolor{keyword}{const}\ vec3\ v\_in);}
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{void}\ lac\_calc\_magnitude\_vec4(\textcolor{keywordtype}{float}\ *magnitude,\ \textcolor{keyword}{const}\ vec4\ v\_in);}
 \DoxyCodeLine{00041\ }
 \DoxyCodeLine{00042\ \textcolor{keywordtype}{void}\ lac\_normalize\_vec2(vec2\ *v\_out,\ \textcolor{keyword}{const}\ vec2\ v\_in);}
 \DoxyCodeLine{00043\ \textcolor{keywordtype}{void}\ lac\_normalize\_vec3(vec3\ *v\_out,\ \textcolor{keyword}{const}\ vec3\ v\_in);}
 \DoxyCodeLine{00044\ \textcolor{keywordtype}{void}\ lac\_normalize\_vec4(vec4\ *v\_out,\ \textcolor{keyword}{const}\ vec4\ v\_in);}
 \DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus\ }}
-\DoxyCodeLine{00047\ \}}
-\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_cplusplus\ */}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ VECMATH\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00046\ \textcolor{keywordtype}{void}\ lac\_polar\_to\_cartesian(vec2\ *v\_out,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ len,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ angle);}
+\DoxyCodeLine{00047\ \textcolor{keywordtype}{void}\ lac\_cartesian\_to\_polar(\textcolor{keywordtype}{float}\ *len,\ \textcolor{keywordtype}{float}\ *angle,\ \textcolor{keyword}{const}\ vec2\ v\_in);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00050\ \}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_cplusplus\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ VECMATH\_H\ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

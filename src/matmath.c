@@ -1,9 +1,9 @@
 /**
  * @file matmath.c
- * @since 10-17-2023
+ * @since 17-10-2023
  * @author Neil Kingdom
  * @version 1.0
- * @brief matmath.c Contains all of the maths functions which pertain to matrices specifically.
+ * @brief Contains all of the maths which primarily operate on matrices.
  *
  * @section matmul Matrix Multiplication
  *
@@ -29,9 +29,9 @@
  *
  * @section transpose Matrix Transposition
  *
- * Transposing is an operation by which we flip a matrix on its
- * diagonal axis. This effectively alters row-major ordered matrices
- * to become column-major ordered, and vice versa.
+ * Transposing is an operation in which we mirror a matrix along its diagonal axis.
+ * This effectively alters row-major ordered matrices to become column-major ordered,
+ * and vice versa.
  *
  * @subsubsection transpose_related Related Functions
  *
@@ -43,57 +43,64 @@
 #include "matmath.h"
 
 /**
- * @brief Adds two matrices of size 2x2.
- * @since 10-17-2023
- * @param m_out The sum matrix
- * @param m_a The augend matrix
- * @param m_a The addend matrix
+ * @brief Adds two 2x2 matrices.
+ * @since 17-10-2023
+ * @param[out] m_out The sum matrix
+ * @param[in] m_a The augend matrix
+ * @param[in] m_b The addend matrix
  */
 LAC_DECL void lac_add_mat2(mat2 *m_out, const mat2 m_a, const mat2 m_b) {
    (*m_out)[0] = m_a[0] + m_b[0];
    (*m_out)[1] = m_a[1] + m_b[1];
+
    (*m_out)[2] = m_a[2] + m_b[2];
    (*m_out)[3] = m_a[3] + m_b[3];
 }
 
 /**
- * @brief Adds two matrices of size 3x3.
- * @since 10-17-2023
- * @param m_out The sum matrix
- * @param m_a The augend matrix
- * @param m_a The addend matrix
+ * @brief Adds two 3x3 matrices.
+ * @since 17-10-2023
+ * @param[out] m_out The sum matrix
+ * @param[in] m_a The augend matrix
+ * @param[in] m_b The addend matrix
  */
 LAC_DECL void lac_add_mat3(mat3 *m_out, const mat3 m_a, const mat3 m_b) {
    (*m_out)[0] = m_a[0] + m_b[0];
    (*m_out)[1] = m_a[1] + m_b[1];
    (*m_out)[2] = m_a[2] + m_b[2];
+
    (*m_out)[3] = m_a[3] + m_b[3];
    (*m_out)[4] = m_a[4] + m_b[4];
    (*m_out)[5] = m_a[5] + m_b[5];
+
    (*m_out)[6] = m_a[6] + m_b[6];
    (*m_out)[7] = m_a[7] + m_b[7];
+   (*m_out)[8] = m_a[8] + m_b[8];
 }
 
 /**
- * @brief Adds two matrices of size 4x4.
- * @since 10-17-2023
- * @param m_out The sum matrix
- * @param m_a The augend matrix
- * @param m_a The addend matrix
+ * @brief Adds two 4x4 matrices.
+ * @since 17-10-2023
+ * @param[out] m_out The sum matrix
+ * @param[in] m_a The augend matrix
+ * @param[in] m_b The addend matrix
  */
 LAC_DECL void lac_add_mat4(mat4 *m_out, const mat4 m_a, const mat4 m_b) {
    (*m_out)[0]  = m_a[0]  + m_b[0];
    (*m_out)[1]  = m_a[1]  + m_b[1];
    (*m_out)[2]  = m_a[2]  + m_b[2];
    (*m_out)[3]  = m_a[3]  + m_b[3];
+
    (*m_out)[4]  = m_a[4]  + m_b[4];
    (*m_out)[5]  = m_a[5]  + m_b[5];
    (*m_out)[6]  = m_a[6]  + m_b[6];
    (*m_out)[7]  = m_a[7]  + m_b[7];
+
    (*m_out)[8]  = m_a[8]  + m_b[8];
    (*m_out)[9]  = m_a[9]  + m_b[9];
    (*m_out)[10] = m_a[10] + m_b[10];
    (*m_out)[11] = m_a[11] + m_b[11];
+
    (*m_out)[12] = m_a[12] + m_b[12];
    (*m_out)[13] = m_a[13] + m_b[13];
    (*m_out)[14] = m_a[14] + m_b[14];
@@ -101,57 +108,64 @@ LAC_DECL void lac_add_mat4(mat4 *m_out, const mat4 m_a, const mat4 m_b) {
 }
 
 /**
- * @brief Subtracts two matrices of size 2x2.
- * @since 10-17-2023
- * @param m_out The difference matrix
- * @param m_a The minuend matrix
- * @param m_a The subtrahend matrix
+ * @brief Subtracts two 2x2 matrices.
+ * @since 17-10-2023
+ * @param[out] m_out The difference matrix
+ * @param[in] m_a The minuend matrix
+ * @param[in] m_b The subtrahend matrix
  */
 LAC_DECL void lac_subtract_mat2(mat2 *m_out, const mat2 m_a, const mat2 m_b) {
    (*m_out)[0] = m_a[0] - m_b[0];
    (*m_out)[1] = m_a[1] - m_b[1];
+
    (*m_out)[2] = m_a[2] - m_b[2];
    (*m_out)[3] = m_a[3] - m_b[3];
 }
 
 /**
- * @brief Subtracts two matrices of size 3x3.
- * @since 10-17-2023
- * @param m_out The difference matrix
- * @param m_a The minuend matrix
- * @param m_a The subtrahend matrix
+ * @brief Subtracts two 3x3 matrices.
+ * @since 17-10-2023
+ * @param[out] m_out The difference matrix
+ * @param[in] m_a The minuend matrix
+ * @param[in] m_b The subtrahend matrix
  */
 LAC_DECL void lac_subtract_mat3(mat3 *m_out, const mat3 m_a, const mat3 m_b) {
    (*m_out)[0] = m_a[0] - m_b[0];
    (*m_out)[1] = m_a[1] - m_b[1];
    (*m_out)[2] = m_a[2] - m_b[2];
+
    (*m_out)[3] = m_a[3] - m_b[3];
    (*m_out)[4] = m_a[4] - m_b[4];
    (*m_out)[5] = m_a[5] - m_b[5];
+
    (*m_out)[6] = m_a[6] - m_b[6];
    (*m_out)[7] = m_a[7] - m_b[7];
+   (*m_out)[8] = m_a[8] - m_b[8];
 }
 
 /**
- * @brief Subtracts two matrices of size 4x4.
- * @since 10-17-2023
- * @param m_out The difference matrix
- * @param m_a The minuend matrix
- * @param m_a The subtrahend matrix
+ * @brief Subtracts two 4x4 matrices.
+ * @since 17-10-2023
+ * @param[out] m_out The difference matrix
+ * @param[in] m_a The minuend matrix
+ * @param[in] m_b The subtrahend matrix
  */
 LAC_DECL void lac_subtract_mat4(mat4 *m_out, const mat4 m_a, const mat4 m_b) {
    (*m_out)[0]  = m_a[0]  - m_b[0];
    (*m_out)[1]  = m_a[1]  - m_b[1];
    (*m_out)[2]  = m_a[2]  - m_b[2];
    (*m_out)[3]  = m_a[3]  - m_b[3];
+
    (*m_out)[4]  = m_a[4]  - m_b[4];
    (*m_out)[5]  = m_a[5]  - m_b[5];
    (*m_out)[6]  = m_a[6]  - m_b[6];
    (*m_out)[7]  = m_a[7]  - m_b[7];
+
    (*m_out)[8]  = m_a[8]  - m_b[8];
    (*m_out)[9]  = m_a[9]  - m_b[9];
    (*m_out)[10] = m_a[10] - m_b[10];
    (*m_out)[11] = m_a[11] - m_b[11];
+
    (*m_out)[12] = m_a[12] - m_b[12];
    (*m_out)[13] = m_a[13] - m_b[13];
    (*m_out)[14] = m_a[14] - m_b[14];
@@ -159,35 +173,39 @@ LAC_DECL void lac_subtract_mat4(mat4 *m_out, const mat4 m_a, const mat4 m_b) {
 }
 
 /**
- * @brief Performs matrix multiplication between two matrices of size 2x2.
+ * @brief Performs matrix multiplication on two 2x2 matrices.
  * @anchor lac_multiply_mat2_anchor
- * @since 10-17-2023
- * @param m_out The product matrix
- * @param m_a The multiplicand matrix
- * @param m_b The multiplier matrix
+ * @since 17-10-2023
+ * @param[out] m_out The product matrix
+ * @param[in] m_a The multiplicand matrix
+ * @param[in] m_b The multiplier matrix
  */
 LAC_DECL void lac_multiply_mat2(mat2 *m_out, const mat2 m_a, const mat2 m_b) {
 #if LAC_IS_ROW_MAJOR
-#else
    (*m_out)[0] = (m_a[0] * m_b[0]) + (m_a[1] * m_b[2]);
    (*m_out)[1] = (m_a[0] * m_b[1]) + (m_a[1] * m_b[3]);
 
    (*m_out)[2] = (m_a[2] * m_b[0]) + (m_a[3] * m_b[2]);
    (*m_out)[3] = (m_a[2] * m_b[1]) + (m_a[3] * m_b[3]);
+#else
+   (*m_out)[0] = (m_a[0] * m_b[0]) + (m_a[2] * m_b[1]);
+   (*m_out)[2] = (m_a[0] * m_b[2]) + (m_a[2] * m_b[3]);
+
+   (*m_out)[1] = (m_a[1] * m_b[0]) + (m_a[3] * m_b[1]);
+   (*m_out)[3] = (m_a[1] * m_b[2]) + (m_a[3] * m_b[3]);
 #endif
 }
 
 /**
- * @brief Performs matrix multiplication between two matrices of size 3x3.
+ * @brief Performs matrix multiplication on two 3x3 matrices.
  * @anchor lac_multiply_mat3_anchor
- * @since 10-17-2023
- * @param m_out The product matrix
- * @param m_a The multiplicand matrix
- * @param m_b The multiplier matrix
+ * @since 17-10-2023
+ * @param[out] m_out The product matrix
+ * @param[in] m_a The multiplicand matrix
+ * @param[in] m_b The multiplier matrix
  */
 LAC_DECL void lac_multiply_mat3(mat3 *m_out, const mat3 m_a, const mat3 m_b) {
 #if LAC_IS_ROW_MAJOR
-#else
    (*m_out)[0] = (m_a[0] * m_b[0]) + (m_a[1] * m_b[3]) + (m_a[2] * m_b[6]);
    (*m_out)[1] = (m_a[0] * m_b[1]) + (m_a[1] * m_b[4]) + (m_a[2] * m_b[7]);
    (*m_out)[2] = (m_a[0] * m_b[2]) + (m_a[1] * m_b[5]) + (m_a[2] * m_b[8]);
@@ -199,20 +217,31 @@ LAC_DECL void lac_multiply_mat3(mat3 *m_out, const mat3 m_a, const mat3 m_b) {
    (*m_out)[6] = (m_a[6] * m_b[0]) + (m_a[7] * m_b[3]) + (m_a[8] * m_b[6]);
    (*m_out)[7] = (m_a[6] * m_b[1]) + (m_a[7] * m_b[4]) + (m_a[8] * m_b[7]);
    (*m_out)[8] = (m_a[6] * m_b[2]) + (m_a[7] * m_b[5]) + (m_a[8] * m_b[8]);
+#else
+   (*m_out)[0] = (m_a[0] * m_b[0]) + (m_a[3] * m_b[1]) + (m_a[6] * m_b[2]);
+   (*m_out)[3] = (m_a[0] * m_b[3]) + (m_a[3] * m_b[4]) + (m_a[6] * m_b[5]);
+   (*m_out)[6] = (m_a[0] * m_b[6]) + (m_a[3] * m_b[7]) + (m_a[6] * m_b[8]);
+
+   (*m_out)[1] = (m_a[1] * m_b[0]) + (m_a[4] * m_b[1]) + (m_a[7] * m_b[2]);
+   (*m_out)[4] = (m_a[1] * m_b[3]) + (m_a[4] * m_b[4]) + (m_a[7] * m_b[5]);
+   (*m_out)[7] = (m_a[1] * m_b[6]) + (m_a[4] * m_b[7]) + (m_a[7] * m_b[8]);
+
+   (*m_out)[2] = (m_a[2] * m_b[0]) + (m_a[5] * m_b[1]) + (m_a[8] * m_b[2]);
+   (*m_out)[5] = (m_a[2] * m_b[3]) + (m_a[5] * m_b[4]) + (m_a[8] * m_b[5]);
+   (*m_out)[8] = (m_a[2] * m_b[6]) + (m_a[5] * m_b[7]) + (m_a[8] * m_b[8]);
 #endif
 }
 
 /**
- * @brief Performs matrix multiplication between two matrices of size 4x4.
+ * @brief Performs matrix multiplication on two 4x4 matrices.
  * @anchor lac_multiply_mat4_anchor
- * @since 10-17-2023
- * @param m_out The product matrix
- * @param m_a The multiplicand matrix
- * @param m_b The multiplier matrix
+ * @since 17-10-2023
+ * @param[out] m_out The product matrix
+ * @param[in] m_a The multiplicand matrix
+ * @param[in] m_b The multiplier matrix
  */
 LAC_DECL void lac_multiply_mat4(mat4 *m_out, const mat4 m_a, const mat4 m_b) {
 #if LAC_IS_ROW_MAJOR
-#else
    (*m_out)[0]  = (m_a[0] * m_b[0])  + (m_a[1] * m_b[4])  + (m_a[2] * m_b[8])   + (m_a[3] * m_b[12]);
    (*m_out)[1]  = (m_a[0] * m_b[1])  + (m_a[1] * m_b[5])  + (m_a[2] * m_b[9])   + (m_a[3] * m_b[13]);
    (*m_out)[2]  = (m_a[0] * m_b[2])  + (m_a[1] * m_b[6])  + (m_a[2] * m_b[10])  + (m_a[3] * m_b[14]);
@@ -232,15 +261,35 @@ LAC_DECL void lac_multiply_mat4(mat4 *m_out, const mat4 m_a, const mat4 m_b) {
    (*m_out)[13] = (m_a[12] * m_b[1]) + (m_a[13] * m_b[5]) + (m_a[14] * m_b[9])  + (m_a[15] * m_b[13]);
    (*m_out)[14] = (m_a[12] * m_b[2]) + (m_a[13] * m_b[6]) + (m_a[14] * m_b[10]) + (m_a[15] * m_b[14]);
    (*m_out)[15] = (m_a[12] * m_b[3]) + (m_a[13] * m_b[7]) + (m_a[14] * m_b[11]) + (m_a[15] * m_b[15]);
+#else
+   (*m_out)[0]  = (m_a[0] * m_b[0])  + (m_a[4] * m_b[1])  + (m_a[8] * m_b[2])   + (m_a[12] * m_b[3]);
+   (*m_out)[4]  = (m_a[0] * m_b[4])  + (m_a[4] * m_b[5])  + (m_a[8] * m_b[6])   + (m_a[12] * m_b[7]);
+   (*m_out)[8]  = (m_a[0] * m_b[8])  + (m_a[4] * m_b[9])  + (m_a[8] * m_b[10])  + (m_a[12] * m_b[11]);
+   (*m_out)[12] = (m_a[0] * m_b[12]) + (m_a[4] * m_b[13]) + (m_a[8] * m_b[14])  + (m_a[12] * m_b[15]);
+
+   (*m_out)[1]  = (m_a[1] * m_b[0])  + (m_a[5] * m_b[1])  + (m_a[9] * m_b[2])   + (m_a[13] * m_b[3]);
+   (*m_out)[5]  = (m_a[1] * m_b[4])  + (m_a[5] * m_b[5])  + (m_a[9] * m_b[6])   + (m_a[13] * m_b[7]);
+   (*m_out)[9]  = (m_a[1] * m_b[8])  + (m_a[5] * m_b[9])  + (m_a[9] * m_b[10])  + (m_a[13] * m_b[11]);
+   (*m_out)[13] = (m_a[1] * m_b[12]) + (m_a[5] * m_b[13]) + (m_a[9] * m_b[14])  + (m_a[13] * m_b[15]);
+
+   (*m_out)[2]  = (m_a[2] * m_b[0])  + (m_a[6] * m_b[1])  + (m_a[10] * m_b[2])  + (m_a[14] * m_b[3]);
+   (*m_out)[6]  = (m_a[2] * m_b[4])  + (m_a[6] * m_b[5])  + (m_a[10] * m_b[6])  + (m_a[14] * m_b[7]);
+   (*m_out)[10] = (m_a[2] * m_b[8])  + (m_a[6] * m_b[9])  + (m_a[10] * m_b[10]) + (m_a[14] * m_b[11]);
+   (*m_out)[14] = (m_a[2] * m_b[12]) + (m_a[6] * m_b[13]) + (m_a[10] * m_b[14]) + (m_a[14] * m_b[15]);
+
+   (*m_out)[3]  = (m_a[3] * m_b[0])  + (m_a[7] * m_b[1])  + (m_a[11] * m_b[2])  + (m_a[15] * m_b[3]);
+   (*m_out)[7]  = (m_a[3] * m_b[4])  + (m_a[7] * m_b[5])  + (m_a[11] * m_b[6])  + (m_a[15] * m_b[7]);
+   (*m_out)[11] = (m_a[3] * m_b[8])  + (m_a[7] * m_b[9])  + (m_a[11] * m_b[10]) + (m_a[15] * m_b[11]);
+   (*m_out)[15] = (m_a[3] * m_b[12]) + (m_a[7] * m_b[13]) + (m_a[11] * m_b[14]) + (m_a[15] * m_b[15]);
 #endif
 }
 
 /**
- * @brief Transpose a matrix of size 2.
+ * @brief Transpose a 2x2 matrix.
  * @anchor lac_transpose_mat2_anchor
- * @since 10-17-2023
- * @param m_out The transposed matrix
- * @param m_in The matrix to be transposed
+ * @since 17-10-2023
+ * @param[out] m_out The transposed matrix
+ * @param[in] m_in The matrix to be transposed
  */
 LAC_DECL void lac_transpose_mat2(mat2 *m_out, const mat2 m_in) {
    (*m_out)[0] = m_in[0];
@@ -251,11 +300,11 @@ LAC_DECL void lac_transpose_mat2(mat2 *m_out, const mat2 m_in) {
 }
 
 /**
- * @brief Transpose a matrix of size 3.
+ * @brief Transpose a 3x3 matrix.
  * @anchor lac_transpose_mat3_anchor
- * @since 10-17-2023
- * @param m_out The transposed matrix
- * @param m_in The matrix to be transposed
+ * @since 17-10-2023
+ * @param[out] m_out The transposed matrix
+ * @param[in] m_in The matrix to be transposed
  */
 LAC_DECL void lac_transpose_mat3(mat3 *m_out, const mat3 m_in) {
    (*m_out)[0] = m_in[0];
@@ -272,11 +321,11 @@ LAC_DECL void lac_transpose_mat3(mat3 *m_out, const mat3 m_in) {
 }
 
 /**
- * @brief Transpose a matrix of size 4.
+ * @brief Transpose a 4x4 matrix.
  * @anchor lac_transpose_mat4_anchor
- * @since 10-17-2023
- * @param m_out The transposed matrix
- * @param m_in The matrix to be transposed
+ * @since 17-10-2023
+ * @param[out] m_out The transposed matrix
+ * @param[in] m_in The matrix to be transposed
  */
 LAC_DECL void lac_transpose_mat4(mat4 *m_out, const mat4 m_in) {
    (*m_out)[0]  = m_in[0];

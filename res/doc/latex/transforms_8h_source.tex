@@ -13,26 +13,38 @@
 \DoxyCodeLine{00009\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
 \DoxyCodeLine{00010\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_cplusplus\ */}\textcolor{preprocessor}{}}
 \DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \textcolor{keyword}{extern}\ mat4\ lac\_ident\_mat4;}
-\DoxyCodeLine{00013\ \textcolor{keyword}{extern}\ mat4\ lac\_ortho\_proj\_mat4;}
-\DoxyCodeLine{00014\ }
-\DoxyCodeLine{00015\ \textcolor{comment}{/*\ Forward\ function\ declarations\ */}}
+\DoxyCodeLine{00012\ \textcolor{keyword}{extern}\ mat2\ lac\_ident\_mat2;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{extern}\ mat3\ lac\_ident\_mat3;}
+\DoxyCodeLine{00014\ \textcolor{keyword}{extern}\ mat4\ lac\_ident\_mat4;}
+\DoxyCodeLine{00015\ \textcolor{keyword}{extern}\ mat4\ lac\_ortho\_proj\_mat4;}
 \DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \textcolor{keywordtype}{void}\ lac\_get\_reflection\_mat4(mat4\ *m\_out,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ yz\_plane,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ xz\_plane,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ xy\_plane);}
-\DoxyCodeLine{00018\ \textcolor{keywordtype}{void}\ lac\_get\_translation\_mat4(mat4\ *m\_out,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ tx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ ty,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ tz);}
-\DoxyCodeLine{00019\ \textcolor{keywordtype}{void}\ lac\_get\_scalar\_mat4(mat4\ *m\_out,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ sx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ sy,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ sz);}
-\DoxyCodeLine{00020\ \textcolor{keywordtype}{void}\ lac\_get\_yaw\_mat4(mat4\ *m\_out,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ yaw);}
-\DoxyCodeLine{00021\ \textcolor{keywordtype}{void}\ lac\_get\_pitch\_mat4(mat4\ *m\_out,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ pitch);}
-\DoxyCodeLine{00022\ \textcolor{keywordtype}{void}\ lac\_get\_roll\_mat4(mat4\ *m\_out,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ roll);}
-\DoxyCodeLine{00023\ \textcolor{keywordtype}{void}\ lac\_get\_rotation\_mat4(mat4\ *m\_out,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ rx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ ry,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ rz);}
-\DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ lac\_get\_projection\_mat4(mat4\ *m\_out,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ aspect,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ fov,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ znear,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ zfar);}
-\DoxyCodeLine{00025\ \textcolor{keywordtype}{void}\ lac\_get\_point\_at\_mat4(mat4\ *m\_out,\ \textcolor{keyword}{const}\ vec3\ v\_eye,\ \textcolor{keyword}{const}\ vec3\ v\_target,\ \textcolor{keyword}{const}\ vec3\ v\_up);}
-\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ lac\_invert\_mat4(mat4\ *m\_out,\ \textcolor{keyword}{const}\ mat4\ m\_in);}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
-\DoxyCodeLine{00029\ \}}
-\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_cplusplus\ */}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ TRANSFORMS\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00017\ \textcolor{comment}{/*\ Forward\ function\ declarations\ */}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keywordtype}{void}\ lac\_get\_reflection\_mat2(mat2\ *m\_out,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ yz\_plane,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ xz\_plane);}
+\DoxyCodeLine{00020\ \textcolor{keywordtype}{void}\ lac\_get\_reflection\_mat3(mat3\ *m\_out,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ yz\_plane,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ xz\_plane,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ xy\_plane);}
+\DoxyCodeLine{00021\ \textcolor{keywordtype}{void}\ lac\_get\_reflection\_mat4(mat4\ *m\_out,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ yz\_plane,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ xz\_plane,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ xy\_plane);}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keywordtype}{void}\ lac\_get\_translation\_mat2(mat2\ *m\_out,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ tx);}
+\DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ lac\_get\_translation\_mat3(mat3\ *m\_out,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ tx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ ty);}
+\DoxyCodeLine{00025\ \textcolor{keywordtype}{void}\ lac\_get\_translation\_mat4(mat4\ *m\_out,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ tx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ ty,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ tz);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keywordtype}{void}\ lac\_get\_scalar\_mat2(mat2\ *m\_out,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ sx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ sy);}
+\DoxyCodeLine{00028\ \textcolor{keywordtype}{void}\ lac\_get\_scalar\_mat3(mat3\ *m\_out,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ sx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ sy,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ sz);}
+\DoxyCodeLine{00029\ \textcolor{keywordtype}{void}\ lac\_get\_scalar\_mat4(mat4\ *m\_out,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ sx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ sy,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ sz);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keywordtype}{void}\ lac\_get\_yaw\_mat4(mat4\ *m\_out,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ yaw);}
+\DoxyCodeLine{00032\ \textcolor{keywordtype}{void}\ lac\_get\_pitch\_mat4(mat4\ *m\_out,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ pitch);}
+\DoxyCodeLine{00033\ \textcolor{keywordtype}{void}\ lac\_get\_roll\_mat4(mat4\ *m\_out,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ roll);}
+\DoxyCodeLine{00034\ \textcolor{keywordtype}{void}\ lac\_get\_rotation\_mat4(mat4\ *m\_out,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ rx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ ry,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ rz);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keywordtype}{void}\ lac\_invert\_mat4(mat4\ *m\_out,\ \textcolor{keyword}{const}\ mat4\ m\_in);}
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ lac\_get\_point\_at\_mat4(mat4\ *m\_out,\ \textcolor{keyword}{const}\ vec3\ v\_eye,\ \textcolor{keyword}{const}\ vec3\ v\_target,\ \textcolor{keyword}{const}\ vec3\ v\_up);}
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{void}\ lac\_get\_projection\_mat4(mat4\ *m\_out,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ aspect,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ fov,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ znear,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ zfar);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00041\ \}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_cplusplus\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ TRANSFORMS\_H\ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}
