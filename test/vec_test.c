@@ -13,7 +13,7 @@ START_TEST(VectorAddition) {
     vec2 v2_expected = { 9, 14 };
     vec2 v2_actual = { 0 };
 
-    lac_add_vec2(&v2_actual, v2_a, v2_b);
+    lac_add_vec2(v2_actual, v2_a, v2_b);
     ck_assert_mem_eq(v2_actual, v2_expected, sizeof(vec2));
 
     /*** 3 Element Vector ***/
@@ -23,7 +23,7 @@ START_TEST(VectorAddition) {
     vec3 v3_expected = { 106, 46, 120 };
     vec3 v3_actual = { 0 };
 
-    lac_add_vec3(&v3_actual, v3_a, v3_b);
+    lac_add_vec3(v3_actual, v3_a, v3_b);
     ck_assert_mem_eq(v3_actual, v3_expected, sizeof(vec3));
 
     /*** 4 Element Vector ***/
@@ -33,7 +33,7 @@ START_TEST(VectorAddition) {
     vec4 v4_expected = { 135, 30, 158, 76 };
     vec4 v4_actual = { 0 };
 
-    lac_add_vec4(&v4_actual, v4_a, v4_b);
+    lac_add_vec4(v4_actual, v4_a, v4_b);
     ck_assert_mem_eq(v4_actual, v4_expected, sizeof(vec4));
 }
 END_TEST
@@ -46,7 +46,7 @@ START_TEST(VectorSubtraction) {
     vec2 v2_expected = { -5, -4 };
     vec2 v2_actual = { 0 };
 
-    lac_subtract_vec2(&v2_actual, v2_a, v2_b);
+    lac_subtract_vec2(v2_actual, v2_a, v2_b);
     ck_assert_mem_eq(v2_actual, v2_expected, sizeof(vec2));
 
     /*** 3 Element Vector ***/
@@ -56,7 +56,7 @@ START_TEST(VectorSubtraction) {
     vec3 v3_expected = { -70, 40, -64 };
     vec3 v3_actual = { 0 };
 
-    lac_subtract_vec3(&v3_actual, v3_a, v3_b);
+    lac_subtract_vec3(v3_actual, v3_a, v3_b);
     ck_assert_mem_eq(v3_actual, v3_expected, sizeof(vec3));
 
     /*** 4 Element Vector ***/
@@ -66,7 +66,7 @@ START_TEST(VectorSubtraction) {
     vec4 v4_expected = { -11, -14, 88, 72 };
     vec4 v4_actual = { 0 };
 
-    lac_subtract_vec4(&v4_actual, v4_a, v4_b);
+    lac_subtract_vec4(v4_actual, v4_a, v4_b);
     ck_assert_mem_eq(v4_actual, v4_expected, sizeof(vec4));
 }
 END_TEST
@@ -79,7 +79,7 @@ START_TEST(VectorMultiplication) {
     vec2 v2_expected = { 1.0f, 2.5f };
     vec2 v2_actual = { 0 };
 
-    lac_multiply_vec2(&v2_actual, v2, scalar_v2);
+    lac_multiply_vec2(v2_actual, v2, scalar_v2);
     ck_assert_mem_eq(v2_actual, v2_expected, sizeof(vec2));
 
     /*** 3 Element Vector ***/
@@ -89,7 +89,7 @@ START_TEST(VectorMultiplication) {
     vec3 v3_expected = { 27.0f, 64.5f, 42.0f };
     vec3 v3_actual = { 0 };
 
-    lac_multiply_vec3(&v3_actual, v3, scalar_v3);
+    lac_multiply_vec3(v3_actual, v3, scalar_v3);
     ck_assert_mem_eq(v3_actual, v3_expected, sizeof(vec3));
 
     /*** 4 Element Vector ***/
@@ -99,7 +99,7 @@ START_TEST(VectorMultiplication) {
     vec4 v4_expected = { 124, 16, 246, 148 };
     vec4 v4_actual = { 0 };
 
-    lac_multiply_vec4(&v4_actual, v4, scalar_v4);
+    lac_multiply_vec4(v4_actual, v4, scalar_v4);
     ck_assert_mem_eq(v4_actual, v4_expected, sizeof(vec4));
 }
 END_TEST
@@ -112,7 +112,7 @@ START_TEST(VectorDivision) {
     vec2 v2_expected = { 4, 10 };
     vec2 v2_actual = { 0 };
 
-    lac_divide_vec2(&v2_actual, v2, scalar_v2);
+    lac_divide_vec2(v2_actual, v2, scalar_v2);
     ck_assert_mem_eq(v2_actual, v2_expected, sizeof(vec2));
 
     /*** 3 Element Vector ***/
@@ -122,7 +122,7 @@ START_TEST(VectorDivision) {
     vec3 v3_expected = { 12.0f, 28.666666666666668f, 18.666666666666668f };
     vec3 v3_actual = { 0 };
 
-    lac_divide_vec3(&v3_actual, v3, scalar_v3);
+    lac_divide_vec3(v3_actual, v3, scalar_v3);
     ck_assert_mem_eq(v3_actual, v3_expected, sizeof(vec3));
 
     /*** 4 Element Vector ***/
@@ -132,7 +132,7 @@ START_TEST(VectorDivision) {
     vec4 v4_expected = { 31.0f, 4.0f, 61.5f, 37.0f };
     vec4 v4_actual = { 0 };
 
-    lac_divide_vec4(&v4_actual, v4, scalar_v4);
+    lac_divide_vec4(v4_actual, v4, scalar_v4);
     ck_assert_mem_eq(v4_actual, v4_expected, sizeof(vec4));
 }
 END_TEST
@@ -176,7 +176,7 @@ START_TEST(CrossProduct) {
     vec3 expected = { 77377.367188f, 6770.358887, -69861.921875 };
     vec3 actual;
 
-    lac_calc_cross_prod(&actual, v3_a, v3_b);
+    lac_calc_cross_prod(actual, v3_a, v3_b);
     ck_assert_mem_eq(actual, expected, sizeof(vec3));
 }
 END_TEST
@@ -218,7 +218,7 @@ START_TEST(Normalize) {
     vec2 v2_expected = { 0.37139067f, 0.92847669f };
     vec2 v2_actual = { 0 };
 
-    lac_normalize_vec2(&v2_actual, v2);
+    lac_normalize_vec2(v2_actual, v2);
     ck_assert_mem_eq(v2_actual, v2_expected, sizeof(vec2));
 
     /*** 3 Element Vector ***/
@@ -227,7 +227,7 @@ START_TEST(Normalize) {
     vec3 v3_expected = { 0.3310143650f, 0.7907565236f, 0.5149112344f };
     vec3 v3_actual = { 0 };
 
-    lac_normalize_vec3(&v3_actual, v3);
+    lac_normalize_vec3(v3_actual, v3);
     ck_assert_mem_eq(v3_actual, v3_expected, sizeof(vec3));
 
     /*** 4 Element Vector ***/
@@ -236,7 +236,7 @@ START_TEST(Normalize) {
     vec4 v4_expected = { 0.39599842f, 0.05109657f, 0.78560978f, 0.47264326f };
     vec4 v4_actual = { 0 };
 
-    lac_normalize_vec4(&v4_actual, v4);
+    lac_normalize_vec4(v4_actual, v4);
     ck_assert_mem_eq(v4_actual, v4_expected, sizeof(vec4));
 }
 END_TEST
@@ -257,7 +257,7 @@ START_TEST(Polar) {
     vec2 expected = { -8.960760f, 22.048689f };
     vec2 actual = { 0 };
 
-    lac_polar_to_cartesian(&actual, len, angle);
+    lac_polar_to_cartesian(actual, len, angle);
     ck_assert_mem_eq(actual, expected, sizeof(vec2));
 }
 END_TEST

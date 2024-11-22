@@ -31,10 +31,10 @@
  * (z axis).
  *
  * ```
- *             z (up)
- * (forward) x |
- *            \|
- *  (left) y---+
+ *              z (+up)
+ * (+forward) x |
+ *             \|
+ *              +---y (+right)
  * ```
  *
  * @subsection ypr_related Related Functions
@@ -123,12 +123,12 @@ mat4 lac_ortho_proj_mat4 = {
  * @param[in] xz_plane If set to true, reflection is applied about the x-z plane
  */
 LAC_DECL void lac_get_reflection_mat2(
-    mat2 *m_out,
+    mat2 m_out,
     const bool yz_plane,
     const bool xz_plane
 ) {
     mat4 ref_mat = { 0 };
-    memcpy(ref_mat, lac_ident_mat2, sizeof(*ref_mat));
+    memcpy(ref_mat, lac_ident_mat2, sizeof(mat2));
 
     /* Flip sign for axes that should be reflected */
     if (yz_plane) {
@@ -138,7 +138,7 @@ LAC_DECL void lac_get_reflection_mat2(
         ref_mat[3] = -1;
     }
 
-    memcpy(m_out, ref_mat, sizeof(*m_out));
+    memcpy(m_out, ref_mat, sizeof(mat2));
 }
 
 /**
@@ -150,13 +150,13 @@ LAC_DECL void lac_get_reflection_mat2(
  * @param[in] xy_plane If set to true, reflection is applied about the x-y plane
  */
 LAC_DECL void lac_get_reflection_mat3(
-    mat3 *m_out,
+    mat3 m_out,
     const bool yz_plane,
     const bool xz_plane,
     const bool xy_plane
 ) {
     mat4 ref_mat = { 0 };
-    memcpy(ref_mat, lac_ident_mat3, sizeof(*ref_mat));
+    memcpy(ref_mat, lac_ident_mat3, sizeof(mat3));
 
     /* Flip sign for axes that should be reflected */
     if (yz_plane) {
@@ -169,7 +169,7 @@ LAC_DECL void lac_get_reflection_mat3(
         ref_mat[8] = -1;
     }
 
-    memcpy(m_out, ref_mat, sizeof(*m_out));
+    memcpy(m_out, ref_mat, sizeof(mat3));
 }
 
 /**
@@ -181,13 +181,13 @@ LAC_DECL void lac_get_reflection_mat3(
  * @param[in] xy_plane If set to true, reflection is applied about the x-y plane
  */
 LAC_DECL void lac_get_reflection_mat4(
-    mat4 *m_out,
+    mat4 m_out,
     const bool yz_plane,
     const bool xz_plane,
     const bool xy_plane
 ) {
     mat4 ref_mat = { 0 };
-    memcpy(ref_mat, lac_ident_mat4, sizeof(*ref_mat));
+    memcpy(ref_mat, lac_ident_mat4, sizeof(mat4));
 
     /* Flip sign for axes that should be reflected */
     if (yz_plane) {
@@ -200,7 +200,7 @@ LAC_DECL void lac_get_reflection_mat4(
         ref_mat[10] = -1;
     }
 
-    memcpy(m_out, ref_mat, sizeof(*m_out));
+    memcpy(m_out, ref_mat, sizeof(mat4));
 }
 
 /**
@@ -210,7 +210,7 @@ LAC_DECL void lac_get_reflection_mat4(
  * @param[in] tx Arbitrary unit for translation in the x-direction
  */
 LAC_DECL void lac_get_translation_mat2(
-    mat2 *m_out,
+    mat2 m_out,
     const float tx
 ) {
     mat2 trn_mat = {
@@ -218,7 +218,7 @@ LAC_DECL void lac_get_translation_mat2(
         0,    1
     };
 
-    memcpy(m_out, trn_mat, sizeof(*m_out));
+    memcpy(m_out, trn_mat, sizeof(mat2));
 }
 
 /**
@@ -229,7 +229,7 @@ LAC_DECL void lac_get_translation_mat2(
  * @param[in] ty Arbitrary unit for translation in the y-direction
  */
 LAC_DECL void lac_get_translation_mat3(
-    mat3 *m_out,
+    mat3 m_out,
     const float tx,
     const float ty
 ) {
@@ -239,7 +239,7 @@ LAC_DECL void lac_get_translation_mat3(
         0,    0,    1
     };
 
-    memcpy(m_out, trn_mat, sizeof(*m_out));
+    memcpy(m_out, trn_mat, sizeof(mat3));
 }
 
 /**
@@ -251,7 +251,7 @@ LAC_DECL void lac_get_translation_mat3(
  * @param[in] tz Arbitrary unit for translation in the z-direction
  */
 LAC_DECL void lac_get_translation_mat4(
-    mat4 *m_out,
+    mat4 m_out,
     const float tx,
     const float ty,
     const float tz
@@ -263,7 +263,7 @@ LAC_DECL void lac_get_translation_mat4(
         0,    0,    0,    1
     };
 
-    memcpy(m_out, trn_mat, sizeof(*m_out));
+    memcpy(m_out, trn_mat, sizeof(mat4));
 }
 
 /**
@@ -274,7 +274,7 @@ LAC_DECL void lac_get_translation_mat4(
  * @param[in] sy Arbitrary unit for scaling in the y-direction
  */
 LAC_DECL void lac_get_scalar_mat2(
-    mat2 *m_out,
+    mat2 m_out,
     const float sx,
     const float sy
 ) {
@@ -283,7 +283,7 @@ LAC_DECL void lac_get_scalar_mat2(
         0,    sy
     };
 
-    memcpy(m_out, scl_mat, sizeof(*m_out));
+    memcpy(m_out, scl_mat, sizeof(mat2));
 }
 
 /**
@@ -295,7 +295,7 @@ LAC_DECL void lac_get_scalar_mat2(
  * @param[in] sz Arbitrary unit for scaling in the z-direction
  */
 LAC_DECL void lac_get_scalar_mat3(
-    mat3 *m_out,
+    mat3 m_out,
     const float sx,
     const float sy,
     const float sz
@@ -306,7 +306,7 @@ LAC_DECL void lac_get_scalar_mat3(
         0,    0,    sz
     };
 
-    memcpy(m_out, scl_mat, sizeof(*m_out));
+    memcpy(m_out, scl_mat, sizeof(mat3));
 }
 
 /**
@@ -318,7 +318,7 @@ LAC_DECL void lac_get_scalar_mat3(
  * @param[in] sz Arbitrary unit for scaling in the z-direction
  */
 LAC_DECL void lac_get_scalar_mat4(
-    mat4 *m_out,
+    mat4 m_out,
     const float sx,
     const float sy,
     const float sz
@@ -330,7 +330,7 @@ LAC_DECL void lac_get_scalar_mat4(
         0,    0,    0,    1
     };
 
-    memcpy(m_out, scl_mat, sizeof(*m_out));
+    memcpy(m_out, scl_mat, sizeof(mat4));
 }
 
 /**
@@ -340,7 +340,7 @@ LAC_DECL void lac_get_scalar_mat4(
  * @param[out] m_out The rotation matrix which can be applied through matrix multiplication
  * @param[in] yaw Rotation angle about the yaw axis (given in radians)
  */
-LAC_DECL void lac_get_yaw_mat4(mat4 *m_out, const float yaw) {
+LAC_DECL void lac_get_yaw_mat4(mat4 m_out, const float yaw) {
     float cos_yaw, sin_yaw;
 
     cos_yaw = cosf(yaw);
@@ -353,7 +353,7 @@ LAC_DECL void lac_get_yaw_mat4(mat4 *m_out, const float yaw) {
         0,        0,        0,        1
     };
 
-    memcpy(m_out, yaw_mat, sizeof(*m_out));
+    memcpy(m_out, yaw_mat, sizeof(mat4));
 }
 
 /**
@@ -363,20 +363,20 @@ LAC_DECL void lac_get_yaw_mat4(mat4 *m_out, const float yaw) {
  * @param[out] m_out The rotation matrix which can be applied through matrix multiplication
  * @param[in] pitch Rotation angle about the pitch axis (given in radians)
  */
-LAC_DECL void lac_get_pitch_mat4(mat4 *m_out, const float pitch) {
+LAC_DECL void lac_get_pitch_mat4(mat4 m_out, const float pitch) {
     float cos_pitch, sin_pitch;
 
     cos_pitch = cosf(pitch);
     sin_pitch = sinf(pitch);
 
     mat4 pitch_mat = {
-        1,    0,           0,          0,
-        0,    cos_pitch,  -sin_pitch,  0,
-        0,    sin_pitch,   cos_pitch,  0,
-        0,    0,           0,          1
+        cos_pitch, 0,        sin_pitch, 0,
+        0,         1,        0,         0,
+       -sin_pitch, 0,        cos_pitch, 0,
+        0,         0,        0,         1
     };
 
-    memcpy(m_out, pitch_mat, sizeof(*m_out));
+    memcpy(m_out, pitch_mat, sizeof(mat4));
 }
 
 /**
@@ -386,20 +386,20 @@ LAC_DECL void lac_get_pitch_mat4(mat4 *m_out, const float pitch) {
  * @param[out] m_out The rotation matrix which can be applied through matrix multiplication
  * @param[in] roll Rotation angle about the roll axis (given in radians)
  */
-LAC_DECL void lac_get_roll_mat4(mat4 *m_out, const float roll) {
+LAC_DECL void lac_get_roll_mat4(mat4 m_out, const float roll) {
     float cos_roll, sin_roll;
 
     cos_roll = cosf(roll);
     sin_roll = sinf(roll);
 
     mat4 roll_mat = {
-        cos_roll, 0,    sin_roll, 0,
-        0,        1,    0,        0,
-       -sin_roll, 0,    cos_roll, 0,
-        0,        0,    0,        1
+        1,        0,          0,         0,
+        0,        cos_roll,  -sin_roll,  0,
+        0,        sin_roll,   cos_roll,  0,
+        0,        0,          0,         1
     };
 
-    memcpy(m_out, roll_mat, sizeof(*m_out));
+    memcpy(m_out, roll_mat, sizeof(mat4));
 }
 
 /**
@@ -412,7 +412,7 @@ LAC_DECL void lac_get_roll_mat4(mat4 *m_out, const float roll) {
  * @param[in] rz Rotation angle in the z-axis (given in radians)
  */
 LAC_DECL void lac_get_rotation_mat4(
-    mat4 *m_out,
+    mat4 m_out,
     const float rx,
     const float ry,
     const float rz
@@ -428,13 +428,6 @@ LAC_DECL void lac_get_rotation_mat4(
 
     mat4 rot_mat = { 0 };
 
-    mat4 roll_mat = {
-        cos_rx,   0,    sin_rx,   0,
-        0,        1,    0,        0,
-       -sin_rx,   0,    cos_rx,   0,
-        0,        0,    0,        1
-    };
-
     mat4 yaw_mat = {
         cos_rz,  -sin_rz,   0,    0,
         sin_rz,   cos_rz,   0,    0,
@@ -443,14 +436,21 @@ LAC_DECL void lac_get_rotation_mat4(
     };
 
     mat4 pitch_mat = {
+        cos_ry,   0,    sin_ry,   0,
+        0,        1,    0,        0,
+       -sin_ry,   0,    cos_ry,   0,
+        0,        0,    0,        1
+    };
+
+    mat4 roll_mat = {
         1,    0,        0,        0,
-        0,    cos_ry,  -sin_ry,   0,
-        0,    sin_ry,   cos_ry,   0,
+        0,    cos_rx,  -sin_rx,   0,
+        0,    sin_rx,   cos_rx,   0,
         0,    0,        0,        1
     };
 
     /* Get the final rotation matrix by obtaining dot product of (yaw * pitch * roll) */
-    lac_multiply_mat4(&rot_mat, yaw_mat, pitch_mat);
+    lac_multiply_mat4(rot_mat, yaw_mat, pitch_mat);
     lac_multiply_mat4(m_out, rot_mat, roll_mat);
 }
 
@@ -464,26 +464,26 @@ LAC_DECL void lac_get_rotation_mat4(
  * @param[in] v_up A vector representing the "up" direction (used for camera orientation)
  */
 LAC_DECL void lac_get_point_at_mat4(
-    mat4 *m_out,
+    mat4 m_out,
     const vec3 v_eye,
     const vec3 v_target,
     const vec3 v_up
 ) {
-    vec3 forward_unit, right_unit, up_unit, v_res;
     float dot_prod;
+    vec3 forward_unit, right_unit, up_unit, v_res;
 
     /* Calculate forward_unit */
-    lac_subtract_vec3(&v_res, v_target, v_eye);
-    lac_normalize_vec3(&forward_unit, v_res);
+    lac_subtract_vec3(v_res, v_target, v_eye);
+    lac_normalize_vec3(forward_unit, v_res);
 
     /* Calculate up_unit */
     lac_calc_dot_prod_vec3(&dot_prod, v_up, forward_unit);
-    lac_multiply_vec3(&v_res, forward_unit, dot_prod);
-    lac_subtract_vec3(&up_unit, v_up, v_res);
-    lac_normalize_vec3(&up_unit, up_unit);
+    lac_multiply_vec3(v_res, forward_unit, dot_prod);
+    lac_subtract_vec3(up_unit, v_up, v_res);
+    lac_normalize_vec3(up_unit, up_unit);
 
     /* Calculate right_unit */
-    lac_calc_cross_prod(&right_unit, up_unit, forward_unit);
+    lac_calc_cross_prod(right_unit, up_unit, forward_unit);
 
     /* Normalizing here isn't necessary since forward_unit & up_unit are normals */
     mat4 point_at = {
@@ -493,7 +493,7 @@ LAC_DECL void lac_get_point_at_mat4(
         0,             0,          0,               1
     };
 
-    memcpy(m_out, point_at, sizeof(*m_out));
+    memcpy(m_out, point_at, sizeof(mat4));
 }
 
 /**
@@ -504,43 +504,46 @@ LAC_DECL void lac_get_point_at_mat4(
  * @param[out] m_out The resulting look-at matrix
  * @param[in] m_in The matrix to be inverted
  */
-LAC_DECL void lac_invert_mat4(mat4 *m_out, const mat4 m_in) {
+LAC_DECL void lac_invert_mat4(mat4 m_out, const mat4 m_in) {
     float dot_prod;
+    mat4 _m_out = { 0 };
 
     lac_calc_dot_prod_vec3(
         &dot_prod,
         (vec3){ m_in[3], m_in[7], m_in[11] },
         (vec3){ m_in[0], m_in[4], m_in[8] }
     );
-    (*m_out)[0]  = m_in[0];
-    (*m_out)[1]  = m_in[4];
-    (*m_out)[2]  = m_in[8];
-    (*m_out)[3]  = -dot_prod;
+    _m_out[0]  = m_in[0];
+    _m_out[1]  = m_in[4];
+    _m_out[2]  = m_in[8];
+    _m_out[3]  = -dot_prod;
 
     lac_calc_dot_prod_vec3(
         &dot_prod,
         (vec3){ m_in[3], m_in[7], m_in[11] },
         (vec3){ m_in[1], m_in[5], m_in[9] }
     );
-    (*m_out)[4]  = m_in[1];
-    (*m_out)[5]  = m_in[5];
-    (*m_out)[6]  = m_in[9];
-    (*m_out)[7]  = -dot_prod;
+    _m_out[4]  = m_in[1];
+    _m_out[5]  = m_in[5];
+    _m_out[6]  = m_in[9];
+    _m_out[7]  = -dot_prod;
 
     lac_calc_dot_prod_vec3(
         &dot_prod,
         (vec3){ m_in[3], m_in[7], m_in[11] },
         (vec3){ m_in[2], m_in[6], m_in[10] }
     );
-    (*m_out)[8]  = m_in[2];
-    (*m_out)[9]  = m_in[6];
-    (*m_out)[10] = m_in[10];
-    (*m_out)[11] = -dot_prod;
+    _m_out[8]  = m_in[2];
+    _m_out[9]  = m_in[6];
+    _m_out[10] = m_in[10];
+    _m_out[11] = -dot_prod;
 
-    (*m_out)[12] = 0.0f;
-    (*m_out)[13] = 0.0f;
-    (*m_out)[14] = 0.0f;
-    (*m_out)[15] = 1.0f;
+    _m_out[12] = 0.0f;
+    _m_out[13] = 0.0f;
+    _m_out[14] = 0.0f;
+    _m_out[15] = 1.0f;
+
+    memcpy(m_out, _m_out, sizeof(mat4));
 }
 
 /**
@@ -553,18 +556,20 @@ LAC_DECL void lac_invert_mat4(mat4 *m_out, const mat4 m_in) {
  * @param[in] zfar The "far" clipping z-plane
  */
 LAC_DECL void lac_get_projection_mat4(
-    mat4 *m_out,
+    mat4 m_out,
     const float aspect,
     const float fov,
     const float znear,
     const float zfar
 ) {
+    const float f = 1.0f / tanf(fov / 2.0f);
+
     mat4 proj_mat = {
-        (aspect * (1.0f / tanf(fov / 2.0f))), 0, 0, 0,
-        0, (1.0f / tanf(fov / 2.0f)), 0, 0,
-        0, 0, (zfar / (zfar - znear)), 1,
-        0, 0, ((-zfar * znear) / (zfar - znear)), 0
+        f / aspect, 0, 0, 0,
+        0, f, 0, 0,
+        0, 0, (zfar + znear) / (znear - zfar), -1,
+        0, 0, (2.0f * zfar * znear) / (znear - zfar), 0
     };
 
-    memcpy(m_out, proj_mat, sizeof(*m_out));
+    memcpy(m_out, proj_mat, sizeof(mat4));
 }

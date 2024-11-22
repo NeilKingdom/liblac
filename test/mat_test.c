@@ -25,7 +25,7 @@ START_TEST(MatrixAddition) {
 
     mat2 m2_actual = { 0 };
 
-    lac_add_mat2(&m2_actual, m2_a, m2_b);
+    lac_add_mat2(m2_actual, m2_a, m2_b);
     ck_assert_mem_eq(m2_actual, m2_expected, sizeof(mat2));
 
     /*** 3x3 Matrices ***/
@@ -50,7 +50,7 @@ START_TEST(MatrixAddition) {
 
     mat3 m3_actual = { 0 };
 
-    lac_add_mat3(&m3_actual, m3_a, m3_b);
+    lac_add_mat3(m3_actual, m3_a, m3_b);
     ck_assert_mem_eq(m3_actual, m3_expected, sizeof(mat3));
 
     /*** 4x4 Matrices ***/
@@ -78,7 +78,7 @@ START_TEST(MatrixAddition) {
 
     mat4 m4_actual = { 0 };
 
-    lac_add_mat4(&m4_actual, m4_a, m4_b);
+    lac_add_mat4(m4_actual, m4_a, m4_b);
     ck_assert_mem_eq(m4_actual, m4_expected, sizeof(mat4));
 }
 END_TEST
@@ -103,7 +103,7 @@ START_TEST(MatrixSubtraction) {
 
     mat2 m2_actual = { 0 };
 
-    lac_subtract_mat2(&m2_actual, m2_a, m2_b);
+    lac_subtract_mat2(m2_actual, m2_a, m2_b);
     ck_assert_mem_eq(m2_actual, m2_expected, sizeof(mat2));
 
     /*** 3x3 Matrices ***/
@@ -128,7 +128,7 @@ START_TEST(MatrixSubtraction) {
 
     mat3 m3_actual = { 0 };
 
-    lac_subtract_mat3(&m3_actual, m3_a, m3_b);
+    lac_subtract_mat3(m3_actual, m3_a, m3_b);
     ck_assert_mem_eq(m3_actual, m3_expected, sizeof(mat3));
 
     /*** 4x4 Matrices ***/
@@ -156,7 +156,7 @@ START_TEST(MatrixSubtraction) {
 
     mat4 m4_actual = { 0 };
 
-    lac_subtract_mat4(&m4_actual, m4_a, m4_b);
+    lac_subtract_mat4(m4_actual, m4_a, m4_b);
     ck_assert_mem_eq(m4_actual, m4_expected, sizeof(mat4));
 }
 END_TEST
@@ -181,7 +181,7 @@ START_TEST(MatrixMultiplication) {
 
     mat2 m2_actual = { 0 };
 
-    lac_multiply_mat2(&m2_actual, m2_a, m2_b);
+    lac_multiply_mat2(m2_actual, m2_a, m2_b);
     ck_assert_mem_eq(m2_actual, m2_expected, sizeof(mat2));
 
     /*** 3x3 Matrices ***/
@@ -206,7 +206,7 @@ START_TEST(MatrixMultiplication) {
 
     mat3 m3_actual = { 0 };
 
-    lac_multiply_mat3(&m3_actual, m3_a, m3_b);
+    lac_multiply_mat3(m3_actual, m3_a, m3_b);
     ck_assert_mem_eq(m3_actual, m3_expected, sizeof(mat3));
 
     /*** 4x4 Matrices ***/
@@ -234,7 +234,7 @@ START_TEST(MatrixMultiplication) {
 
     mat4 m4_actual = { 0 };
 
-    lac_multiply_mat4(&m4_actual, m4_a, m4_b);
+    lac_multiply_mat4(m4_actual, m4_a, m4_b);
     ck_assert_mem_eq(m4_actual, m4_expected, sizeof(mat4));
 }
 END_TEST
@@ -254,7 +254,7 @@ START_TEST(MatrixTranspose) {
 
     mat2 m2_actual = { 0 };
 
-    lac_transpose_mat2(&m2_actual, m2);
+    lac_transpose_mat2(m2_actual, m2);
     ck_assert_mem_eq(m2_actual, m2_expected, sizeof(mat2));
 
     /*** 3x3 Matrices ***/
@@ -273,7 +273,7 @@ START_TEST(MatrixTranspose) {
 
     mat3 m3_actual = { 0 };
 
-    lac_transpose_mat3(&m3_actual, m3);
+    lac_transpose_mat3(m3_actual, m3);
     ck_assert_mem_eq(m3_actual, m3_expected, sizeof(mat3));
 
     /*** 4x4 Matrices ***/
@@ -294,7 +294,7 @@ START_TEST(MatrixTranspose) {
 
     mat4 m4_actual = { 0 };
 
-    lac_transpose_mat4(&m4_actual, m4);
+    lac_transpose_mat4(m4_actual, m4);
     ck_assert_mem_eq(m4_actual, m4_expected, sizeof(mat4));
 }
 END_TEST

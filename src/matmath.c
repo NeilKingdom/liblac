@@ -49,12 +49,12 @@
  * @param[in] m_a The augend matrix
  * @param[in] m_b The addend matrix
  */
-LAC_DECL void lac_add_mat2(mat2 *m_out, const mat2 m_a, const mat2 m_b) {
-   (*m_out)[0] = m_a[0] + m_b[0];
-   (*m_out)[1] = m_a[1] + m_b[1];
+LAC_DECL void lac_add_mat2(mat2 m_out, const mat2 m_a, const mat2 m_b) {
+    m_out[0] = m_a[0] + m_b[0];
+    m_out[1] = m_a[1] + m_b[1];
 
-   (*m_out)[2] = m_a[2] + m_b[2];
-   (*m_out)[3] = m_a[3] + m_b[3];
+    m_out[2] = m_a[2] + m_b[2];
+    m_out[3] = m_a[3] + m_b[3];
 }
 
 /**
@@ -64,18 +64,18 @@ LAC_DECL void lac_add_mat2(mat2 *m_out, const mat2 m_a, const mat2 m_b) {
  * @param[in] m_a The augend matrix
  * @param[in] m_b The addend matrix
  */
-LAC_DECL void lac_add_mat3(mat3 *m_out, const mat3 m_a, const mat3 m_b) {
-   (*m_out)[0] = m_a[0] + m_b[0];
-   (*m_out)[1] = m_a[1] + m_b[1];
-   (*m_out)[2] = m_a[2] + m_b[2];
+LAC_DECL void lac_add_mat3(mat3 m_out, const mat3 m_a, const mat3 m_b) {
+    m_out[0] = m_a[0] + m_b[0];
+    m_out[1] = m_a[1] + m_b[1];
+    m_out[2] = m_a[2] + m_b[2];
 
-   (*m_out)[3] = m_a[3] + m_b[3];
-   (*m_out)[4] = m_a[4] + m_b[4];
-   (*m_out)[5] = m_a[5] + m_b[5];
+    m_out[3] = m_a[3] + m_b[3];
+    m_out[4] = m_a[4] + m_b[4];
+    m_out[5] = m_a[5] + m_b[5];
 
-   (*m_out)[6] = m_a[6] + m_b[6];
-   (*m_out)[7] = m_a[7] + m_b[7];
-   (*m_out)[8] = m_a[8] + m_b[8];
+    m_out[6] = m_a[6] + m_b[6];
+    m_out[7] = m_a[7] + m_b[7];
+    m_out[8] = m_a[8] + m_b[8];
 }
 
 /**
@@ -85,26 +85,26 @@ LAC_DECL void lac_add_mat3(mat3 *m_out, const mat3 m_a, const mat3 m_b) {
  * @param[in] m_a The augend matrix
  * @param[in] m_b The addend matrix
  */
-LAC_DECL void lac_add_mat4(mat4 *m_out, const mat4 m_a, const mat4 m_b) {
-   (*m_out)[0]  = m_a[0]  + m_b[0];
-   (*m_out)[1]  = m_a[1]  + m_b[1];
-   (*m_out)[2]  = m_a[2]  + m_b[2];
-   (*m_out)[3]  = m_a[3]  + m_b[3];
+LAC_DECL void lac_add_mat4(mat4 m_out, const mat4 m_a, const mat4 m_b) {
+    m_out[0]  = m_a[0]  + m_b[0];
+    m_out[1]  = m_a[1]  + m_b[1];
+    m_out[2]  = m_a[2]  + m_b[2];
+    m_out[3]  = m_a[3]  + m_b[3];
 
-   (*m_out)[4]  = m_a[4]  + m_b[4];
-   (*m_out)[5]  = m_a[5]  + m_b[5];
-   (*m_out)[6]  = m_a[6]  + m_b[6];
-   (*m_out)[7]  = m_a[7]  + m_b[7];
+    m_out[4]  = m_a[4]  + m_b[4];
+    m_out[5]  = m_a[5]  + m_b[5];
+    m_out[6]  = m_a[6]  + m_b[6];
+    m_out[7]  = m_a[7]  + m_b[7];
 
-   (*m_out)[8]  = m_a[8]  + m_b[8];
-   (*m_out)[9]  = m_a[9]  + m_b[9];
-   (*m_out)[10] = m_a[10] + m_b[10];
-   (*m_out)[11] = m_a[11] + m_b[11];
+    m_out[8]  = m_a[8]  + m_b[8];
+    m_out[9]  = m_a[9]  + m_b[9];
+    m_out[10] = m_a[10] + m_b[10];
+    m_out[11] = m_a[11] + m_b[11];
 
-   (*m_out)[12] = m_a[12] + m_b[12];
-   (*m_out)[13] = m_a[13] + m_b[13];
-   (*m_out)[14] = m_a[14] + m_b[14];
-   (*m_out)[15] = m_a[15] + m_b[15];
+    m_out[12] = m_a[12] + m_b[12];
+    m_out[13] = m_a[13] + m_b[13];
+    m_out[14] = m_a[14] + m_b[14];
+    m_out[15] = m_a[15] + m_b[15];
 }
 
 /**
@@ -114,12 +114,12 @@ LAC_DECL void lac_add_mat4(mat4 *m_out, const mat4 m_a, const mat4 m_b) {
  * @param[in] m_a The minuend matrix
  * @param[in] m_b The subtrahend matrix
  */
-LAC_DECL void lac_subtract_mat2(mat2 *m_out, const mat2 m_a, const mat2 m_b) {
-   (*m_out)[0] = m_a[0] - m_b[0];
-   (*m_out)[1] = m_a[1] - m_b[1];
+LAC_DECL void lac_subtract_mat2(mat2 m_out, const mat2 m_a, const mat2 m_b) {
+    m_out[0] = m_a[0] - m_b[0];
+    m_out[1] = m_a[1] - m_b[1];
 
-   (*m_out)[2] = m_a[2] - m_b[2];
-   (*m_out)[3] = m_a[3] - m_b[3];
+    m_out[2] = m_a[2] - m_b[2];
+    m_out[3] = m_a[3] - m_b[3];
 }
 
 /**
@@ -129,18 +129,18 @@ LAC_DECL void lac_subtract_mat2(mat2 *m_out, const mat2 m_a, const mat2 m_b) {
  * @param[in] m_a The minuend matrix
  * @param[in] m_b The subtrahend matrix
  */
-LAC_DECL void lac_subtract_mat3(mat3 *m_out, const mat3 m_a, const mat3 m_b) {
-   (*m_out)[0] = m_a[0] - m_b[0];
-   (*m_out)[1] = m_a[1] - m_b[1];
-   (*m_out)[2] = m_a[2] - m_b[2];
+LAC_DECL void lac_subtract_mat3(mat3 m_out, const mat3 m_a, const mat3 m_b) {
+    m_out[0] = m_a[0] - m_b[0];
+    m_out[1] = m_a[1] - m_b[1];
+    m_out[2] = m_a[2] - m_b[2];
 
-   (*m_out)[3] = m_a[3] - m_b[3];
-   (*m_out)[4] = m_a[4] - m_b[4];
-   (*m_out)[5] = m_a[5] - m_b[5];
+    m_out[3] = m_a[3] - m_b[3];
+    m_out[4] = m_a[4] - m_b[4];
+    m_out[5] = m_a[5] - m_b[5];
 
-   (*m_out)[6] = m_a[6] - m_b[6];
-   (*m_out)[7] = m_a[7] - m_b[7];
-   (*m_out)[8] = m_a[8] - m_b[8];
+    m_out[6] = m_a[6] - m_b[6];
+    m_out[7] = m_a[7] - m_b[7];
+    m_out[8] = m_a[8] - m_b[8];
 }
 
 /**
@@ -150,26 +150,26 @@ LAC_DECL void lac_subtract_mat3(mat3 *m_out, const mat3 m_a, const mat3 m_b) {
  * @param[in] m_a The minuend matrix
  * @param[in] m_b The subtrahend matrix
  */
-LAC_DECL void lac_subtract_mat4(mat4 *m_out, const mat4 m_a, const mat4 m_b) {
-   (*m_out)[0]  = m_a[0]  - m_b[0];
-   (*m_out)[1]  = m_a[1]  - m_b[1];
-   (*m_out)[2]  = m_a[2]  - m_b[2];
-   (*m_out)[3]  = m_a[3]  - m_b[3];
+LAC_DECL void lac_subtract_mat4(mat4 m_out, const mat4 m_a, const mat4 m_b) {
+    m_out[0]  = m_a[0]  - m_b[0];
+    m_out[1]  = m_a[1]  - m_b[1];
+    m_out[2]  = m_a[2]  - m_b[2];
+    m_out[3]  = m_a[3]  - m_b[3];
 
-   (*m_out)[4]  = m_a[4]  - m_b[4];
-   (*m_out)[5]  = m_a[5]  - m_b[5];
-   (*m_out)[6]  = m_a[6]  - m_b[6];
-   (*m_out)[7]  = m_a[7]  - m_b[7];
+    m_out[4]  = m_a[4]  - m_b[4];
+    m_out[5]  = m_a[5]  - m_b[5];
+    m_out[6]  = m_a[6]  - m_b[6];
+    m_out[7]  = m_a[7]  - m_b[7];
 
-   (*m_out)[8]  = m_a[8]  - m_b[8];
-   (*m_out)[9]  = m_a[9]  - m_b[9];
-   (*m_out)[10] = m_a[10] - m_b[10];
-   (*m_out)[11] = m_a[11] - m_b[11];
+    m_out[8]  = m_a[8]  - m_b[8];
+    m_out[9]  = m_a[9]  - m_b[9];
+    m_out[10] = m_a[10] - m_b[10];
+    m_out[11] = m_a[11] - m_b[11];
 
-   (*m_out)[12] = m_a[12] - m_b[12];
-   (*m_out)[13] = m_a[13] - m_b[13];
-   (*m_out)[14] = m_a[14] - m_b[14];
-   (*m_out)[15] = m_a[15] - m_b[15];
+    m_out[12] = m_a[12] - m_b[12];
+    m_out[13] = m_a[13] - m_b[13];
+    m_out[14] = m_a[14] - m_b[14];
+    m_out[15] = m_a[15] - m_b[15];
 }
 
 /**
@@ -180,20 +180,24 @@ LAC_DECL void lac_subtract_mat4(mat4 *m_out, const mat4 m_a, const mat4 m_b) {
  * @param[in] m_a The multiplicand matrix
  * @param[in] m_b The multiplier matrix
  */
-LAC_DECL void lac_multiply_mat2(mat2 *m_out, const mat2 m_a, const mat2 m_b) {
+LAC_DECL void lac_multiply_mat2(mat2 m_out, const mat2 m_a, const mat2 m_b) {
+    mat2 _m_out = { 0 };
+
 #if LAC_IS_ROW_MAJOR
-   (*m_out)[0] = (m_a[0] * m_b[0]) + (m_a[1] * m_b[2]);
-   (*m_out)[1] = (m_a[0] * m_b[1]) + (m_a[1] * m_b[3]);
+    _m_out[0] = (m_a[0] * m_b[0]) + (m_a[1] * m_b[2]);
+    _m_out[1] = (m_a[0] * m_b[1]) + (m_a[1] * m_b[3]);
 
-   (*m_out)[2] = (m_a[2] * m_b[0]) + (m_a[3] * m_b[2]);
-   (*m_out)[3] = (m_a[2] * m_b[1]) + (m_a[3] * m_b[3]);
+    _m_out[2] = (m_a[2] * m_b[0]) + (m_a[3] * m_b[2]);
+    _m_out[3] = (m_a[2] * m_b[1]) + (m_a[3] * m_b[3]);
 #else
-   (*m_out)[0] = (m_a[0] * m_b[0]) + (m_a[2] * m_b[1]);
-   (*m_out)[2] = (m_a[0] * m_b[2]) + (m_a[2] * m_b[3]);
+    _m_out[0] = (m_a[0] * m_b[0]) + (m_a[2] * m_b[1]);
+    _m_out[2] = (m_a[0] * m_b[2]) + (m_a[2] * m_b[3]);
 
-   (*m_out)[1] = (m_a[1] * m_b[0]) + (m_a[3] * m_b[1]);
-   (*m_out)[3] = (m_a[1] * m_b[2]) + (m_a[3] * m_b[3]);
+    _m_out[1] = (m_a[1] * m_b[0]) + (m_a[3] * m_b[1]);
+    _m_out[3] = (m_a[1] * m_b[2]) + (m_a[3] * m_b[3]);
 #endif
+
+    memcpy(m_out, _m_out, sizeof(mat2));
 }
 
 /**
@@ -204,32 +208,36 @@ LAC_DECL void lac_multiply_mat2(mat2 *m_out, const mat2 m_a, const mat2 m_b) {
  * @param[in] m_a The multiplicand matrix
  * @param[in] m_b The multiplier matrix
  */
-LAC_DECL void lac_multiply_mat3(mat3 *m_out, const mat3 m_a, const mat3 m_b) {
+LAC_DECL void lac_multiply_mat3(mat3 m_out, const mat3 m_a, const mat3 m_b) {
+    mat3 _m_out = { 0 };
+
 #if LAC_IS_ROW_MAJOR
-   (*m_out)[0] = (m_a[0] * m_b[0]) + (m_a[1] * m_b[3]) + (m_a[2] * m_b[6]);
-   (*m_out)[1] = (m_a[0] * m_b[1]) + (m_a[1] * m_b[4]) + (m_a[2] * m_b[7]);
-   (*m_out)[2] = (m_a[0] * m_b[2]) + (m_a[1] * m_b[5]) + (m_a[2] * m_b[8]);
+    _m_out[0] = (m_a[0] * m_b[0]) + (m_a[1] * m_b[3]) + (m_a[2] * m_b[6]);
+    _m_out[1] = (m_a[0] * m_b[1]) + (m_a[1] * m_b[4]) + (m_a[2] * m_b[7]);
+    _m_out[2] = (m_a[0] * m_b[2]) + (m_a[1] * m_b[5]) + (m_a[2] * m_b[8]);
 
-   (*m_out)[3] = (m_a[3] * m_b[0]) + (m_a[4] * m_b[3]) + (m_a[5] * m_b[6]);
-   (*m_out)[4] = (m_a[3] * m_b[1]) + (m_a[4] * m_b[4]) + (m_a[5] * m_b[7]);
-   (*m_out)[5] = (m_a[3] * m_b[2]) + (m_a[4] * m_b[5]) + (m_a[5] * m_b[8]);
+    _m_out[3] = (m_a[3] * m_b[0]) + (m_a[4] * m_b[3]) + (m_a[5] * m_b[6]);
+    _m_out[4] = (m_a[3] * m_b[1]) + (m_a[4] * m_b[4]) + (m_a[5] * m_b[7]);
+    _m_out[5] = (m_a[3] * m_b[2]) + (m_a[4] * m_b[5]) + (m_a[5] * m_b[8]);
 
-   (*m_out)[6] = (m_a[6] * m_b[0]) + (m_a[7] * m_b[3]) + (m_a[8] * m_b[6]);
-   (*m_out)[7] = (m_a[6] * m_b[1]) + (m_a[7] * m_b[4]) + (m_a[8] * m_b[7]);
-   (*m_out)[8] = (m_a[6] * m_b[2]) + (m_a[7] * m_b[5]) + (m_a[8] * m_b[8]);
+    _m_out[6] = (m_a[6] * m_b[0]) + (m_a[7] * m_b[3]) + (m_a[8] * m_b[6]);
+    _m_out[7] = (m_a[6] * m_b[1]) + (m_a[7] * m_b[4]) + (m_a[8] * m_b[7]);
+    _m_out[8] = (m_a[6] * m_b[2]) + (m_a[7] * m_b[5]) + (m_a[8] * m_b[8]);
 #else
-   (*m_out)[0] = (m_a[0] * m_b[0]) + (m_a[3] * m_b[1]) + (m_a[6] * m_b[2]);
-   (*m_out)[3] = (m_a[0] * m_b[3]) + (m_a[3] * m_b[4]) + (m_a[6] * m_b[5]);
-   (*m_out)[6] = (m_a[0] * m_b[6]) + (m_a[3] * m_b[7]) + (m_a[6] * m_b[8]);
+    _m_out[0] = (m_a[0] * m_b[0]) + (m_a[3] * m_b[1]) + (m_a[6] * m_b[2]);
+    _m_out[3] = (m_a[0] * m_b[3]) + (m_a[3] * m_b[4]) + (m_a[6] * m_b[5]);
+    _m_out[6] = (m_a[0] * m_b[6]) + (m_a[3] * m_b[7]) + (m_a[6] * m_b[8]);
 
-   (*m_out)[1] = (m_a[1] * m_b[0]) + (m_a[4] * m_b[1]) + (m_a[7] * m_b[2]);
-   (*m_out)[4] = (m_a[1] * m_b[3]) + (m_a[4] * m_b[4]) + (m_a[7] * m_b[5]);
-   (*m_out)[7] = (m_a[1] * m_b[6]) + (m_a[4] * m_b[7]) + (m_a[7] * m_b[8]);
+    _m_out[1] = (m_a[1] * m_b[0]) + (m_a[4] * m_b[1]) + (m_a[7] * m_b[2]);
+    _m_out[4] = (m_a[1] * m_b[3]) + (m_a[4] * m_b[4]) + (m_a[7] * m_b[5]);
+    _m_out[7] = (m_a[1] * m_b[6]) + (m_a[4] * m_b[7]) + (m_a[7] * m_b[8]);
 
-   (*m_out)[2] = (m_a[2] * m_b[0]) + (m_a[5] * m_b[1]) + (m_a[8] * m_b[2]);
-   (*m_out)[5] = (m_a[2] * m_b[3]) + (m_a[5] * m_b[4]) + (m_a[8] * m_b[5]);
-   (*m_out)[8] = (m_a[2] * m_b[6]) + (m_a[5] * m_b[7]) + (m_a[8] * m_b[8]);
+    _m_out[2] = (m_a[2] * m_b[0]) + (m_a[5] * m_b[1]) + (m_a[8] * m_b[2]);
+    _m_out[5] = (m_a[2] * m_b[3]) + (m_a[5] * m_b[4]) + (m_a[8] * m_b[5]);
+    _m_out[8] = (m_a[2] * m_b[6]) + (m_a[5] * m_b[7]) + (m_a[8] * m_b[8]);
 #endif
+
+    memcpy(m_out, _m_out, sizeof(mat3));
 }
 
 /**
@@ -240,48 +248,52 @@ LAC_DECL void lac_multiply_mat3(mat3 *m_out, const mat3 m_a, const mat3 m_b) {
  * @param[in] m_a The multiplicand matrix
  * @param[in] m_b The multiplier matrix
  */
-LAC_DECL void lac_multiply_mat4(mat4 *m_out, const mat4 m_a, const mat4 m_b) {
+LAC_DECL void lac_multiply_mat4(mat4 m_out, const mat4 m_a, const mat4 m_b) {
+    mat4 _m_out = { 0 };
+
 #if LAC_IS_ROW_MAJOR
-   (*m_out)[0]  = (m_a[0] * m_b[0])  + (m_a[1] * m_b[4])  + (m_a[2] * m_b[8])   + (m_a[3] * m_b[12]);
-   (*m_out)[1]  = (m_a[0] * m_b[1])  + (m_a[1] * m_b[5])  + (m_a[2] * m_b[9])   + (m_a[3] * m_b[13]);
-   (*m_out)[2]  = (m_a[0] * m_b[2])  + (m_a[1] * m_b[6])  + (m_a[2] * m_b[10])  + (m_a[3] * m_b[14]);
-   (*m_out)[3]  = (m_a[0] * m_b[3])  + (m_a[1] * m_b[7])  + (m_a[2] * m_b[11])  + (m_a[3] * m_b[15]);
+    _m_out[0]  = (m_a[0] * m_b[0])  + (m_a[1] * m_b[4])  + (m_a[2] * m_b[8])   + (m_a[3] * m_b[12]);
+    _m_out[1]  = (m_a[0] * m_b[1])  + (m_a[1] * m_b[5])  + (m_a[2] * m_b[9])   + (m_a[3] * m_b[13]);
+    _m_out[2]  = (m_a[0] * m_b[2])  + (m_a[1] * m_b[6])  + (m_a[2] * m_b[10])  + (m_a[3] * m_b[14]);
+    _m_out[3]  = (m_a[0] * m_b[3])  + (m_a[1] * m_b[7])  + (m_a[2] * m_b[11])  + (m_a[3] * m_b[15]);
 
-   (*m_out)[4]  = (m_a[4] * m_b[0])  + (m_a[5] * m_b[4])  + (m_a[6] * m_b[8])   + (m_a[7] * m_b[12]);
-   (*m_out)[5]  = (m_a[4] * m_b[1])  + (m_a[5] * m_b[5])  + (m_a[6] * m_b[9])   + (m_a[7] * m_b[13]);
-   (*m_out)[6]  = (m_a[4] * m_b[2])  + (m_a[5] * m_b[6])  + (m_a[6] * m_b[10])  + (m_a[7] * m_b[14]);
-   (*m_out)[7]  = (m_a[4] * m_b[3])  + (m_a[5] * m_b[7])  + (m_a[6] * m_b[11])  + (m_a[7] * m_b[15]);
+    _m_out[4]  = (m_a[4] * m_b[0])  + (m_a[5] * m_b[4])  + (m_a[6] * m_b[8])   + (m_a[7] * m_b[12]);
+    _m_out[5]  = (m_a[4] * m_b[1])  + (m_a[5] * m_b[5])  + (m_a[6] * m_b[9])   + (m_a[7] * m_b[13]);
+    _m_out[6]  = (m_a[4] * m_b[2])  + (m_a[5] * m_b[6])  + (m_a[6] * m_b[10])  + (m_a[7] * m_b[14]);
+    _m_out[7]  = (m_a[4] * m_b[3])  + (m_a[5] * m_b[7])  + (m_a[6] * m_b[11])  + (m_a[7] * m_b[15]);
 
-   (*m_out)[8]  = (m_a[8] * m_b[0])  + (m_a[9] * m_b[4])  + (m_a[10] * m_b[8])  + (m_a[11] * m_b[12]);
-   (*m_out)[9]  = (m_a[8] * m_b[1])  + (m_a[9] * m_b[5])  + (m_a[10] * m_b[9])  + (m_a[11] * m_b[13]);
-   (*m_out)[10] = (m_a[8] * m_b[2])  + (m_a[9] * m_b[6])  + (m_a[10] * m_b[10]) + (m_a[11] * m_b[14]);
-   (*m_out)[11] = (m_a[8] * m_b[3])  + (m_a[9] * m_b[7])  + (m_a[10] * m_b[11]) + (m_a[11] * m_b[15]);
+    _m_out[8]  = (m_a[8] * m_b[0])  + (m_a[9] * m_b[4])  + (m_a[10] * m_b[8])  + (m_a[11] * m_b[12]);
+    _m_out[9]  = (m_a[8] * m_b[1])  + (m_a[9] * m_b[5])  + (m_a[10] * m_b[9])  + (m_a[11] * m_b[13]);
+    _m_out[10] = (m_a[8] * m_b[2])  + (m_a[9] * m_b[6])  + (m_a[10] * m_b[10]) + (m_a[11] * m_b[14]);
+    _m_out[11] = (m_a[8] * m_b[3])  + (m_a[9] * m_b[7])  + (m_a[10] * m_b[11]) + (m_a[11] * m_b[15]);
 
-   (*m_out)[12] = (m_a[12] * m_b[0]) + (m_a[13] * m_b[4]) + (m_a[14] * m_b[8])  + (m_a[15] * m_b[12]);
-   (*m_out)[13] = (m_a[12] * m_b[1]) + (m_a[13] * m_b[5]) + (m_a[14] * m_b[9])  + (m_a[15] * m_b[13]);
-   (*m_out)[14] = (m_a[12] * m_b[2]) + (m_a[13] * m_b[6]) + (m_a[14] * m_b[10]) + (m_a[15] * m_b[14]);
-   (*m_out)[15] = (m_a[12] * m_b[3]) + (m_a[13] * m_b[7]) + (m_a[14] * m_b[11]) + (m_a[15] * m_b[15]);
+    _m_out[12] = (m_a[12] * m_b[0]) + (m_a[13] * m_b[4]) + (m_a[14] * m_b[8])  + (m_a[15] * m_b[12]);
+    _m_out[13] = (m_a[12] * m_b[1]) + (m_a[13] * m_b[5]) + (m_a[14] * m_b[9])  + (m_a[15] * m_b[13]);
+    _m_out[14] = (m_a[12] * m_b[2]) + (m_a[13] * m_b[6]) + (m_a[14] * m_b[10]) + (m_a[15] * m_b[14]);
+    _m_out[15] = (m_a[12] * m_b[3]) + (m_a[13] * m_b[7]) + (m_a[14] * m_b[11]) + (m_a[15] * m_b[15]);
 #else
-   (*m_out)[0]  = (m_a[0] * m_b[0])  + (m_a[4] * m_b[1])  + (m_a[8] * m_b[2])   + (m_a[12] * m_b[3]);
-   (*m_out)[4]  = (m_a[0] * m_b[4])  + (m_a[4] * m_b[5])  + (m_a[8] * m_b[6])   + (m_a[12] * m_b[7]);
-   (*m_out)[8]  = (m_a[0] * m_b[8])  + (m_a[4] * m_b[9])  + (m_a[8] * m_b[10])  + (m_a[12] * m_b[11]);
-   (*m_out)[12] = (m_a[0] * m_b[12]) + (m_a[4] * m_b[13]) + (m_a[8] * m_b[14])  + (m_a[12] * m_b[15]);
+    _m_out[0]  = (m_a[0] * m_b[0])  + (m_a[4] * m_b[1])  + (m_a[8] * m_b[2])   + (m_a[12] * m_b[3]);
+    _m_out[4]  = (m_a[0] * m_b[4])  + (m_a[4] * m_b[5])  + (m_a[8] * m_b[6])   + (m_a[12] * m_b[7]);
+    _m_out[8]  = (m_a[0] * m_b[8])  + (m_a[4] * m_b[9])  + (m_a[8] * m_b[10])  + (m_a[12] * m_b[11]);
+    _m_out[12] = (m_a[0] * m_b[12]) + (m_a[4] * m_b[13]) + (m_a[8] * m_b[14])  + (m_a[12] * m_b[15]);
 
-   (*m_out)[1]  = (m_a[1] * m_b[0])  + (m_a[5] * m_b[1])  + (m_a[9] * m_b[2])   + (m_a[13] * m_b[3]);
-   (*m_out)[5]  = (m_a[1] * m_b[4])  + (m_a[5] * m_b[5])  + (m_a[9] * m_b[6])   + (m_a[13] * m_b[7]);
-   (*m_out)[9]  = (m_a[1] * m_b[8])  + (m_a[5] * m_b[9])  + (m_a[9] * m_b[10])  + (m_a[13] * m_b[11]);
-   (*m_out)[13] = (m_a[1] * m_b[12]) + (m_a[5] * m_b[13]) + (m_a[9] * m_b[14])  + (m_a[13] * m_b[15]);
+    _m_out[1]  = (m_a[1] * m_b[0])  + (m_a[5] * m_b[1])  + (m_a[9] * m_b[2])   + (m_a[13] * m_b[3]);
+    _m_out[5]  = (m_a[1] * m_b[4])  + (m_a[5] * m_b[5])  + (m_a[9] * m_b[6])   + (m_a[13] * m_b[7]);
+    _m_out[9]  = (m_a[1] * m_b[8])  + (m_a[5] * m_b[9])  + (m_a[9] * m_b[10])  + (m_a[13] * m_b[11]);
+    _m_out[13] = (m_a[1] * m_b[12]) + (m_a[5] * m_b[13]) + (m_a[9] * m_b[14])  + (m_a[13] * m_b[15]);
 
-   (*m_out)[2]  = (m_a[2] * m_b[0])  + (m_a[6] * m_b[1])  + (m_a[10] * m_b[2])  + (m_a[14] * m_b[3]);
-   (*m_out)[6]  = (m_a[2] * m_b[4])  + (m_a[6] * m_b[5])  + (m_a[10] * m_b[6])  + (m_a[14] * m_b[7]);
-   (*m_out)[10] = (m_a[2] * m_b[8])  + (m_a[6] * m_b[9])  + (m_a[10] * m_b[10]) + (m_a[14] * m_b[11]);
-   (*m_out)[14] = (m_a[2] * m_b[12]) + (m_a[6] * m_b[13]) + (m_a[10] * m_b[14]) + (m_a[14] * m_b[15]);
+    _m_out[2]  = (m_a[2] * m_b[0])  + (m_a[6] * m_b[1])  + (m_a[10] * m_b[2])  + (m_a[14] * m_b[3]);
+    _m_out[6]  = (m_a[2] * m_b[4])  + (m_a[6] * m_b[5])  + (m_a[10] * m_b[6])  + (m_a[14] * m_b[7]);
+    _m_out[10] = (m_a[2] * m_b[8])  + (m_a[6] * m_b[9])  + (m_a[10] * m_b[10]) + (m_a[14] * m_b[11]);
+    _m_out[14] = (m_a[2] * m_b[12]) + (m_a[6] * m_b[13]) + (m_a[10] * m_b[14]) + (m_a[14] * m_b[15]);
 
-   (*m_out)[3]  = (m_a[3] * m_b[0])  + (m_a[7] * m_b[1])  + (m_a[11] * m_b[2])  + (m_a[15] * m_b[3]);
-   (*m_out)[7]  = (m_a[3] * m_b[4])  + (m_a[7] * m_b[5])  + (m_a[11] * m_b[6])  + (m_a[15] * m_b[7]);
-   (*m_out)[11] = (m_a[3] * m_b[8])  + (m_a[7] * m_b[9])  + (m_a[11] * m_b[10]) + (m_a[15] * m_b[11]);
-   (*m_out)[15] = (m_a[3] * m_b[12]) + (m_a[7] * m_b[13]) + (m_a[11] * m_b[14]) + (m_a[15] * m_b[15]);
+    _m_out[3]  = (m_a[3] * m_b[0])  + (m_a[7] * m_b[1])  + (m_a[11] * m_b[2])  + (m_a[15] * m_b[3]);
+    _m_out[7]  = (m_a[3] * m_b[4])  + (m_a[7] * m_b[5])  + (m_a[11] * m_b[6])  + (m_a[15] * m_b[7]);
+    _m_out[11] = (m_a[3] * m_b[8])  + (m_a[7] * m_b[9])  + (m_a[11] * m_b[10]) + (m_a[15] * m_b[11]);
+    _m_out[15] = (m_a[3] * m_b[12]) + (m_a[7] * m_b[13]) + (m_a[11] * m_b[14]) + (m_a[15] * m_b[15]);
 #endif
+
+    memcpy(m_out, _m_out, sizeof(mat4));
 }
 
 /**
@@ -291,12 +303,16 @@ LAC_DECL void lac_multiply_mat4(mat4 *m_out, const mat4 m_a, const mat4 m_b) {
  * @param[out] m_out The transposed matrix
  * @param[in] m_in The matrix to be transposed
  */
-LAC_DECL void lac_transpose_mat2(mat2 *m_out, const mat2 m_in) {
-   (*m_out)[0] = m_in[0];
-   (*m_out)[1] = m_in[2];
+LAC_DECL void lac_transpose_mat2(mat2 m_out, const mat2 m_in) {
+    mat2 _m_out = { 0 };
 
-   (*m_out)[2] = m_in[1];
-   (*m_out)[3] = m_in[3];
+    _m_out[0] = m_in[0];
+    _m_out[1] = m_in[2];
+
+    _m_out[2] = m_in[1];
+    _m_out[3] = m_in[3];
+
+    memcpy(m_out, _m_out, sizeof(mat2));
 }
 
 /**
@@ -306,18 +322,22 @@ LAC_DECL void lac_transpose_mat2(mat2 *m_out, const mat2 m_in) {
  * @param[out] m_out The transposed matrix
  * @param[in] m_in The matrix to be transposed
  */
-LAC_DECL void lac_transpose_mat3(mat3 *m_out, const mat3 m_in) {
-   (*m_out)[0] = m_in[0];
-   (*m_out)[1] = m_in[3];
-   (*m_out)[2] = m_in[6];
+LAC_DECL void lac_transpose_mat3(mat3 m_out, const mat3 m_in) {
+    mat3 _m_out = { 0 };
 
-   (*m_out)[3] = m_in[1];
-   (*m_out)[4] = m_in[4];
-   (*m_out)[5] = m_in[7];
+    _m_out[0] = m_in[0];
+    _m_out[1] = m_in[3];
+    _m_out[2] = m_in[6];
 
-   (*m_out)[6] = m_in[2];
-   (*m_out)[7] = m_in[5];
-   (*m_out)[8] = m_in[8];
+    _m_out[3] = m_in[1];
+    _m_out[4] = m_in[4];
+    _m_out[5] = m_in[7];
+
+    _m_out[6] = m_in[2];
+    _m_out[7] = m_in[5];
+    _m_out[8] = m_in[8];
+
+    memcpy(m_out, _m_out, sizeof(mat3));
 }
 
 /**
@@ -327,24 +347,28 @@ LAC_DECL void lac_transpose_mat3(mat3 *m_out, const mat3 m_in) {
  * @param[out] m_out The transposed matrix
  * @param[in] m_in The matrix to be transposed
  */
-LAC_DECL void lac_transpose_mat4(mat4 *m_out, const mat4 m_in) {
-   (*m_out)[0]  = m_in[0];
-   (*m_out)[1]  = m_in[4];
-   (*m_out)[2]  = m_in[8];
-   (*m_out)[3]  = m_in[12];
+LAC_DECL void lac_transpose_mat4(mat4 m_out, const mat4 m_in) {
+    mat4 _m_out = { 0 };
 
-   (*m_out)[4]  = m_in[1];
-   (*m_out)[5]  = m_in[5];
-   (*m_out)[6]  = m_in[9];
-   (*m_out)[7]  = m_in[13];
+    _m_out[0]  = m_in[0];
+    _m_out[1]  = m_in[4];
+    _m_out[2]  = m_in[8];
+    _m_out[3]  = m_in[12];
 
-   (*m_out)[8]  = m_in[2];
-   (*m_out)[9]  = m_in[6];
-   (*m_out)[10] = m_in[10];
-   (*m_out)[11] = m_in[14];
+    _m_out[4]  = m_in[1];
+    _m_out[5]  = m_in[5];
+    _m_out[6]  = m_in[9];
+    _m_out[7]  = m_in[13];
 
-   (*m_out)[12] = m_in[3];
-   (*m_out)[13] = m_in[7];
-   (*m_out)[14] = m_in[11];
-   (*m_out)[15] = m_in[15];
+    _m_out[8]  = m_in[2];
+    _m_out[9]  = m_in[6];
+    _m_out[10] = m_in[10];
+    _m_out[11] = m_in[14];
+
+    _m_out[12] = m_in[3];
+    _m_out[13] = m_in[7];
+    _m_out[14] = m_in[11];
+    _m_out[15] = m_in[15];
+
+    memcpy(m_out, _m_out, sizeof(mat4));
 }
