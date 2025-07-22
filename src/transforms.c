@@ -513,20 +513,20 @@ LAC_DECL void lac_invert_mat4(mat4 m_out, const mat4 m_in) {
         (vec3){ m_in[3], m_in[7], m_in[11] },
         (vec3){ m_in[0], m_in[4], m_in[8] }
     );
-    _m_out[0]  = m_in[0];
-    _m_out[1]  = m_in[4];
-    _m_out[2]  = m_in[8];
-    _m_out[3]  = -dot_prod;
+    _m_out[0] = m_in[0];
+    _m_out[1] = m_in[4];
+    _m_out[2] = m_in[8];
+    _m_out[3] = -dot_prod;
 
     lac_calc_dot_prod_vec3(
         &dot_prod,
         (vec3){ m_in[3], m_in[7], m_in[11] },
         (vec3){ m_in[1], m_in[5], m_in[9] }
     );
-    _m_out[4]  = m_in[1];
-    _m_out[5]  = m_in[5];
-    _m_out[6]  = m_in[9];
-    _m_out[7]  = -dot_prod;
+    _m_out[4] = m_in[1];
+    _m_out[5] = m_in[5];
+    _m_out[6] = m_in[9];
+    _m_out[7] = -dot_prod;
 
     lac_calc_dot_prod_vec3(
         &dot_prod,

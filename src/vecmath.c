@@ -438,7 +438,7 @@ LAC_DECL void lac_normalize_vec2(vec2 v_out, const vec2 v_in) {
     float magnitude, inv_magnitude;
 
     lac_calc_magnitude_vec2(&magnitude, v_in);
-    if (magnitude > 0.0f) {
+    if (magnitude != 0.0f) {
         inv_magnitude = 1.0f / magnitude;
         v_out[0] = v_in[0] * inv_magnitude;
         v_out[1] = v_in[1] * inv_magnitude;
@@ -459,7 +459,7 @@ LAC_DECL void lac_normalize_vec3(vec3 v_out, const vec3 v_in) {
     float magnitude, inv_magnitude;
 
     lac_calc_magnitude_vec3(&magnitude, v_in);
-    if (magnitude > 0.0f) {
+    if (magnitude != 0.0f) {
         inv_magnitude = 1.0f / magnitude;
         v_out[0] = v_in[0] * inv_magnitude;
         v_out[1] = v_in[1] * inv_magnitude;
@@ -482,7 +482,7 @@ LAC_DECL void lac_normalize_vec4(vec4 v_out, const vec4 v_in) {
     float magnitude, inv_magnitude;
 
     lac_calc_magnitude_vec4(&magnitude, v_in);
-    if (magnitude > 0.0f) {
+    if (magnitude != 0.0f) {
         inv_magnitude = 1.0f / magnitude;
         v_out[0] = v_in[0] * inv_magnitude;
         v_out[1] = v_in[1] * inv_magnitude;

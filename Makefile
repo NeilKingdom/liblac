@@ -2,7 +2,7 @@ CC = gcc
 PROFILE ?= RELEASE
 
 CCFLAGS_DEBUG = -ggdb -O0 -fno-builtin -DDEBUG
-CCFLAGS_RELEASE = -O2
+CCFLAGS_RELEASE = -Ofast
 
 SRC_DIR := src
 OBJ_DIR := obj
@@ -23,12 +23,17 @@ LDFLAGS += -lc -lm -lcheck
 BINS := $(BIN_DIR)/liblac.a $(BIN_DIR)/liblac.so
 
 # Create static and dynamic libraries
-all: $(BINS)
+all: prebuild $(BINS)
 
 # Copy libraries to /usr/lib
 install: all
 	cp $(BINS) $(TGT_BIN_DIR)
 	cp $(INC_DIR)/*.h $(TGT_INC_DIR)
+
+# Pre-build actions
+prebuild:
+	mkdir -p $(OBJ_DIR)
+	mkdir -p $(BIN_DIR)
 
 # Remove object files and binaries
 clean:
